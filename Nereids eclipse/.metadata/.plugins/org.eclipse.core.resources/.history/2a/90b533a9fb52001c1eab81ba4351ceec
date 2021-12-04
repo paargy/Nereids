@@ -1,0 +1,14 @@
+
+public class Slopmaker {
+	public static Clubhand daibutsu() {
+		Clubhand cl = new Clubhand();
+		Adenotome ad = new Adenotome();
+		Zenithal zen = new Zenithal();
+		Canoness can = new Canoness();
+		Teethless te = new Teethless();
+		Megrel <Clubhand, Adenotome, Zenithal, Canoness, Teethless> meg =  new Megrel<Clubhand, Adenotome, Zenithal, Canoness, Teethless>(cl, ad, zen, can, te);
+		return meg.mentha();
+		
+	}
+
+}

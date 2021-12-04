@@ -1,0 +1,22 @@
+
+public class Connubium {
+	public static int rapping(int[] a, int[] b) {
+		Dropwise d1 = new Dropwise(a);
+		Dropwise d2 = new Dropwise(b);
+		d1.start();
+		d2.start();
+		int s1 = 0;
+		int s2 = 0;
+		if (!d1.isAlive()) {
+			s1 = d1.getStodge();
+		}
+		if (!d2.isAlive()) {
+			s2 = d2.getStodge();
+		}
+		if (s1 > s2) {
+			return s1;
+		} else {
+			return s2;
+		}	
+	}
+}
