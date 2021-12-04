@@ -18,7 +18,7 @@ public class IntroPanel extends JPanel{
 	public Color SeaBlue = new Color( 6, 45, 98);
 	public IntroPanel() {
 		JLabel label = new JLabel("");
-		ImageIcon imageIcon = new ImageIcon("./img/NereidsLogo.png"); // load the image to a imageIcon
+		ImageIcon imageIcon = new ImageIcon("Images/New updated Logo.png");
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance(580, 580,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
 		imageIcon = new ImageIcon(newimg);  // transform it back

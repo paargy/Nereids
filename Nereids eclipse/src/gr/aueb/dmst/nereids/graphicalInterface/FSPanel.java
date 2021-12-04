@@ -27,6 +27,7 @@ public class FSPanel extends JPanel{
 		
 		this.setLayout(new GridLayout(3,1));
 		
+		//System.out.println(new java.io.File("Images/NereidsLogo.png").exists()); //checks if file exists
 		ImageIcon imageIcon = new ImageIcon("./img/NereidsLogo.png"); // load the image to a imageIcon
 		Image image = imageIcon.getImage(); // transform it 
 		Image newimg = image.getScaledInstance(200, 180,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
