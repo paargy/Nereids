@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import gr.aueb.dmst.nereids.commandLine.Score;
+
 public class SideStatusPanel extends JPanel{
 	public SideStatusPanel() {
 	      this.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,7 +35,7 @@ public class SideStatusPanel extends JPanel{
 	      btnPanel.add(new JButton("Nereid 2"));
 	      btnPanel.add(new JButton("Nereid 3"));
 	      
-	      JLabel label3 = new JLabel("Score: 6", SwingConstants.RIGHT); //Score: get Score
+	      JLabel label3 = new JLabel("Score: "+ Score.getScore(), SwingConstants.RIGHT); //Score: get Score
 	      label3.setFont(new Font("Tahoma", Font.BOLD, 15));
 	      btnPanel.add(label3);
 	      

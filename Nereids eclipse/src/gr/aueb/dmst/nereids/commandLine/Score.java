@@ -15,4 +15,7 @@ public class Score{
 	public static void showScore(){
 		System.out.println("You won!! Your score was: " + score);
 	}
+	public static int getScore() { 
+		return score;
+	}
 }
