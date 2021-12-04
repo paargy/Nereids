@@ -7,5 +7,4 @@ public class CommandLineMain {
 		Gameplay g = new Gameplay();
 		g.gameplay();
 	}
-
 }
