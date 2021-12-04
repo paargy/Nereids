@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   build:
+    name: Running Units Tests
     runs-on: ubuntu-latest
 
     steps:
