@@ -95,6 +95,9 @@ public Color SeaBlue = new Color( 6, 45, 98);
 		Object obj = e.getSource();
 		if (obj == startButton) {
 			System.out.println("start");
+			frame.setVisible(false); //make invisible
+			frame.dispose();//dispose the frame 
+			InstructionsFrame insFrame = new InstructionsFrame();
 		}
 		
 	} 

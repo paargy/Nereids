@@ -25,6 +25,9 @@ public class InstructionsFrame {
 	    InstuctionsPanel panel = new InstuctionsPanel();
 	    frame.add(panel);
 	    
+	    MenuBar menu = new MenuBar();
+	    frame.setJMenuBar(menu);
+	    
 	    //frame.pack();
 	    frame.setVisible(true);
 	}

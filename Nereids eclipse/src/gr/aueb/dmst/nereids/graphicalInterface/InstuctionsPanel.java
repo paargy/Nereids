@@ -73,7 +73,7 @@ public class InstuctionsPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("buts");
+		System.out.println("should go to player choise frame");
 		
 		
 	}
