@@ -37,6 +37,7 @@ public class IntroFrame {
 	    
 	    Thread.sleep(3000); //delay 3 seconds
 	    
+	    
 	    frame.setVisible(false); //make invisible
 	    frame.dispose(); //dispose the frame 
 	    

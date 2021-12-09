@@ -1,12 +1,3 @@
-/*************************
- *
- makes a blue frame with a start button and 
- * a label nereids on top
- */
-
-
-//package firstScreen;
-
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.BorderLayout;
@@ -21,26 +12,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
 
-//import gameplayScreen.BoatPanel;
-
-public class FSFrame implements ActionListener{
-public Color SeaBlue = new Color( 6, 45, 98);
+public class TestFSFrame implements ActionListener{
+	public Color SeaBlue = new Color( 6, 45, 98);
 	JPanel titleNamePanel, startButtonPanel;
 	JLabel titleNameLabel;
 	JButton startButton;
 	Container con;
-	JFrame frame;
-
-	public FSFrame() {
-		frame = new JFrame("Nereids");
-		
-		//FSPanel fspanel = new FSPanel();
-		//panel.setBorder(BorderFactory.createEmptyBorder(550, 0, 0, 0));
-		
-	    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	    frame.setLayout(new BorderLayout());
+	public TestFSFrame(JFrame frame) {
+		frame.setLayout(new BorderLayout());
 	    
 	    //frame.add(fspanel);
 	    
@@ -73,7 +53,7 @@ public Color SeaBlue = new Color( 6, 45, 98);
 	    startButton.setBackground(SeaBlue);
 	    startButton.setForeground(Color.black);
 	    startButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	    startButton.addActionListener(this);
+	    startButton.addActionListener((ActionListener) this);
 	    
 	    titleNamePanel.add(titleNameLabel);
 	    startButtonPanel.add(startButton);
@@ -88,7 +68,6 @@ public Color SeaBlue = new Color( 6, 45, 98);
 	    
 	    
 	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -107,11 +86,6 @@ public Color SeaBlue = new Color( 6, 45, 98);
 			frame.setJMenuBar(menu);
 			frame.repaint();
 			frame.pack(); */
-			frame.setVisible(false); //make invisible
-			frame.dispose();//dispose the frame 
-			InstructionsFrame insFrame = new InstructionsFrame();
 		}
-		
-	} 
-
+	}
 }

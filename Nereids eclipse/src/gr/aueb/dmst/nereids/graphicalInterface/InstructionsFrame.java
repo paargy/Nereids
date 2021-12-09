@@ -1,6 +1,8 @@
+//not used from main, only from InstructionsMain
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.BorderLayout;
+
 import java.awt.Font;
 
 

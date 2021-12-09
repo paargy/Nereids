@@ -5,10 +5,10 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		IntroFrame intro = new IntroFrame();
-		FSFrame fsFrame = new FSFrame(); // it calls instructions frame on start 
-
-
+		//IntroFrame intro = new IntroFrame();
+		//FSFrame fsFrame = new FSFrame(); // it calls instructions frame on start 
+		Gameplay gameplay = new Gameplay();
+		
 	}
 
 }
