@@ -1,3 +1,4 @@
+package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.Color;
 import java.awt.Font;
