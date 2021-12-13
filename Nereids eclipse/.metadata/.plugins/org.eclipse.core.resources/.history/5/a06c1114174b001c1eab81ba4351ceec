@@ -1,0 +1,45 @@
+package firstScreen;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.WindowConstants;
+
+import gameplayScreen.BoatPanel;
+
+
+public class FSFrame {
+public Color SeaBlue = new Color( 6, 45, 98, 50);
+	
+	public FSFrame() {
+		JFrame frame = new JFrame("Nereids");
+		
+		FSPanel fspanel = new FSPanel();
+		//panel.setBorder(BorderFactory.createEmptyBorder(550, 0, 0, 0));
+		
+	    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	    frame.setLayout(new BorderLayout());
+	    
+	    frame.add(fspanel);
+	    
+	    JLabel label = new JLabel("A DMST STUDENT PROJECT 2021");
+	    label.setFont(new Font("Tahoma", Font.PLAIN, 14));
+	    frame.add(label, BorderLayout.PAGE_END);
+	    
+	    
+	    /*BackgroundPanel backPanel = new BackgroundPanel();
+	    frame.add(backPanel);*/
+	    frame.setSize(600, 600);
+    
+	    
+	    frame.setVisible(true);
+	    frame.setResizable(true);
+	    //frame.pack();
+	    
+	    
+	} 
+
+}

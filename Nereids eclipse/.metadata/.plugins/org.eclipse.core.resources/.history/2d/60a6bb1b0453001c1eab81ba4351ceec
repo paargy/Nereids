@@ -1,0 +1,27 @@
+
+public class Dropwise extends Thread {
+	private int stodge;
+	private int [] unfluvial;
+	public int getStodge() {
+		return stodge;
+	}
+	public Dropwise (int[] a) {
+		unfluvial = a;
+	}
+	@Override
+	public void run() {
+		stodge = Integer.MIN_VALUE;
+		for (int i = 0 ; i < unfluvial.length; i++) {
+			if (stodge < unfluvial[i]) {
+				stodge = unfluvial[i];
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} 
+		}
+	}
+		
+}

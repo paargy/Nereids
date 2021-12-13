@@ -1,0 +1,10 @@
+package gameplayScreen;
+
+import javax.swing.JPanel;
+
+public class SideStatusPanel extends JPanel{
+	public SideStatusPanel() {
+		
+	}
+
+}

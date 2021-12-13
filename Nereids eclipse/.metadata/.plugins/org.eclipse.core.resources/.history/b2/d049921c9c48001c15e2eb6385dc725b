@@ -1,0 +1,18 @@
+package gameplayScreen;
+
+import java.awt.Color;
+
+import javax.swing.JProgressBar;
+
+public class ProgressBar extends JProgressBar{
+	public Color SeaBlue = new Color( 6, 45, 98);
+	public ProgressBar() {
+		this.setBounds(40, 550, 160, 30);
+		this.setValue(89);
+		this.setStringPainted(true);
+		this.setForeground(SeaBlue);
+		
+		}
+	
+
+}

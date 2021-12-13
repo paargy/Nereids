@@ -1,0 +1,22 @@
+package firstScreen;
+
+import java.awt.Color;
+import java.awt.GridBagLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class FirstScreenPanel extends JPanel{
+	public Color SeaBlue = new Color( 6, 45, 98);
+	public FirstScreenPanel() {
+		JLabel label = new JLabel("ik");
+		label.setIcon(new ImageIcon("../img/NereidsLogo.png"));
+		//label.setIcon(new ImageIcon("../img/NereidsLogo.png"));  
+		
+		this.setLayout(new GridBagLayout());
+		this.setBackground(SeaBlue);
+		this.add(label);
+	}
+
+}

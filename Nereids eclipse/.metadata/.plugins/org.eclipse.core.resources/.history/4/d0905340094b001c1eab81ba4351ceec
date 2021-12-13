@@ -1,0 +1,38 @@
+package firstScreen;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class FirstScreenFrame {
+	public Color SeaBlue = new Color( 6, 45, 98);
+	
+	public FirstScreenFrame() {
+		JFrame frame = new JFrame("Nereids");
+		
+		JPanel panel = new JPanel();
+		BufferedImage myPicture;
+		try {
+			myPicture = ImageIO.read(new File("../img/NereidsLogo.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+		panel.add(picLabel);
+		
+		
+	}
+	
+	public static void main(String [] args) {
+		FirstScreenFrame frame = new FirstScreenFrame();
+	}
+
+}

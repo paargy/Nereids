@@ -95,18 +95,6 @@ public Color SeaBlue = new Color( 6, 45, 98);
 		Object obj = e.getSource();
 		if (obj == startButton) {
 			System.out.println("start");
-			/*frame.remove(startButtonPanel); 
-			frame.remove(titleNamePanel);
-			frame.repaint();
-			
-			frame.setLayout(new BorderLayout()); 
-			InstuctionsPanel panel = new InstuctionsPanel();
-			frame.add(panel);
-			    
-			MenuBar menu = new MenuBar();
-			frame.setJMenuBar(menu);
-			frame.repaint();
-			frame.pack(); */
 			frame.setVisible(false); //make invisible
 			frame.dispose();//dispose the frame 
 			InstructionsFrame insFrame = new InstructionsFrame();

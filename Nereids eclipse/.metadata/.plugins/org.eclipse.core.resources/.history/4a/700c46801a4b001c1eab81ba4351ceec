@@ -1,0 +1,19 @@
+package firstScreen;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class LettersPanel extends JPanel{
+	public Color SeaBlue = new Color( 6, 45, 98, 50);
+	public LettersPanel(){
+
+		JLabel nlabel = new JLabel("NEREIDS ®");
+		nlabel.setForeground(Color.WHITE);
+		nlabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		this.add(nlabel);
+		this.setForeground(SeaBlue);
+	}
+}

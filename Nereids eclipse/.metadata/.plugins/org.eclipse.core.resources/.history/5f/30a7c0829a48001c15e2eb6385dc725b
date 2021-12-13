@@ -1,0 +1,12 @@
+package gameplayScreen;
+
+import javax.swing.JProgressBar;
+
+public class ProgressBar extends JProgressBar{
+	public ProgressBar() {
+		this.setBounds(40, 550, 160, 30);
+		
+	}
+	
+
+}

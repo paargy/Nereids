@@ -1,0 +1,27 @@
+package firstScreen;
+
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class StartPanel extends JPanel{
+	public final Color DarkSeaBlue = new Color( 6, 45, 98);
+	public StartPanel() {
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("/Nereids eclipse/img/NereisLogo.png"));
+		  
+		this.setLayout(new GridBagLayout());
+		this.setBackground(DarkSeaBlue);
+		this.add(label);
+	}
+	
+	
+
+}
