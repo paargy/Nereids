@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 public class InstructionsTextField extends JTextArea{
 	public InstructionsTextField() {
-		// instuctions: to be changed 
+		// XXX instructions: to be changed 
 		this.setText("This is a strategy game, but luck is also a factor to your winning. In the game you will \n"
 				+ "form a team of 3 nereids, whose goal is to reach their destination by boat. You will \n"
 				+ "choose from 9 different Nereids, all of which have different skills and stats. For example, \n"

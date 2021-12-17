@@ -63,7 +63,7 @@ public class InstuctionsPanel extends JPanel implements ActionListener{
 		c.gridwidth = 2;   //2 columns wide
 		c.gridy = 2;       //third row
 		pane.add(button, c);
-		button.addActionListener(this);
+		button.addActionListener(this); 
 		
 		pane.setBackground(SeaBlue);
 		this.setBackground(SeaBlue);
@@ -74,7 +74,7 @@ public class InstuctionsPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("should go to player choise frame");
-		
+		Gameplay.clearScreen();
 		
 	}
 

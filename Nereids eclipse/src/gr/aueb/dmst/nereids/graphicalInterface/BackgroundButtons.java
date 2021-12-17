@@ -1,4 +1,3 @@
-//package gameplayScreen;
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.Color;
@@ -18,10 +17,6 @@ public class BackgroundButtons extends JPanel implements ActionListener{
 	JButton button1, button2, button3;
 	
 	public BackgroundButtons() {
-		
-		
-		
-		
 		button1 = new JButton("DifficultyName1");
 		button1.setBackground(SeaBlue);
 		button1.setOpaque(true);

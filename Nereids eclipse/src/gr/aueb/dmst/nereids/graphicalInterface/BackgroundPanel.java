@@ -1,4 +1,3 @@
-//package gameplayScreen;
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 

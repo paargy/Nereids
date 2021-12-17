@@ -1,6 +1,5 @@
 /*
  * displays a frame with a huge logo
-
  */
 
 package gr.aueb.dmst.nereids.graphicalInterface;

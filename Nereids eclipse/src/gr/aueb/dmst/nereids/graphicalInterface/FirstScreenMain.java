@@ -1,4 +1,3 @@
-//package firstScreen;
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 public class FirstScreenMain {

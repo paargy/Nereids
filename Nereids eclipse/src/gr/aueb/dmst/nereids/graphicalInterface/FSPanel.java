@@ -1,4 +1,3 @@
-//package firstScreen;
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.BorderLayout;

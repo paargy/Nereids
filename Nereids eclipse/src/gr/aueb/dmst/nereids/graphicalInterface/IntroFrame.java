@@ -1,4 +1,3 @@
-//package gameplay;
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 /**
@@ -36,6 +35,7 @@ public class IntroFrame {
 	    frame.setVisible(true);
 	    
 	    Thread.sleep(3000); //delay 3 seconds
+	    
 	    
 	    frame.setVisible(false); //make invisible
 	    frame.dispose(); //dispose the frame 

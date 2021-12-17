@@ -1,4 +1,8 @@
-//package gameplayScreen;
+
+/*
+ * make a menu bar on top of the screen
+ * menu items: exit: terminate, restart
+ */
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import javax.swing.*;
@@ -34,8 +38,20 @@ public void actionPerformed(ActionEvent e) {
 		System.exit(0); //terminate the programm
 	}else if (obj == m2) {
 		System.out.println("Restart");
+		try {
+			Restart.restart();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		/*
+		 StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+		for (int i = 0; i < stackTraceElements.length; i++) {
+			System.out.println(i + " " + stackTraceElements[i].getClassName());
+			System.out.println(stackTraceElements[i].getMethodName());
+		}
 		
-		
+		*/
 	}
 	
 }
