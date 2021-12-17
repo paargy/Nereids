@@ -14,9 +14,11 @@ import javax.swing.WindowConstants;
 public class Gameplay {
 	private boolean win = false;
 	private boolean loose = false;
-	public static JFrame frame;
+	static Frame frame = new Frame();
 	public Gameplay() throws InterruptedException {
-	
+		
+		// was code for making the frame, now class Frame is used
+		/*
 		// make the frame 
 		frame = new JFrame("Nereids");
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -27,7 +29,8 @@ public class Gameplay {
 	    // put the logo image as frame icon 
 	    ImageIcon image = new ImageIcon("Images/New updated Logo.png");
 	    frame.setIconImage(image.getImage());
-	    
+	    */
+		clearScreen();
 	  
 	    // intro logo for 3 secs
 	    Thread intro = new Intro( "Intro Screen");
@@ -35,7 +38,6 @@ public class Gameplay {
 	    intro.join();
 	    intro.sleep(4000); // time waiting in the logo screen in milliseconds
 	    clearScreen();
-	    
 	 
 	    // First Screen with start button 
 	    FirstScreen fs = new FirstScreen();
