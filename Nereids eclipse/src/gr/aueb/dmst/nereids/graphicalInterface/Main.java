@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 		Gameplay gameplay = new Gameplay();
-		DefeatFrame df = new DefeatFrame();
+		//DefeatFrame df = new DefeatFrame();
 	}
 
 }

@@ -12,6 +12,8 @@ import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
 public class Gameplay {
+	private boolean win = false;
+	private boolean loose = false;
 	public static JFrame frame;
 	public Gameplay() throws InterruptedException {
 	
@@ -23,7 +25,7 @@ public class Gameplay {
 		frame.setVisible(true);
 	    frame.setResizable(true);
 	    // put the logo image as frame icon 
-	    ImageIcon image = new ImageIcon("Images/logo!.jpg");
+	    ImageIcon image = new ImageIcon("Images/New updated Logo.png");
 	    frame.setIconImage(image.getImage());
 	    
 	  
@@ -41,8 +43,10 @@ public class Gameplay {
 	   
 	    while (!fs.getIsPressed()) {
 	    	assert true;
-	    	 // just do something until the button is pressed
-	    	System.out.println("not pressed");
+	    	// just do something until the button is pressed
+	    	// tried to find a different way to do it but i didn't 
+	    	// XXX find a different way to make it wait 
+	    	System.out.println("not pressed"); 
 	    }
 	    clearScreen();
 	    System.out.println("pressed");
@@ -51,13 +55,19 @@ public class Gameplay {
 	    Instructions ins = new Instructions(); 
 	    // XXX restart on the menu bar must get fixed!!!
 	    
-	    // XXX win not connected to rest of the game 
-	    // XXX 78 to be replaced with the real score 
-	    Win wf = new Win(78); 
-	    // XXX DefeatScreen not connected to rest of the game 
+	    
+	    if (win) {
+	    	// XXX win not connected to rest of the game 
+		    // XXX 78 to be replaced with the real score 
+	    	Win wf = new Win(78); 
+	    } else if (loose) {
+	    	 // XXX DefeatScreen not connected to rest of the game 	    
+		    DefeatScreen ds = new DefeatScreen();
+	    }
+	    /*
 	    DefeatScreen ds = new DefeatScreen();
-	   
-	  
+	    Win wf = new Win(78); 
+	    */
 	}
 	public static void clearScreen() {
 		frame.getContentPane().removeAll();

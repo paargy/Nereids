@@ -1,8 +1,0 @@
-import firstScreen.FirstScreenFrame;
-
-public class Main {
-	public static void main (String [] args) {
-		FirstScreenFrame frame = new FirstScreenFrame();
-	}
-
-}

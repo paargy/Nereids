@@ -1,9 +1,0 @@
-package playerChoice;
-
-import java.awt.event.ActionListener;
-
-import javax.swing.JPanel;
-
-public class PCPanel extends JPanel implements ActionListener{
-
-}
