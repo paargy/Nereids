@@ -19,22 +19,22 @@ public class SideStatusPanel extends JPanel{
 
 	      JLabel label = new JLabel("Your Stats: ");
 	      btnPanel.add(label);
-	      btnPanel.add(new JButton("Agility: 123")); //get name of characteristic: get number of left 
-	      btnPanel.add(new JButton("Second Button: 34"));
-	      btnPanel.add(new JButton("Third Button"));
-	      btnPanel.add(new JButton("Fourth Button"));
-	      btnPanel.add(new JButton("Fifth Button"));
-	      btnPanel.add(new JButton("Sixth Button"));
-	      btnPanel.add(new JButton("Seventh Button"));
-	      btnPanel.add(new JButton("Eighth Button"));
+	      btnPanel.add(new JButton("Agility: " + Status.getAgility())); //get name of characteristic: get number of left 
+	      btnPanel.add(new JButton("Organisation: " + Status.getOrganisation()));
+	      btnPanel.add(new JButton("Wisdom: " + Status.getWisdom()));
+	      btnPanel.add(new JButton("Windlessness " + Status.getWindlessness()));
+	      btnPanel.add(new JButton("Wisdom: " + Status.getWisdom()));
+	      btnPanel.add(new JButton("Courage: " + Status.getCourage()));
+	      btnPanel.add(new JButton("Animal Friendly: " + Status.getAnimalFriendly()));
+	      btnPanel.add(new JButton("Justice: " + Status.getJustice()));
 	      
 	      JLabel label2 = new JLabel("Your Nereids: ");
 	      btnPanel.add(label2);
-	      btnPanel.add(new JButton("Nereid 1"));
-	      btnPanel.add(new JButton("Nereid 2"));
-	      btnPanel.add(new JButton("Nereid 3"));
+	      btnPanel.add(new JButton(Status.n1.getName()));
+	      btnPanel.add(new JButton(Status.n2.getName()));
+	      btnPanel.add(new JButton(Status.n3.getName()));
 	      
-	      JLabel label3 = new JLabel("Score: "+ Score.getScore(), SwingConstants.RIGHT); //Score: get Score
+	      JLabel label3 = new JLabel("Score: "+ Status.getScore(), SwingConstants.RIGHT); //Score: get Score
 	      label3.setFont(new Font("Tahoma", Font.BOLD, 15));
 	      btnPanel.add(label3);
 	      

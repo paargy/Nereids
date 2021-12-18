@@ -4,7 +4,7 @@ public class CommandLineMain {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Gameplay g = new Gameplay();
+		CommandLineGameplay g = new CommandLineGameplay();
 		g.gameplay();
 	}
 }

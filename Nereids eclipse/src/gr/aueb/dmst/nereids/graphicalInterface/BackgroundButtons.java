@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,7 +18,7 @@ public class BackgroundButtons extends JPanel implements ActionListener{
 	JButton button1, button2, button3;
 	
 	public BackgroundButtons() {
-		button1 = new JButton("DifficultyName1");
+		button1 = new JButton(Status.d1.getName());
 		button1.setBackground(SeaBlue);
 		button1.setOpaque(true);
 		button1.setForeground(DarkSeaBlue);
@@ -25,14 +26,14 @@ public class BackgroundButtons extends JPanel implements ActionListener{
 		button1.addActionListener(this);
 		
 		
-		button2 = new JButton("DifficultyName2");
+		button2 = new JButton(Status.d2.getName());
 		button2.setBackground(SeaBlue);
 		button2.setOpaque(true);
 		button2.setForeground(DarkSeaBlue);
 		button2.setFont(new Font("Tahoma", Font.BOLD, 19));
 		button2.addActionListener(this);
 		
-		button3 = new JButton("DifficultyName3");
+		button3 = new JButton(Status.d3.getName());
 		button3.setBackground(SeaBlue);
 		button3.setOpaque(true);
 		button3.setForeground(DarkSeaBlue);
@@ -53,10 +54,16 @@ public class BackgroundButtons extends JPanel implements ActionListener{
 		Object obj = e.getSource();
 		if (obj == button1) {
 			System.out.println("but1");
+			// choose the 1st difficulty 
+			Status.setDifChoice(1);
 		}else if (obj == button2) {
 			System.out.println("button 2");
+			// choose the 2nd difficulty
+			Status.setDifChoice(2);
 		}else if (obj == button3) {
 			System.out.println("but 3");
+			// choose the 3rd difficulty 
+			Status.setDifChoice(3);
 		}
 	
 	}

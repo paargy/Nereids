@@ -1,4 +1,3 @@
-//package gameplay;
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 public class Main {

@@ -37,7 +37,7 @@ public class BoatFrame {
 	    MenuBar menu = new MenuBar();
 	    frame.setJMenuBar(menu);
 	    
-	    ProgressBar prBar = new ProgressBar(20); //the progress we want
+	    ProgressBar prBar = new ProgressBar(Status.level, 8); //the progress we want
 	    frame.add(prBar, BorderLayout.PAGE_END);
 	    
 	    SideStatusPanel ssp = new SideStatusPanel();

@@ -5,9 +5,9 @@ import javax.swing.JFrame;
 public class Restart {
 	public static void restart() throws InterruptedException {
 		Gameplay.clearScreen();
-		Frame frame = new Frame();
+		Gameplay.frame.dispose();
 		Gameplay game = new Gameplay(); //start the game from the beginning
-		
+	
 	}
 
 }

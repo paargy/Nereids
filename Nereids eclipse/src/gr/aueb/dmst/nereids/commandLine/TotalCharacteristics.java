@@ -2,9 +2,9 @@ package gr.aueb.dmst.nereids.commandLine;
 
 import java.util.LinkedHashMap;
 public class TotalCharacteristics {
-  private LinkedHashMap<String,Integer> charMap = new LinkedHashMap<>();
+  public static LinkedHashMap<String,Integer> charMap = new LinkedHashMap<>();
 
-  protected void totalChars(Nereids n1, Nereids n2, Nereids n3){
+  public static void totalChars(Nereids n1, Nereids n2, Nereids n3){
 	      charMap.put("Agility", n1.getAgility() + n2.getAgility() + n3.getAgility());
 		  charMap.put("Organization", n1.getOrganization() + n2.getOrganization() + n3.getOrganization());
 		  charMap.put("Wisdom", n1.getWisdom() + n2.getWisdom() + n3.getWisdom());
@@ -57,39 +57,39 @@ public class TotalCharacteristics {
 		charMap.put("Justice",charMap.get("Justice")+x);
 	}
 
-	public int getTotalAgility() {
+	public static int getTotalAgility() {
 		return charMap.get("Agility");
 	}
 
-	public int getTotalOrganization() {
+	public static int getTotalOrganization() {
 		return charMap.get("Organization");
 	}
 
-	public int getTotalWisdom() {
+	public static int getTotalWisdom() {
 		return charMap.get("Wisdom");
 	}
 
-	public int getTotalWindlessness() {
+	public static int getTotalWindlessness() {
 		return charMap.get("Windlessness");
 	}
 
-	public int getTotalCourage() {
+	public static int getTotalCourage() {
 		return charMap.get("Courage");
 	}
 
-	public int getTotalStrength() {
+	public static int getTotalStrength() {
 		return charMap.get("Strength");
 	}
 
-	public int getTotalAnimalF() {
+	public static int getTotalAnimalF() {
 		return charMap.get("Animal friendly");
 	}
 
-	public int getTotalOrientation() {
+	public static int getTotalOrientation() {
 		return charMap.get("Orientation");
 	}
 
-	public int getTotalJustice() {
+	public static int getTotalJustice() {
 		return charMap.get("Justice");
 	}
 }
