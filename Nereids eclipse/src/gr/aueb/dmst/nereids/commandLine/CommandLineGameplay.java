@@ -8,7 +8,7 @@ public class CommandLineGameplay {
 	static Scanner s = new Scanner(System.in);
 	public static Nereids[] nereids = new Nereids[9];
 	public static Difficulty[] dif = new Difficulty[8];
-	TotalCharacteristics t = new TotalCharacteristics();
+	// static TotalCharacteristics t = new TotalCharacteristics();
 
 	public static void createNereids() {
 		nereids[0] = new Nereids(Nereids.names[0], 2, 0, 2, 0, 0, 0, 0, 3, 1);
@@ -65,11 +65,13 @@ public class CommandLineGameplay {
 			third = s.nextInt();
 		}
 		System.out.println("You chose " + Nereids.names[third - 1]);
-		t.totalChars(nereids[first - 1], nereids[second - 1], nereids[third - 1]);
-		int[] tc = { t.getTotalAgility(), t.getTotalOrganization(), t.getTotalWisdom(), t.getTotalWindlessness(),
-				t.getTotalCourage(), t.getTotalStrength(), t.getTotalAnimalF(), t.getTotalOrientation(),
-				t.getTotalJustice() };
-		t.showTotalChars();
+		TotalCharacteristics.totalChars(nereids[first - 1], nereids[second - 1], nereids[third - 1]);
+		int[] tc = { TotalCharacteristics.getTotalAgility(), TotalCharacteristics.getTotalOrganization(),
+				TotalCharacteristics.getTotalWisdom(), TotalCharacteristics.getTotalWindlessness(),
+				TotalCharacteristics.getTotalCourage(), TotalCharacteristics.getTotalStrength(),
+				TotalCharacteristics.getTotalAnimalF(), TotalCharacteristics.getTotalOrientation(),
+				TotalCharacteristics.getTotalJustice() };
+		TotalCharacteristics.showTotalChars();
 		return tc;
 	}
 
@@ -93,7 +95,7 @@ public class CommandLineGameplay {
 		return dif[choice];
 	}
 
-	public void checkCharacteristics(Difficulty d, int[] tc) {
+	public static void checkCharacteristics(Difficulty d, int[] tc) {
 		int[] dc = { d.getAgility(), d.getOrganization(), d.getWisdom(), d.getWindlessness(), d.getCourage(),
 				d.getStrength(), d.getAnimalF(), d.getOrientation(), d.getJustice() };
 		int count = 0;
@@ -125,25 +127,25 @@ public class CommandLineGameplay {
 		}
 	}
 
-	public void updateChar(int i, int dc) {
+	public static void updateChar(int i, int dc) {
 		if (i == 0) {
-			t.setAgility(t.getTotalAgility() - dc);
+			TotalCharacteristics.setAgility(TotalCharacteristics.getTotalAgility() - dc);
 		} else if (i == 1) {
-			t.setOrganization(t.getTotalOrganization() - dc);
+			TotalCharacteristics.setOrganization(TotalCharacteristics.getTotalOrganization() - dc);
 		} else if (i == 2) {
-			t.setWisdom(t.getTotalWisdom() - dc);
+			TotalCharacteristics.setWisdom(TotalCharacteristics.getTotalWisdom() - dc);
 		} else if (i == 3) {
-			t.setWindlessness(t.getTotalWindlessness() - dc);
+			TotalCharacteristics.setWindlessness(TotalCharacteristics.getTotalWindlessness() - dc);
 		} else if (i == 4) {
-			t.setCourage(t.getTotalCourage() - dc);
+			TotalCharacteristics.setCourage(TotalCharacteristics.getTotalCourage() - dc);
 		} else if (i == 5) {
-			t.setStrength(t.getTotalStrength() - dc);
+			TotalCharacteristics.setStrength(TotalCharacteristics.getTotalStrength() - dc);
 		} else if (i == 6) {
-			t.setAnimalF(t.getTotalAnimalF() - dc);
+			TotalCharacteristics.setAnimalF(TotalCharacteristics.getTotalAnimalF() - dc);
 		} else if (i == 7) {
-			t.setOrientation(t.getTotalOrientation() - dc);
+			TotalCharacteristics.setOrientation(TotalCharacteristics.getTotalOrientation() - dc);
 		} else {
-			t.setJustice(t.getTotalJustice() - dc);
+			TotalCharacteristics.setJustice(TotalCharacteristics.getTotalJustice() - dc);
 		}
 	}
 
@@ -153,9 +155,23 @@ public class CommandLineGameplay {
 		int[] team = createTeam();
 		for (int i = 0; i < 8; i++) {
 			Difficulty d = level();
-			checkCharacteristics(d, team);
+			checkCharacteristics(d, team); // int [3] team
 		}
 		Score.showScore();
+	}
+
+	/*
+	 * return the whole nereid table
+	 */
+	public static Nereids[] getNereids() {
+		return nereids;
+	}
+
+	/*
+	 * return the whole difficulty table
+	 */
+	public static Difficulty[] getDif() {
+		return dif;
 	}
 
 }

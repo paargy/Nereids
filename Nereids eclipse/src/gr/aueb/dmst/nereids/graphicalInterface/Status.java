@@ -28,6 +28,7 @@ public class Status {
 	static int orientation;
 	static int justice;
 	static int level;
+	static int[] totalChars;
 
 	/*
 	 * Initialise with the default values Mainly to be used when restarting the game
@@ -96,6 +97,8 @@ public class Status {
 		animalFriendly = TotalCharacteristics.getTotalAnimalF();
 		orientation = TotalCharacteristics.getTotalOrientation();
 		justice = TotalCharacteristics.getTotalJustice();
+		
+		Status.setScore(0);
 
 	}
 
@@ -143,7 +146,51 @@ public class Status {
 		animalFriendly = TotalCharacteristics.getTotalAnimalF();
 		orientation = TotalCharacteristics.getTotalOrientation();
 		justice = TotalCharacteristics.getTotalJustice();
-		;
+
+		Status.setScore(0);
+
+	}
+
+	/*
+	 * update the game with new difficulties
+	 */
+	public static void update() {
+		// random choice 3 out of the 9 difficulties
+		Random rand = new Random();
+		int dif1 = rand.nextInt(8);
+		int dif2 = rand.nextInt(8);
+		while (dif1 == dif2) {
+			dif2 = rand.nextInt(8);
+		}
+		int dif3 = rand.nextInt(8);
+		// check if it is the same difficulty
+		while (dif3 == dif1 || dif3 == dif2) {
+			dif3 = rand.nextInt(8);
+		}
+
+		// turn it to Difficulty object
+		d1 = CommandLineGameplay.dif[dif1];
+		d2 = CommandLineGameplay.dif[dif2];
+		d3 = CommandLineGameplay.dif[dif3];
+
+
+	}
+	public static void setTotalChars(int [] tc) {
+		Status.setAgility(tc [0]);
+		Status.setOrganisation(tc [1]);
+		Status.setWisdom(tc [2]);
+		Status.setWindlessness(tc [3]);
+		Status.setCourage(tc [4]);
+		Status.setStrength(tc [5]);
+		Status.setAnimalFriendly(tc [6]);
+		Status.setOrientation(tc [7]);
+		Status.setJustice(tc [8]);
+	}
+
+	public static int[] getTotalChars() {
+		int[] tc = { getAgility(), getOrganisation(), getWisdom(), getWindlessness(), getCourage(), getStrength(),
+				getAnimalFriendly(), getOrientation(), getJustice() };
+		return tc;
 
 	}
 
@@ -240,7 +287,7 @@ public class Status {
 	}
 
 	public static void setD3(Difficulty d) {
-		d = d3;
+		d3 = d;
 	}
 
 	public static Nereids getN1() {
@@ -248,7 +295,7 @@ public class Status {
 	}
 
 	public static void setN1(Nereids n) {
-		n = n1;
+		n1 = n;
 	}
 
 	public static Nereids getN2() {
@@ -256,7 +303,7 @@ public class Status {
 	}
 
 	public static void setN2(Nereids n) {
-		n = n2;
+		n2 = n;
 	}
 
 	public static Nereids getN3() {
@@ -264,7 +311,7 @@ public class Status {
 	}
 
 	public static void setN3(Nereids n) {
-		n = n3;
+		n3 = n;
 	}
 
 	public static int getDifChoice() {
@@ -272,7 +319,7 @@ public class Status {
 	}
 
 	public static void setDifChoice(int d) {
-		d = difChoice;
+		difChoice = d;
 	}
 
 	public static int getScore() {
@@ -280,7 +327,15 @@ public class Status {
 	}
 
 	public static void setScore(int s) {
-		s = score;
+		score = s;
+	}
+
+	public static int getLevel() {
+		return level;
+	}
+
+	public static void setLevel(int l) {
+		level = l;
 	}
 
 }

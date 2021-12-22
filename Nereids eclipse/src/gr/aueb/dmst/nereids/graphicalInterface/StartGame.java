@@ -1,5 +1,7 @@
 package gr.aueb.dmst.nereids.graphicalInterface;
 
+import javax.swing.SwingUtilities;
+
 import gr.aueb.dmst.nereids.commandLine.*;
 
 public class StartGame {
@@ -20,27 +22,40 @@ public class StartGame {
 	static int animalFriendly;
 	static int orientation;
 	static int justice;
-	BoatFrame frame;
+	public static BoatFrame boatFrame;
+	public int repetitions;
 
 	public StartGame(int n1, int n2, int n3) {
 		// Initialise with the default values
 		Status.Status();
-
+ 
 		CommandLineGameplay.createNereids();
 		CommandLineGameplay.createDifficulties();
 		Status.Status(n1, n2, n3);
-		frame = new BoatFrame();
-		d1 = Status.getD1();
-		d2 = Status.getD2();
-		d3 = Status.getD3();
 
+		boatFrame = new BoatFrame();
+		repetitions = 1;
+		Status.setLevel(repetitions);
+		
+		/*
+		for (int i = 0; i < 8; i++ ) {
+			boatFrame = new BoatFrame();
+			Status.setLevel(i + 1);
+			System.out.println(Status.getLevel());
+			
+			d1 = Status.getD1();
+			d2 = Status.getD2();
+			d3 = Status.getD3();
+			
+			// Status.getDifChoice()
+			CheckCharacteristics.checkCharacteristics();
+
+			//boatFrame.dispose();
+		} */
 	}
 
 	public static void main(String[] args) {
-		StartGame game = new StartGame(1, 2, 3);
-		System.out.println(game.d1.getName());
-		System.out.println(game.d2.getName());
-		System.out.println(game.d3.getName());
+		StartGame game = new StartGame(3, 4, 5); // XXX depending on the nereids
 
 	}
 

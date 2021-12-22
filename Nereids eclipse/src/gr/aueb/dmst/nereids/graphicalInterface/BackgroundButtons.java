@@ -53,17 +53,31 @@ public class BackgroundButtons extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		Object obj = e.getSource();
 		if (obj == button1) {
-			System.out.println("but1");
-			// choose the 1st difficulty 
 			Status.setDifChoice(1);
+			System.out.println("Level No: " + Status.getLevel() + ". You chose " + Status.d1.getName());
+			FaceDifficulty.faceDifficulty(Status.d1);
+			// choose the 1st difficulty 
+			
 		}else if (obj == button2) {
-			System.out.println("button 2");
 			// choose the 2nd difficulty
+			System.out.println("Level No: " + Status.getLevel() + ". You chose " + Status.d2.getName());
 			Status.setDifChoice(2);
+			FaceDifficulty.faceDifficulty(Status.d2);
 		}else if (obj == button3) {
-			System.out.println("but 3");
 			// choose the 3rd difficulty 
+			System.out.println("Level No: " + Status.getLevel() + ". You chose " +Status.d3.getName());
 			Status.setDifChoice(3);
+			FaceDifficulty.faceDifficulty(Status.d3);
+		}
+		
+		if (Status.getLevel() < 8) {
+			Status.setLevel(Status.getLevel() + 1);
+			//CheckCharacteristics.checkCharacteristics();
+			// XXX 
+			//Status.Status(3, 4, 5);
+			BoatFrame fr = new BoatFrame();
+		} else {
+			// XXX code for win or defeat
 		}
 	
 	}

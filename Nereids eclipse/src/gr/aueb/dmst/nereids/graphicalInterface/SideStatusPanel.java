@@ -15,7 +15,7 @@ import gr.aueb.dmst.nereids.commandLine.Score;
 public class SideStatusPanel extends JPanel{
 	public SideStatusPanel() {
 	      this.setBorder(new EmptyBorder(5, 5, 5, 5));
-	      JPanel btnPanel = new JPanel(new GridLayout(14, 1, 10, 8));
+	      JPanel btnPanel = new JPanel(new GridLayout(15, 1, 10, 8));
 
 	      JLabel label = new JLabel("Your Stats: ");
 	      btnPanel.add(label);
@@ -26,6 +26,7 @@ public class SideStatusPanel extends JPanel{
 	      btnPanel.add(new JButton("Wisdom: " + Status.getWisdom()));
 	      btnPanel.add(new JButton("Courage: " + Status.getCourage()));
 	      btnPanel.add(new JButton("Animal Friendly: " + Status.getAnimalFriendly()));
+	      btnPanel.add(new JButton("Orientation: " + Status.getOrientation()));
 	      btnPanel.add(new JButton("Justice: " + Status.getJustice()));
 	      
 	      JLabel label2 = new JLabel("Your Nereids: ");

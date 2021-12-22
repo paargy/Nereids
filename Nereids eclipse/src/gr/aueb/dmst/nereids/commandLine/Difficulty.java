@@ -22,7 +22,7 @@ public class Difficulty {
 	public String getName() {
 		return this.name;
 	}
-
+	
 	@Override
 	public String toString() {
 		return (this.name + "\n" + (this.agility != 0 ? "Agility : " + this.agility + "\n" : null)
