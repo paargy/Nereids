@@ -15,7 +15,7 @@ import gr.aueb.dmst.nereids.commandLine.Score;
 public class SideStatusPanel extends JPanel{
 	public SideStatusPanel() {
 	      this.setBorder(new EmptyBorder(5, 5, 5, 5));
-	      JPanel btnPanel = new JPanel(new GridLayout(15, 1, 10, 8));
+	      JPanel btnPanel = new JPanel(new GridLayout(15, 1, 10, 6));
 
 	      JLabel label = new JLabel("Your Stats: ");
 	      btnPanel.add(label);
