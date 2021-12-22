@@ -5,6 +5,7 @@ import javax.swing.SwingUtilities;
 import gr.aueb.dmst.nereids.commandLine.*;
 
 public class StartGame {
+	
 	static Difficulty d1; // the difficulties of the level
 	static Difficulty d2;
 	static Difficulty d3;

@@ -10,6 +10,7 @@ import gr.aueb.dmst.nereids.commandLine.*;
 
 public class Status {
 	// XXX command line gameplay: createNereids, createDifficulties
+	final static int startScore = 5;
 	static Difficulty d1; // the difficulties of the level
 	static Difficulty d2;
 	static Difficulty d3;
@@ -34,7 +35,7 @@ public class Status {
 	 * Initialise with the default values Mainly to be used when restarting the game
 	 */
 	public static void Status() {
-		score = 0;
+		score = startScore;
 		n1 = null;
 		n2 = null;
 		n3 = null;
@@ -42,7 +43,7 @@ public class Status {
 		d2 = null;
 		d3 = null;
 		difChoice = 0;
-		score = 0;
+		score = 5;
 		agility = 0;
 		organisation = 0;
 		wisdom = 0;
@@ -97,9 +98,8 @@ public class Status {
 		animalFriendly = TotalCharacteristics.getTotalAnimalF();
 		orientation = TotalCharacteristics.getTotalOrientation();
 		justice = TotalCharacteristics.getTotalJustice();
-		
-		Status.setScore(0);
 
+		Status.setScore(startScore);
 	}
 
 	/*
@@ -147,7 +147,7 @@ public class Status {
 		orientation = TotalCharacteristics.getTotalOrientation();
 		justice = TotalCharacteristics.getTotalJustice();
 
-		Status.setScore(0);
+		Status.setScore(startScore);
 
 	}
 
@@ -173,18 +173,18 @@ public class Status {
 		d2 = CommandLineGameplay.dif[dif2];
 		d3 = CommandLineGameplay.dif[dif3];
 
-
 	}
-	public static void setTotalChars(int [] tc) {
-		Status.setAgility(tc [0]);
-		Status.setOrganisation(tc [1]);
-		Status.setWisdom(tc [2]);
-		Status.setWindlessness(tc [3]);
-		Status.setCourage(tc [4]);
-		Status.setStrength(tc [5]);
-		Status.setAnimalFriendly(tc [6]);
-		Status.setOrientation(tc [7]);
-		Status.setJustice(tc [8]);
+
+	public static void setTotalChars(int[] tc) {
+		Status.setAgility(tc[0]);
+		Status.setOrganisation(tc[1]);
+		Status.setWisdom(tc[2]);
+		Status.setWindlessness(tc[3]);
+		Status.setCourage(tc[4]);
+		Status.setStrength(tc[5]);
+		Status.setAnimalFriendly(tc[6]);
+		Status.setOrientation(tc[7]);
+		Status.setJustice(tc[8]);
 	}
 
 	public static int[] getTotalChars() {
@@ -192,6 +192,10 @@ public class Status {
 				getAnimalFriendly(), getOrientation(), getJustice() };
 		return tc;
 
+	}
+
+	public static void increaseScoreByTwo() {
+		score = score + 2;
 	}
 
 	public static int getAgility() {

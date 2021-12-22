@@ -67,8 +67,9 @@ public class FaceDifficulty {
 			
 		}
 		// if difficulty if faced increase score by 2
-		if (notFaced = false) {
-			Status.setScore(Status.getScore() + 2);
+		if (notFaced == false) {
+			System.out.println("Score increased by 2");
+			Status.increaseScoreByTwo();
 		}
 		System.out.println("You now have: " + Arrays.toString(totalChars));
 		System.out.println("Score: " + Status.getScore());
