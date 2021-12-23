@@ -78,9 +78,10 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 		// TODO connection with player choise frame 
 		System.out.println("should go to player choise frame");
 		Gameplay.clearScreen();
+		Gameplay.frame.dispose();
 		// XXX Start game here temporarily 
 		// XXX 3, 4, 5 the chosen nereid numbers. Should be changed upon player's choice
-		StartGame game = new StartGame(3, 4, 5); 
+		StartGame game = new StartGame(8, 7, 5); 
 
 	}
 

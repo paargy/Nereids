@@ -68,7 +68,7 @@ public class BackgroundButtons extends JPanel implements ActionListener {
 			Status.setDifChoice(3);
 			FaceDifficulty.faceDifficulty(Status.d3);
 		}
-
+		
 		if (Status.getLevel() < 8) {
 			Status.setLevel(Status.getLevel() + 1);
 			// CheckCharacteristics.checkCharacteristics();
@@ -76,8 +76,18 @@ public class BackgroundButtons extends JPanel implements ActionListener {
 			// Status.Status(3, 4, 5);
 			StartGame.boatFrame.reAddContent();
 			// BoatFrame fr = new BoatFrame();
+			if (Status.getScore() <= 0) {
+				DefeatScreen defeat = new DefeatScreen(StartGame.boatFrame);
+			}
 		} else {
 			// XXX code for win or defeat
+			if (Status.getScore() > 0) {
+				// make StartGame.boatFrame a win frame
+				Win win = new Win(StartGame.boatFrame);
+			} else if(Status.getScore() <= 0) {
+				DefeatScreen defeat = new DefeatScreen(StartGame.boatFrame);
+			}
+			
 		}
 
 		if (Status.getLevel() >= 8 || Status.getScore() <= 0) {
