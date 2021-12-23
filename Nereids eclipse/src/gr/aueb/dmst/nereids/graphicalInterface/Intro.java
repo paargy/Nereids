@@ -22,6 +22,7 @@ public class Intro extends Thread {
 	    Gameplay.frame.add(panel);
 	    Gameplay.frame.pack();
 	    Gameplay.frame.setVisible(true);
+	    Gameplay.frame.setSize(600, 650);
 	}
 	public void start () {
       System.out.println("Starting " +  threadName );

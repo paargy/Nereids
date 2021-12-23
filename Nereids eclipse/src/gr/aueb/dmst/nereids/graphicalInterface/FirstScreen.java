@@ -29,6 +29,7 @@ public class FirstScreen implements ActionListener {
 	boolean isPressed = false;
 
 	public FirstScreen() {
+		Gameplay.frame.setSize(600, 650);
 
 		Gameplay.frame.setLayout(new BorderLayout());
 

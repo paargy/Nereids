@@ -1,3 +1,10 @@
+/*
+ * starts a gameplay first by showing the Intro logo screen
+ * and after 4 seconds change to the FistScreen with the start button 
+ * constructs the frame used int he game 
+ * has a clearScreen() method, with is used throughout the
+ * game to clear the frame, in order to prepare it for a change 
+ */
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.BorderLayout;
@@ -28,7 +35,7 @@ public class Gameplay {
 		 * frame.setIconImage(image.getImage());
 		 */
 		clearScreen();
-		// intro logo for 3 secs
+		// intro logo for 4 secs
 		Thread intro = new Intro("Intro Screen");
 		intro.start();
 		intro.join();
@@ -37,38 +44,25 @@ public class Gameplay {
 
 		// First Screen with start button
 		FirstScreen fs = new FirstScreen();
-		
+
 		/*
-
-		while (!fs.getIsPressed()) {
-			assert true;
-			// just do something until the button is pressed
-			// tried to find a different way to do it but i couldn't
-			// XXX find a different way to make it wait,
-			// bc this way it gets overloaded
-			System.out.println("not pressed");
-		}
-		clearScreen();
-		System.out.println("pressed");
-
-		// instructions
-		Instructions ins = new Instructions();
-		// XXX restart on the menu bar must get fixed!!!
-
-		// code for win - defeat frame
-		if (win) {
-			// XXX win not connected to rest of the game
-			// XXX 78 to be replaced with the real score
-			Win wf = new Win(78);
-		} else if (loose) {
-			// XXX DefeatScreen not connected to rest of the game
-			DefeatScreen ds = new DefeatScreen();
-		}
-		/*
-		 * DefeatScreen ds = new DefeatScreen(); Win wf = new Win(78);
+		 * 
+		 * while (!fs.getIsPressed()) { assert true; // just do something until the
+		 * button is pressed // tried to find a different way to do it but i couldn't //
+		 * XXX find a different way to make it wait, // bc this way it gets overloaded
+		 * System.out.println("not pressed"); } clearScreen();
+		 * System.out.println("pressed");
+		 * 
+		 * // instructions Instructions ins = new Instructions(); // XXX restart on the
+		 * menu bar must get fixed!!!
+		 * 
+		 * // code for win - defeat frame if (win) { // XXX win not connected to rest of
+		 * the game // XXX 78 to be replaced with the real score Win wf = new Win(78); }
+		 * else if (loose) { // XXX DefeatScreen not connected to rest of the game
+		 * DefeatScreen ds = new DefeatScreen(); } /* DefeatScreen ds = new
+		 * DefeatScreen(); Win wf = new Win(78);
 		 */
-		
-		
+
 	}
 
 	public static void clearScreen() {

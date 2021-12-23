@@ -32,7 +32,7 @@ public class BoatFrame extends JFrame {
 		 * BackgroundPanel backPanel = new BackgroundPanel(); frame.add(backPanel);
 		 */
 
-		this.setSize(600, 600);
+		this.setSize(600, 650);
 
 		butPanel = new BackgroundButtons();
 
