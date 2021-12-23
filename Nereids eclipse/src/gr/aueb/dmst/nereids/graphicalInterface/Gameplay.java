@@ -37,6 +37,8 @@ public class Gameplay {
 
 		// First Screen with start button
 		FirstScreen fs = new FirstScreen();
+		
+		/*
 
 		while (!fs.getIsPressed()) {
 			assert true;
@@ -65,6 +67,8 @@ public class Gameplay {
 		/*
 		 * DefeatScreen ds = new DefeatScreen(); Win wf = new Win(78);
 		 */
+		
+		
 	}
 
 	public static void clearScreen() {
