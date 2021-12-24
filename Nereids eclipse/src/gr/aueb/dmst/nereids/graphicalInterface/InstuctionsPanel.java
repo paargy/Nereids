@@ -22,6 +22,7 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 	public Color SeaBlue = new Color(6, 45, 98);
 
 	public InstuctionsPanel() {
+		//Gameplay.clearScreen();
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
