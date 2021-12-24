@@ -71,7 +71,6 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 		pane.setBackground(SeaBlue);
 		this.setBackground(SeaBlue);
 		this.add(pane);
-
 	}
 
 	@Override
