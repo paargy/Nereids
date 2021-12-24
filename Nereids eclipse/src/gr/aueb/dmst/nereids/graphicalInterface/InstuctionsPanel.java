@@ -82,7 +82,6 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 		// XXX Start game here temporarily
 		// XXX 3, 4, 5 the chosen nereid numbers. Should be changed upon player's choice
 		StartGame game = new StartGame(8, 7, 5);
-
 	}
 
 }
