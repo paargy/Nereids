@@ -22,7 +22,7 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 	public Color SeaBlue = new Color(6, 45, 98);
 
 	public InstuctionsPanel() {
-		//Gameplay.clearScreen();
+		// Gameplay.clearScreen();
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -76,13 +76,13 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO connection with player choise frame 
+		// TODO connection with player choise frame
 		System.out.println("should go to player choise frame");
 		Gameplay.clearScreen();
 		Gameplay.frame.dispose();
-		// XXX Start game here temporarily 
+		// XXX Start game here temporarily
 		// XXX 3, 4, 5 the chosen nereid numbers. Should be changed upon player's choice
-		StartGame game = new StartGame(8, 7, 5); 
+		StartGame game = new StartGame(8, 7, 5);
 
 	}
 
