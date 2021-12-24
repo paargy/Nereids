@@ -120,7 +120,7 @@ public class Win {
 		label3.setOpaque(true);
 		label3.setBounds(270, 263, 300, 300);
 	}
-
+	
 	/*
 	 * constructor for win screen changing any given in the parameters frame
 	 * displaying the score
