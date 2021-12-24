@@ -119,7 +119,6 @@ public class Win {
 		label3.setBackground(new Color(6, 45, 98));
 		label3.setOpaque(true);
 		label3.setBounds(270, 263, 300, 300);
-
 	}
 
 	/*
