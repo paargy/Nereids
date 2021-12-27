@@ -14,7 +14,7 @@ public class BoatFrame extends JFrame {
 	BackgroundButtons butPanel;
 	MenuBar menu;
 	ProgressBar prBar;
-	SideStatusPanel ssp;
+	public static SideStatusPanel ssp;
 
 	public BoatFrame() {
 		// JFrame frame = new JFrame("Nereids");
@@ -55,7 +55,7 @@ public class BoatFrame extends JFrame {
 		// frame.pack();
 
 	}
-	
+
 	public void reAddContent() {
 		this.getContentPane().removeAll();
 		butPanel = new BackgroundButtons();

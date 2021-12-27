@@ -33,6 +33,9 @@ public class FaceDifficulty {
 		 */
 		System.out.println("the total stats now are: " + Arrays.toString(totalChars));
 		boolean notFaced = false;
+		// XXX not completed
+		String [] lostCharNames = { null, null, null, null, null, null, null, null, null};
+		int [] lostCharAmount = { 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		// 9 repetitions bc 9 characteristics to check
 		for (int j = 0; j < 9; j++) {
 			if (totalChars[j] < difChars[j] && difChars[j] > 0) {
@@ -46,13 +49,25 @@ public class FaceDifficulty {
 				System.out.println("You were defeated. Score decreased by: " + (difChars[j] - totalChars[j]));
 
 				totalChars[j] = 0;
-
-				// Status.update(j, 0);
 			} else if (totalChars[j] >= difChars[j] && difChars[j] > 0) {
 				// Status.setScore(Status.getScore() + 2);
 				totalChars[j] = totalChars[j] - difChars[j];
-				// Status.update(j, totalChars[j]);
-				System.out.println("You did it" + j);
+				
+			// XXX change button color not working
+				/*
+				// change the button color to red to show the decrease
+				BoatFrame.ssp.changeToRed(j);
+
+				
+				// sleep for half a second for the color change to be shown
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				*/
+				System.out.println("You did it " + j);
 			}
 			Status.setTotalChars(totalChars);
 
