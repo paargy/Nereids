@@ -1,3 +1,12 @@
+/* PlayerChoice screen. 
+ * changes the Gameplay.frame to the player choice screen 
+ * 9 nereid buttons on the left side and 
+ * when chosen, the characteristics of the nereid on the 
+ * right side. 
+ * Button "chose her" at the bottom right side.
+ * Can choose 3 nereids.
+ * The same nereid cannot be chosen twice.
+ */
 package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.Color;
@@ -30,7 +39,7 @@ public class PlayerChoice {
 	int numOfChoice;
 	// These values will make it not cause an error on the first time the array is
 	// used
-	int[] chosenNereidsIndexes = { 99, 99, 99 };
+	static int[] chosenNereidsIndexes = { 99, 99, 99 };
 
 	ArrayList<JPanel> nereidPanel = new ArrayList<>();
 	JLabel nameLabel;
@@ -64,7 +73,7 @@ public class PlayerChoice {
 			nereidInfo.put(nereidNames.get(i), chars[i]);
 		}
 	}
-
+	/*
 	public static void main(String[] args) {
 
 		// Make the frame with the logo and the background image
@@ -78,14 +87,15 @@ public class PlayerChoice {
 		frame.setLayout(null);
 		frame.setLocationRelativeTo(null);
 
-		new PlayerChoice(frame);
+		new PlayerChoiceFrame(frame);
 	}
+	*/
 
-	public PlayerChoice(JFrame frame) {
+	public PlayerChoice() {
 
 		try {
 			Image bg = ImageIO.read(new File("Images/mainbg.png"));
-			frame.setContentPane(new ImagePanel(bg));
+			Gameplay.frame.setContentPane(new ImagePanel(bg));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -106,7 +116,7 @@ public class PlayerChoice {
 			nereidButton.get(i).setContentAreaFilled(false);
 
 			nereidPanel.get(i).add(nereidButton.get(i));
-			frame.add(nereidPanel.get(i));
+			Gameplay.frame.add(nereidPanel.get(i));
 
 			// Change x, y in order to create a 3x3 table of nereid buttons
 			x = ((i + 1) % 3 == 0 ? 1 : x + 1);
@@ -117,11 +127,11 @@ public class PlayerChoice {
 			teamPanel[i] = new JPanel();
 			teamPanel[i].setBounds((i + 1) * 70, 480, 70, 70);
 			teamPanel[i].setOpaque(false);
-			frame.add(teamPanel[i]);
+			Gameplay.frame.add(teamPanel[i]);
 		}
 
 		// Need to be here in order for the frame to appear
-		frame.setVisible(true);
+		Gameplay.frame.setVisible(true);
 
 	}
 
@@ -133,7 +143,7 @@ public class PlayerChoice {
 		namePanel = new JPanel();
 		namePanel.setBounds(200, 50, 500, 500);
 		namePanel.setOpaque(false);
-		frame.add(namePanel);
+		Gameplay.frame.add(namePanel);
 
 		nameArea = new JTextArea(name);
 		nameArea.setEditable(false);
@@ -154,7 +164,7 @@ public class PlayerChoice {
 
 		picLabel = new JLabel(nereidsImages.get(currentIndex));
 		iconPanel.add(picLabel);
-		frame.add(iconPanel);
+		Gameplay.frame.add(iconPanel);
 
 		if (charPanel != null) {
 			charPanel.removeAll();
@@ -162,7 +172,7 @@ public class PlayerChoice {
 		charPanel = new JPanel();
 		charPanel.setBounds(350, 275, 200, 250);
 		charPanel.setOpaque(false);
-		frame.add(charPanel);
+		Gameplay.frame.add(charPanel);
 
 		charArea = new JTextArea("\n" + "  Agility: " + nereidInfo.get(name)[0] + "  " + "\n" + "  Organization: "
 				+ nereidInfo.get(name)[1] + "  " + "\n" + "  Wisdom: " + nereidInfo.get(name)[2] + "  " + "\n"
@@ -183,7 +193,7 @@ public class PlayerChoice {
 		choicePanel = new JPanel();
 		choicePanel.setBounds(400, 500, 100, 100);
 		choicePanel.setOpaque(false);
-		frame.add(choicePanel);
+		Gameplay.frame.add(choicePanel);
 
 		// Use the chosenNereidsIndexes array to check whether or not a certain nereid
 		// has already been chosen
@@ -194,10 +204,10 @@ public class PlayerChoice {
 			choicePanel.add(choiceButton[currentIndex]);
 		}
 
-		frame.repaint();
-		frame.setMinimumSize(frame.getSize());
-		frame.pack();
-		frame.setMinimumSize(null);
+		Gameplay.frame.repaint();
+		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
+		Gameplay.frame.pack();
+		Gameplay.frame.setMinimumSize(null);
 
 	}
 
@@ -218,15 +228,26 @@ public class PlayerChoice {
 			totalChars[j] += nereidInfo.get(nereidNames.get(i))[j];
 		}
 
-		frame.setMinimumSize(frame.getSize());
-		frame.pack();
-		frame.setMinimumSize(null);
+		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
+		Gameplay.frame.pack();
+		Gameplay.frame.setMinimumSize(null);
 
 		if (numOfChoice == 3) {
 			System.out.println("You chose your team!!");
+			System.out.println(Arrays.toString(getChosenNereids()));
+			Gameplay.frame.dispose();
+			StartGame game = new StartGame( getChosenNereids()[0], getChosenNereids()[1], getChosenNereids()[2]);
 			// StartGame(); //den katalava me poia methodo ksekinaei to main paixnidi
 			// //diegrapse auta ta comments meta!
 		}
+	}
+
+	/*
+	 * returns an int [3] with the numbers of the chosen nereids integers from 0 to
+	 * 8 as in the array
+	 */
+	public static int[] getChosenNereids() {
+		return chosenNereidsIndexes;
 	}
 
 	public class TitleScreenHandler implements ActionListener {
