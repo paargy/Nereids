@@ -113,7 +113,11 @@ public class PlayerChoice {
 
 			nereidButton.add(new JButton(nereid));
 			nereidButton.get(i).addActionListener(tsHandler);
+			
+			nereidButton.get(i).setOpaque(false);
+			nereidButton.get(i).setBorderPainted(false);
 			nereidButton.get(i).setContentAreaFilled(false);
+			
 
 			nereidPanel.get(i).add(nereidButton.get(i));
 			Gameplay.frame.add(nereidPanel.get(i));
