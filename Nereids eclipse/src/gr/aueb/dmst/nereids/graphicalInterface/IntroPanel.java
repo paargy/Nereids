@@ -1,4 +1,4 @@
-/*
+/**
  * displays a frame with a huge logo
  */
 

@@ -1,4 +1,4 @@
-/*
+/**
  * Extends JPanel an constructs the panel used from Instructions
  * dark blue background, label "Instructions" on top,
  * text box with instructions, button "next"

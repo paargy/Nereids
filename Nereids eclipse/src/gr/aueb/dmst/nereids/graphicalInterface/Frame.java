@@ -1,4 +1,4 @@
-/*
+/**
  * constructs Frame in accordance to our game's 
  * requirements
  */

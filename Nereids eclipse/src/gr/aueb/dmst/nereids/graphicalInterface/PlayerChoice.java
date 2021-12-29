@@ -1,4 +1,5 @@
-/* PlayerChoice screen. 
+/**
+ *  PlayerChoice screen. 
  * changes the Gameplay.frame to the player choice screen 
  * 9 nereid buttons on the left side and 
  * when chosen, the characteristics of the nereid on the 

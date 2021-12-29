@@ -1,4 +1,4 @@
-/*
+/**
  * Creates the first Screen in Gameplay.frame.
  * Label with the name of the game, dark blue background
  * and start button at the bottom.

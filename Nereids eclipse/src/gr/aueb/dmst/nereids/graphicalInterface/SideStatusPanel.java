@@ -1,4 +1,4 @@
-/*
+/**
  * the JPanel used at the screen of the game. 
  * From top to bottom: "Your stats: ", 9 buttons with the amount of each 
  * characteristic, "Your Nereids: " & the names of the chosen nereids.

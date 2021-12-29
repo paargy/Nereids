@@ -1,4 +1,4 @@
-/*
+/**
  * class used to restart the game. Disposes every frame and 
  * creates a FirstScreen object. Returns the control of the programm
  * at the FirstScreen.

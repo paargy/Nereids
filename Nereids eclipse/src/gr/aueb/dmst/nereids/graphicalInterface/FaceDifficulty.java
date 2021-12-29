@@ -1,4 +1,4 @@
-/* 
+/**
  * contains static method FAceDifficulty (Difficulty d)
  * used to face difficulty 
  * calls methods to check if the characteristics are enough

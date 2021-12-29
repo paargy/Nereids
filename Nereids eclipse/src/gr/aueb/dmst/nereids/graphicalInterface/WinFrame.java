@@ -1,4 +1,4 @@
-/*
+/**
  * make an independent win frame
  * it is not used in gameplay 
  * Two constructors: not showing the score and showing the score

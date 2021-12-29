@@ -1,4 +1,4 @@
-/*
+/**
  * stores the status of the game 
  * chosen nereids, difficulties, score and all characteristics
  */

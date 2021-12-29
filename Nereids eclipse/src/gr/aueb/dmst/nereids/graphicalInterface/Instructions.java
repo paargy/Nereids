@@ -1,4 +1,4 @@
-/*
+/**
  * Creates the instructions frame in Gameplay.frame 
  * in it. Has a text box with the instructions and a next button
  * 

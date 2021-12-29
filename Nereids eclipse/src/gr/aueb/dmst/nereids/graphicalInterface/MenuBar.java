@@ -1,5 +1,5 @@
 
-/*
+/**
  * make a menu bar on top of the screen
  * menu items: exit: terminate, restart
  */

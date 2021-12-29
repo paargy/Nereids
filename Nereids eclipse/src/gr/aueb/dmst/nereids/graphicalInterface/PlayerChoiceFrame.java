@@ -1,4 +1,4 @@
-/*
+/**
  * an independent PlayerChoise frame 
  */
 package gr.aueb.dmst.nereids.graphicalInterface;

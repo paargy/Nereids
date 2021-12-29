@@ -1,4 +1,4 @@
-/*
+/**
  *create the frame for defeat 
  * states: oh no, defeat
  * with a gif of a moving boat

@@ -1,4 +1,4 @@
-/*
+/**
  * panel for instructions
  * blue background
  * text area with instructions 

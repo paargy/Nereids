@@ -1,4 +1,4 @@
-/*
+/**
  * starts a gameplay first by showing the Intro logo screen
  * and after 4 seconds change to the FistScreen with the start button 
  * constructs the frame used int he game 
