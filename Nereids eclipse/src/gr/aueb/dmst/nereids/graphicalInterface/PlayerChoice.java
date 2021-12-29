@@ -93,9 +93,12 @@ public class PlayerChoice {
 	*/
 
 	public PlayerChoice() {
-
+		
 		try {
-			Image bg = ImageIO.read(new File("Images/mainbg.png"));
+			// the colourful background
+			// Image bg = ImageIO.read(new File("Images/mainbg.png")); 
+			// the opaque blue background
+			Image bg = ImageIO.read(new File("Images/blueBackground.png"));
 			Gameplay.frame.setContentPane(new ImagePanel(bg));
 
 		} catch (IOException e) {
@@ -241,9 +244,11 @@ public class PlayerChoice {
 			System.out.println("You chose your team!!");
 			System.out.println(Arrays.toString(getChosenNereids()));
 			Gameplay.frame.dispose();
-			StartGame game = new StartGame( getChosenNereids()[0], getChosenNereids()[1], getChosenNereids()[2]);
-			// StartGame(); //den katalava me poia methodo ksekinaei to main paixnidi
-			// //diegrapse auta ta comments meta!
+			int a = getChosenNereids()[0];
+			int b = getChosenNereids()[1];
+			int c = getChosenNereids()[2];
+			int [] chosenNereidsIndexes = { 99, 99, 99 }; // return choices to default
+			StartGame game = new StartGame(a, b, c);
 		}
 	}
 

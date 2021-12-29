@@ -36,7 +36,7 @@ public class SideStatusPanel extends JPanel {
 		but2.setForeground(Color.BLACK);
 		btnPanel.add(but3 = new JButton("Wisdom: " + Status.getWisdom()));
 		but3.setForeground(Color.BLACK);
-		btnPanel.add(but4 = new JButton("Windlessness " + Status.getWindlessness()));
+		btnPanel.add(but4 = new JButton("Windlessnes: " + Status.getWindlessness()));
 		but4.setForeground(Color.BLACK);
 		btnPanel.add(but5 = new JButton("Wisdom: " + Status.getWisdom()));
 		but5.setForeground(Color.BLACK);
