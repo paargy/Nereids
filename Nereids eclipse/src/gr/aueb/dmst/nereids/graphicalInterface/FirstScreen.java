@@ -20,6 +20,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+
 public class FirstScreen implements ActionListener {
 	public Color SeaBlue = new Color(6, 45, 98);
 	JPanel titleNamePanel, startButtonPanel;
@@ -71,6 +72,8 @@ public class FirstScreen implements ActionListener {
 		Gameplay.frame.setMinimumSize(null);
 		Gameplay.frame.setVisible(true);
 		Gameplay.frame.setResizable(true);
+		
+		
 
 	}
 

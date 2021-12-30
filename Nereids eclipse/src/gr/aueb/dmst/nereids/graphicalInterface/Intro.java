@@ -2,8 +2,11 @@ package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.event.WindowEvent;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 public class Intro extends Thread {
@@ -17,6 +20,7 @@ public class Intro extends Thread {
 		JLabel label = new JLabel("A DMST student original game 2021", SwingConstants.RIGHT);
 	    label.setFont(new Font("Tahoma", Font.PLAIN, 10));
 	    Gameplay.frame.add(label, BorderLayout.PAGE_END);
+	  
 	    
 	    IntroPanel panel = new IntroPanel();
 	    Gameplay.frame.add(panel);

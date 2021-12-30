@@ -63,7 +63,6 @@ public class FaceDifficulty {
 				try {
 					Thread.sleep(500);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				*/
@@ -80,6 +79,7 @@ public class FaceDifficulty {
 		System.out.println("You now have: " + Arrays.toString(totalChars));
 		System.out.println("Score: " + Status.getScore());
 		System.out.println(".......");
+		OptionPane opt = new OptionPane(Status.getLevel(), d);
 		Status.update(); // new difficulties
 
 	}

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class BackgroundButtons extends JPanel implements ActionListener {
@@ -52,10 +53,10 @@ public class BackgroundButtons extends JPanel implements ActionListener {
 		// TODO Auto-generated method stub
 		Object obj = e.getSource();
 		if (obj == button1) {
+			// choose the 1st difficulty
 			Status.setDifChoice(1);
 			System.out.println("Level No: " + Status.getLevel() + ". You chose " + Status.d1.getName());
 			FaceDifficulty.faceDifficulty(Status.d1);
-			// choose the 1st difficulty
 
 		} else if (obj == button2) {
 			// choose the 2nd difficulty
