@@ -10,6 +10,9 @@ package gr.aueb.dmst.nereids.graphicalInterface;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.WindowEvent;
+import java.lang.System.Logger.Level;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +21,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 public class Gameplay {
@@ -25,9 +32,8 @@ public class Gameplay {
 	private boolean loose = false;
 	static Frame frame = new Frame();
 
-	public Gameplay() throws InterruptedException {
-		
-		clearScreen();
+	public Gameplay() throws InterruptedException {            
+	    clearScreen();
 		// intro logo for 4 secs
 		Thread intro = new Intro("Intro Screen");
 		intro.start();
