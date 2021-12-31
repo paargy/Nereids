@@ -20,12 +20,12 @@ public class InstructionsTextField extends JTextArea{
 				+ "choose from 9 different Nereids, all of which have different skills and stats. For example, \n"
 				+ "some are better at navigation while others are wiser or stronger. During your trip you will \n"
 				+ "come across some challenges, you will have to decide where to direct your ship to and \n"
-				+ "chose what difficulty you will have to face. \n"
+				+ "choose what difficulty you will have to face. \n"
 				+ "\n"
-				+ "The game starts with you at the beginning of your trip. On the right side of the screen is the sea, \n"
-				+ "which is divided by three paths and each path has its own challenge. Click on the path which involves \n"
-				+ "the challenge you want to face. During your journey you will have to overcome 8 challenges, survive \n"
-				+ "and reach your father’s home in Sicilia. \n"
+				+ "The game starts with you at the beginning of your trip. On the right side of the screen\n"
+				+ "is the sea, which is divided by three paths and each path has its own challenge. \n"
+				+ "Click on the path which involves the challenge you want to face. During your journey \n"
+				+ "you will have to overcome 8 challenges, survive and reach your father’s home in Sicilia. \n"
 				+ "Good Luck, stay safe!");
 		this.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		this.setEditable(false);
