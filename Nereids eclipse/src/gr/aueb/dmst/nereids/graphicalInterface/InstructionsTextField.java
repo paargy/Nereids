@@ -24,8 +24,9 @@ public class InstructionsTextField extends JTextArea{
 				+ "\n"
 				+ "The game starts with you at the beginning of your trip. On the right side of the screen is the sea, \n"
 				+ "which is divided by three paths and each path has its own challenge. Click on the path which involves \n"
-				+ "the challenge you want to face. During your journey you will have to overcome 8 challenges, survive and reach your father’s home in Sicilia.\n"
-				+ "Good Luck, stay safe!  ");
+				+ "the challenge you want to face. During your journey you will have to overcome 8 challenges, survive \n"
+				+ "and reach your father’s home in Sicilia. \n"
+				+ "Good Luck, stay safe!");
 		this.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		this.setEditable(false);
 
