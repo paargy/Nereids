@@ -56,10 +56,20 @@ public class PlayerChoiceFrame {
 			{ 4, 2, 0, 2, 0, 0, 0, 0, 0 }, { 2, 3, 0, 0, 3, 0, 0, 0, 0 }, { 4, 1, 0, 0, 2, 0, 0, 0, 0 } };
 
 	public void putNereidImage() {
-		for (int i = 0; i < 9; i++) {
-			nereidsImages.add(new ImageIcon("Images/nereid" + 1 + ".png")); // Change 1 to i + 1 once we have the nereid
+		for (int i = 1; i < 10; i++) {
+			nereidsImages.add(resize(new ImageIcon("Images/nereid" + i + ".png"), 60, 60)); // Change 1 to i + 1 once we have the nereid
 																			// images ready
 		}
+	}
+	
+	public static ImageIcon resize(ImageIcon image, int width, int height) {
+		BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
+		Graphics2D g2d = (Graphics2D) bi.createGraphics();
+		g2d.addRenderingHints(// ww w . jav a2 s. c o m
+				new RenderingHints(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY));
+		g2d.drawImage(image.getImage(), 0, 0, width, height, null);
+		g2d.dispose();
+		return new ImageIcon(bi);
 	}
 
 	public void nereidDeclaration() {
