@@ -9,13 +9,21 @@ package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
+
 public class DefeatScreen {
 
-	// simple constructor. Make Gameplay.frame a defeat frame
+	/**
+	 * simple constructor. Make Gameplay.frame a defeat frame
+	 */
 	public DefeatScreen() {
 		/*
 		 * Gameplay.clearScreen(); JLabel label = new JLabel();// create a label
@@ -38,6 +46,18 @@ public class DefeatScreen {
 		 * Color(6, 45, 98)); label.setOpaque(true); label.setBounds(75, 0, 440, 320);
 		 * 
 		 */
+
+		// stop any sound playing
+	
+		Gameplay.simpleSoundPlayer.pause();
+		// play sound for defeat
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/negative_beeps-6008.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
+
 		Gameplay.clearScreen();
 		JLabel label = new JLabel();// create a label
 		label.setText("OH NO, DEFEAT :(");// set text of label
@@ -67,8 +87,20 @@ public class DefeatScreen {
 
 	}
 
-	// constructor for defeat screen. Make any given frame defeat frame
+	/**
+	 * constructor for defeat screen. Make any given frame defeat frame
+	 * @param fr
+	 */
 	public DefeatScreen(JFrame fr) {
+		// stop any sound playing
+		Gameplay.simpleSoundPlayer.pause();
+		// play sound for defeat
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/negative_beeps-6008.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
 		fr.getContentPane().removeAll();
 		JLabel label = new JLabel();// create a label
 		label.setText("OH NO, DEFEAT :(");// set text of label

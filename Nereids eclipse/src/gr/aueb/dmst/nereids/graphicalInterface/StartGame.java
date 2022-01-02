@@ -1,8 +1,13 @@
 package gr.aueb.dmst.nereids.graphicalInterface;
 
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.SwingUtilities;
 
 import gr.aueb.dmst.nereids.commandLine.*;
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
 
 public class StartGame {
 	
@@ -27,6 +32,16 @@ public class StartGame {
 	public int repetitions;
 
 	public StartGame(int n1, int n2, int n3) {
+		
+		// set up sound 
+		Gameplay.simpleSoundPlayer.pause();
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/Komiku_-_07_-_Last_Boss__Lets_see_what_we_got.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
+		
 		// Initialise with the default values
 		Status.Status();
  
@@ -38,21 +53,7 @@ public class StartGame {
 		repetitions = 1;
 		Status.setLevel(repetitions);
 		
-		/*
-		for (int i = 0; i < 8; i++ ) {
-			boatFrame = new BoatFrame();
-			Status.setLevel(i + 1);
-			System.out.println(Status.getLevel());
-			
-			d1 = Status.getD1();
-			d2 = Status.getD2();
-			d3 = Status.getD3();
-			
-			// Status.getDifChoice()
-			CheckCharacteristics.checkCharacteristics();
-
-			//boatFrame.dispose();
-		} */
+	
 	}
 
 	public static void main(String[] args) {

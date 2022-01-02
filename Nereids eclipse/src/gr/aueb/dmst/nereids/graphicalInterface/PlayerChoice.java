@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,6 +36,8 @@ import javax.swing.JTextArea;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
+
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
 
 public class PlayerChoice {
 	static JFrame frame;
@@ -87,28 +91,23 @@ public class PlayerChoice {
 		}
 	}
 	/*
-	public static void main(String[] args) {
-
-		// Make the frame with the logo and the background image
-		frame = new JFrame();
-		frame.setTitle("N E R E I D S");
-		ImageIcon logo = new ImageIcon("Images/logo.png");
-		frame.setIconImage(logo.getImage());
-		frame.setSize(new Dimension(600, 600));
-		frame.setResizable(false);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(null);
-		frame.setLocationRelativeTo(null);
-
-		new PlayerChoiceFrame(frame);
-	}
-	*/
+	 * public static void main(String[] args) {
+	 * 
+	 * // Make the frame with the logo and the background image frame = new
+	 * JFrame(); frame.setTitle("N E R E I D S"); ImageIcon logo = new
+	 * ImageIcon("Images/logo.png"); frame.setIconImage(logo.getImage());
+	 * frame.setSize(new Dimension(600, 600)); frame.setResizable(false);
+	 * frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); frame.setLayout(null);
+	 * frame.setLocationRelativeTo(null);
+	 * 
+	 * new PlayerChoiceFrame(frame); }
+	 */
 
 	public PlayerChoice() {
 		
 		try {
 			// the colourful background
-			// Image bg = ImageIO.read(new File("Images/mainbg.png")); 
+			// Image bg = ImageIO.read(new File("Images/mainbg.png"));
 			// the opaque blue background
 			Image bg = ImageIO.read(new File("Images/blueBackground.png"));
 			Gameplay.frame.setContentPane(new ImagePanel(bg));
@@ -129,11 +128,10 @@ public class PlayerChoice {
 
 			nereidButton.add(new JButton(nereid));
 			nereidButton.get(i).addActionListener(tsHandler);
-			
+
 			nereidButton.get(i).setOpaque(false);
 			nereidButton.get(i).setBorderPainted(false);
 			nereidButton.get(i).setContentAreaFilled(false);
-			
 
 			nereidPanel.get(i).add(nereidButton.get(i));
 			Gameplay.frame.add(nereidPanel.get(i));
@@ -259,7 +257,7 @@ public class PlayerChoice {
 			int a = getChosenNereids()[0];
 			int b = getChosenNereids()[1];
 			int c = getChosenNereids()[2];
-			int [] chosenNereidsIndexes = { 99, 99, 99 }; // return choices to default
+			int[] chosenNereidsIndexes = { 99, 99, 99 }; // return choices to default
 			StartGame game = new StartGame(a, b, c);
 		}
 	}

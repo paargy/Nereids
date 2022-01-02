@@ -5,12 +5,17 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
 
 public class BackgroundButtons extends JPanel implements ActionListener {
 	public Color SeaBlue = new Color(6, 45, 98, 50);
@@ -72,23 +77,18 @@ public class BackgroundButtons extends JPanel implements ActionListener {
 
 		if (Status.getLevel() < 8) {
 			Status.setLevel(Status.getLevel() + 1);
-			// CheckCharacteristics.checkCharacteristics();
-			// XXX
-			// Status.Status(3, 4, 5);
 			StartGame.boatFrame.reAddContent();
 			// BoatFrame fr = new BoatFrame();
 			if (Status.getScore() <= 0) {
 				DefeatScreen defeat = new DefeatScreen(StartGame.boatFrame);
 			}
 		} else {
-			// XXX code for win or defeat
 			if (Status.getScore() > 0) {
 				// make StartGame.boatFrame a win frame
 				Win win = new Win(StartGame.boatFrame);
 			} else if (Status.getScore() <= 0) {
 				DefeatScreen defeat = new DefeatScreen(StartGame.boatFrame);
 			}
-
 		}
 
 		if (Status.getLevel() >= 8 || Status.getScore() <= 0) {
