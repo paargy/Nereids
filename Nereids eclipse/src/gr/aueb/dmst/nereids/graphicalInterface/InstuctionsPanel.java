@@ -12,11 +12,16 @@ import java.awt.GridBagLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
 
 public class InstuctionsPanel extends JPanel implements ActionListener {
 	public Color SeaBlue = new Color(6, 45, 98);
@@ -29,6 +34,7 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 
 		JLabel label = new JLabel("Instructions");
 		label.setFont(new Font("Tahoma", Font.BOLD, 20));
+		label.setForeground(Color.WHITE ); // set color to white 
 		c.weightx = 0.5;
 		c.gridx = 0;
 		c.gridy = 0;
@@ -75,14 +81,41 @@ public class InstuctionsPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO connection with player choise frame
+		
 		System.out.println("should go to player choise frame");
 		Gameplay.clearScreen();
 		PlayerChoice pc = new PlayerChoice();
-		//Gameplay.frame.dispose();
-		// XXX Start game here temporarily
-		// XXX 3, 4, 5 the chosen nereid numbers. Should be changed upon player's choice
-		//StartGame game = new StartGame(8, 7, 5);
+		
+		// sound of bubbles when pressed
+		Gameplay.simpleSoundPlayer.pause();
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/bubbling-6184.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		} catch (LineUnavailableException e1) {
+			e1.printStackTrace();
+		}
+		
+		
+		// sound for player choice frame
+		Gameplay.simpleSoundPlayer.pause();
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/Komiku_-_04_-_Shopping_List.wav");
+		} catch (UnsupportedAudioFileException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (LineUnavailableException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Gameplay.simpleSoundPlayer.play();
+		
 	}
 
 }

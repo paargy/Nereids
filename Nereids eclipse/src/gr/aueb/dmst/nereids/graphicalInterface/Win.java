@@ -8,17 +8,35 @@ package gr.aueb.dmst.nereids.graphicalInterface;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
 
 public class Win {
 	private static JFrame win_frame;
 	int s = 0;
 
-	// constructor with no score changing the gameplay.frame
+	/**
+	 * constructor with no score changing the gameplay.frame
+	 */
 	public Win() {
+
+		// stop any sound playing
+		Gameplay.simpleSoundPlayer.pause();
+		// play sound for success
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/winfantasia-6912.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
+
 		Gameplay.clearScreen();
 		JLabel label = new JLabel();// create a label
 		JLabel label2 = new JLabel();
@@ -68,8 +86,24 @@ public class Win {
 
 	}
 
-	// constuctor to display the score as well, changing the Gameplay.frame
+	/**
+	 *  constuctor to display the score as well, changing the Gameplay.frame
+	 * @param score
+	 */
 	public Win(int score) {
+		
+
+		// stop any sound playing
+		Gameplay.simpleSoundPlayer.pause();
+		// play sound for success
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/winfantasia-6912.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
+		
+		
 		s = score;
 		Gameplay.clearScreen();
 
@@ -120,12 +154,27 @@ public class Win {
 		label3.setOpaque(true);
 		label3.setBounds(270, 263, 300, 300);
 	}
+
 	
-	/*
+	/**
 	 * constructor for win screen changing any given in the parameters frame
 	 * displaying the score
+	 * @param fr
 	 */
+	 
 	public Win(JFrame fr) {
+
+		// stop any sound playing
+		Gameplay.simpleSoundPlayer.pause();
+		// play sound for success
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/winfantasia-6912.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
+		
+		
 		s = Status.getScore();
 		fr.getContentPane().removeAll();
 
@@ -175,6 +224,8 @@ public class Win {
 		label3.setBackground(new Color(6, 45, 98));
 		label3.setOpaque(true);
 		label3.setBounds(270, 263, 300, 300);
+		
+		
 
 	}
 

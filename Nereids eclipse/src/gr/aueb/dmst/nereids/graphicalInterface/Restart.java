@@ -13,15 +13,29 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+
+import gr.aueb.dmst.nereids.sound.SoundPlayer;
 
 //import gr.aueb.dmst.nereids.graphicalInterface.PlayerChoice.ImagePanel;
 
 public class Restart {
 
 	public static void restart() throws InterruptedException {
-
+		
+		// stop any sound playing
+		Gameplay.simpleSoundPlayer.pause();
+		// play sound
+		try {
+			Gameplay.simpleSoundPlayer = new SoundPlayer("sound_of_game/CHIPTUNE_Minstrel_Dance.wav");
+			Gameplay.simpleSoundPlayer.play();
+		} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+			e.printStackTrace();
+		}
+		
 		Gameplay.clearScreen();
 		Gameplay.frame.dispose();
 
