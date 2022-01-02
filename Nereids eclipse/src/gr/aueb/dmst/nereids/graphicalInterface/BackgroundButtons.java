@@ -25,21 +25,22 @@ public class BackgroundButtons extends JPanel implements ActionListener {
 
 	public BackgroundButtons() {
 		button1 = new JButton(Status.d1.getName());
-		button1.setBackground(SeaBlue);
+		button1.setBackground(Color.WHITE);
+
 		button1.setOpaque(true);
 		button1.setForeground(DarkSeaBlue);
 		button1.setFont(new Font("Tahoma", Font.BOLD, 19));
 		button1.addActionListener(this);
 
 		button2 = new JButton(Status.d2.getName());
-		button2.setBackground(SeaBlue);
+		button2.setBackground(Color.WHITE);
 		button2.setOpaque(true);
 		button2.setForeground(DarkSeaBlue);
 		button2.setFont(new Font("Tahoma", Font.BOLD, 19));
 		button2.addActionListener(this);
 
 		button3 = new JButton(Status.d3.getName());
-		button3.setBackground(SeaBlue);
+		button3.setBackground(Color.WHITE);
 		button3.setOpaque(true);
 		button3.setForeground(DarkSeaBlue);
 		button3.setFont(new Font("Tahoma", Font.BOLD, 19));

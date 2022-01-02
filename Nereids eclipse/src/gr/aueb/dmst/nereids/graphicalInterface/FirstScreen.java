@@ -47,7 +47,8 @@ public class FirstScreen implements ActionListener {
 		titleNamePanel.setBounds(100, 100, 400, 150);
 		titleNamePanel.setBackground(SeaBlue);
 		titleNameLabel = new JLabel("NEREIDS");
-		titleNamePanel.setForeground(Color.white);
+		titleNameLabel.setForeground(Color.BLACK);
+		//titleNamePanel.setForeground(Color.WHITE);
 		titleNameLabel.setFont(new Font("Tahoma", Font.BOLD, 60));
 
 		startButtonPanel = new JPanel();
@@ -55,7 +56,7 @@ public class FirstScreen implements ActionListener {
 		startButtonPanel.setBackground(SeaBlue);
 
 		startButton = new JButton("START");
-		startButton.setBackground(SeaBlue);
+		startButton.setBackground(Color.WHITE); // white background
 		startButton.setForeground(Color.black);
 		startButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		startButton.addActionListener((ActionListener) this);
