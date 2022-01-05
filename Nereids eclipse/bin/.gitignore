@@ -1,4 +1,14 @@
+/.DS_Store
+/.classpath
+/.project
+/backgrounds/
+/boat/
+/fonts/
 /gr/
-/enemies/
+/logo/
+/maps/
+/nereids/
 /obstacles/
 /sounds/
+/tiles/
+/ui/

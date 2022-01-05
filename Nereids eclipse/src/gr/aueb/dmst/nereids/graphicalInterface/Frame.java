@@ -13,6 +13,7 @@ import javax.swing.WindowConstants;
 public class Frame extends JFrame {
 	public Frame() {
 		// make the frame
+		this.setTitle("NEREIDS");
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setSize(864, 576);
 		this.setVisible(true);

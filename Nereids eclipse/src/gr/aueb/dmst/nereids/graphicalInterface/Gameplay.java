@@ -13,6 +13,7 @@ public class Gameplay implements Runnable {
 	static Sound mainMusic = new Sound();
 	
 	public Gameplay() {
+		frame.setTitle("NEREIDS");
 		playMusic(9);
 		createLogoScreen();
 		new ScreenHandler();
