@@ -46,3 +46,16 @@
 /Restart$ImagePanel.class
 /OptionPaneExample.class
 /OptionPane.class
+/Boat.class
+/CollisionChecker.class
+/Entity.class
+/GamePanel.class
+/ImageTool.class
+/KeyHandler.class
+/Obstacle.class
+/ObstacleSetter.class
+/Sound.class
+/Tile.class
+/TileManager.class
+/UI.class
+/ScreenHandler.class
