@@ -88,7 +88,7 @@ public class ScreenHandler implements ActionListener {
 		Gameplay.clearScreen();
 		Gameplay.frame.dispose();
 		Gameplay.frame = new Frame();
-		//Gameplay.frame.setJMenuBar(menu); // adds menubar on frame
+		Gameplay.frame.setJMenuBar(menu); // adds menubar on frame
 		gamePanel = new GamePanel(totalChars);
 		Gameplay.frame.add(gamePanel);
 		Gameplay.frame.setVisible(true);

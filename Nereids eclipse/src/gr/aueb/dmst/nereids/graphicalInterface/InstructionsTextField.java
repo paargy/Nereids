@@ -13,20 +13,19 @@ import javax.swing.JTextArea;
 @SuppressWarnings("serial")
 public class InstructionsTextField extends JTextArea{
 	public InstructionsTextField() {
-		this.setText("This is a strategy game, but luck is also a factor to your winning. In the game you will \n"
-				+ "form a team of 3 nereids, whose goal is to reach their destination by boat. You will \n"
-				+ "choose from 9 different Nereids, all of which have different skills and stats. For example, \n"
-				+ "some are better at navigation while others are wiser or stronger. During your trip you will \n"
-				+ "come across some challenges, you will have to decide where to direct your ship to and \n"
-				+ "choose what difficulty you will have to face. \n"
-				+ "\n"
-				+ "The game starts with you at the beginning of your trip. You use your pointer keys \n"
-				+ "from your keyboard to go up and down. In front of you is the sea, which is divided by three \n"
-				+ "paths and each path has its own challenge. During you journey you will have to overcome \n"
-				+ "8 challenges, survive and reach your father's home in Sicilia. \n"
-				+ "Use the up pointer key on your keyboard to make your boat move to the higher path.\n"
-				+ "Use the down pointer key on your keyboard to make your boat move to the lower path.\n"
-				+ "Good Luck, stay safe!");
+		this.setText("\n\n"
+				   + "This is a strategy game, but luck is also a factor to your winning. In the game you will\n"
+				   + "form a team of 3 nereids, whose goal is to reach their destination by boat.\n"
+				   + "∙ 9  different Nereids are given. Each of them, has different amount of characteristics.\n"
+				   + "Choose wisely 3 of them. \n\n"
+				   
+				   + "The game starts:\n"
+				   + "∙ Use the poiter keys to navigate the ship up and down ↑↓ \n"
+				   + "∙ Choose 1 of the 3 difficulties that show up in each of the 8 levels\n"
+				   + "Each difficulty requires certain amount of the nereids' characteristics. Should you have\n"
+				   + "the characteristics needed,  your score increases,  otherwise it decreases.  Having that\n"
+				   + "the  score  is  not  0,  after 8 sets of challenges reach your father's home in Sicilia.\n"
+				   + "Good Luck, stay safe!");
 		this.setBackground(new Color(6, 45, 98));
 		this.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		this.setForeground(Color.white);
