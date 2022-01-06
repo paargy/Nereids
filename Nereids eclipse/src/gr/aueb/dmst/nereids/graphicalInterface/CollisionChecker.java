@@ -1,11 +1,8 @@
 package gr.aueb.dmst.nereids.graphicalInterface;
 
-/** 
- * Contains 2 methods
- * One to check for tile collision
- * (the boat cannot move on the sand tiles)
- * and another to check which obstacle
- * the boat collided with
+/**
+ * Contains 2 methods One to check for tile collision (the boat cannot move on
+ * the sand tiles) and another to check which obstacle the boat collided with
  */
 
 public class CollisionChecker {

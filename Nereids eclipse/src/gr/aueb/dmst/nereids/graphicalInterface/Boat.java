@@ -7,9 +7,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * Creates the boat the player
- * will control with the arrow keys
- * in order to reach Sicily
+ * Creates the boat the player will control with the arrow keys in order to
+ * reach Sicily
  */
 
 public class Boat {
@@ -60,7 +59,7 @@ public class Boat {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/** updates the boats coordinates while checking for collision */
 	public void update() {
 		/** check whether or not tile collision is happening */
@@ -75,7 +74,9 @@ public class Boat {
 		}
 		if (keyH.downPressed == true) {
 			direction = "down";
-			/** if there's not tile collision and player presses down arrow, boat can move */
+			/**
+			 * if there's not tile collision and player presses down arrow, boat can move
+			 */
 			if (collisionOn == false) {
 				mapY += SPEED;
 			}
@@ -96,11 +97,14 @@ public class Boat {
 					totalChars[j] = 0;
 				}
 			}
-			/** if the player has all the needed traits, score goes up*/
+			/** if the player has all the needed traits, score goes up */
 			if (numOfTraits == 9) {
 				gp.score += 1;
 			}
-			/** the 9th time the setObstacle method is called the gameFinished variable will become true */
+			/**
+			 * the 9th time the setObstacle method is called the gameFinished variable will
+			 * become true
+			 */
 			gp.obsSetter.setObstacle();
 		} else if (gp.ui.gameFinished) {
 			gp.screenObs[0].image = null;
@@ -116,20 +120,25 @@ public class Boat {
 			gp.playSE(11);
 		}
 		screenY = mapY;
-		/** the map is always moving to the right no matter what the player does with the boat 
-		 * (the boat stays on the same position on the x axis on the screen) */
+		/**
+		 * the map is always moving to the right no matter what the player does with the
+		 * boat (the boat stays on the same position on the x axis on the screen)
+		 */
 		mapX += SPEED;
 		/** update solid areas coordinates as boat moves */
 		solidArea.x = screenX;
 		solidArea.y = screenY + gp.tileSize * 2;
-		/** every 11th time this method is called the boat's sprite will change to implement movement */
+		/**
+		 * every 11th time this method is called the boat's sprite will change to
+		 * implement movement
+		 */
 		spriteCounter++;
 		if (spriteCounter == 13) {
 			spriteNum = (spriteNum == 1 ? 2 : 1);
 			spriteCounter = 0;
 		}
 	}
-	
+
 	/** play sound effect based on the obstacle the boat collided with */
 	public void react(Obstacle obs) {
 		switch (obs.name) {
@@ -163,7 +172,7 @@ public class Boat {
 	public void draw(Graphics2D g2) {
 		BufferedImage image = (spriteNum == 1 ? up : down);
 		g2.drawImage(image, screenX, screenY, null);
-		//g2.setColor(Color.red); //use to check for collision
-		//g2.draw(solidArea); //use to check for collision
+		// g2.setColor(Color.red); //use to check for collision
+		// g2.draw(solidArea); //use to check for collision
 	}
 }

@@ -7,18 +7,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
-/** 
+/**
  * Creates and manages tiles
  * 
- * Creates all the tiles that will be used throughout
- * main game and draws them efficiently.
+ * Creates all the tiles that will be used throughout main game and draws them
+ * efficiently.
  */
 
 public class TileManager {
 	GamePanel gp;
 	/** contains the different tile objects (one time each) that will be used */
 	Tile[] tile;
-	/** contains all the tiles that will be used to create the map (as many times as needed) */
+	/**
+	 * contains all the tiles that will be used to create the map (as many times as
+	 * needed)
+	 */
 	int mapTileNum[][];
 	ImageTool iTool = new ImageTool();
 
@@ -60,7 +63,7 @@ public class TileManager {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void loadMap(String map) {
 		try {
 			InputStream is = getClass().getResourceAsStream(map);
@@ -93,11 +96,15 @@ public class TileManager {
 				y = mapRow * gp.tileSize;
 				screenX = x - gp.boat.mapX + gp.boat.screenX;
 				screenY = y;
-				/** improves efficiency because it draws only the tiles that are/will soon be on the screen */
-				if (x + gp.tileSize > gp.boat.mapX - gp.boat.screenX && x - gp.tileSize < gp.boat.mapX + gp.boat.screenX * 8) {
+				/**
+				 * improves efficiency because it draws only the tiles that are/will soon be on
+				 * the screen
+				 */
+				if (x + gp.tileSize > gp.boat.mapX - gp.boat.screenX
+						&& x - gp.tileSize < gp.boat.mapX + gp.boat.screenX * 8) {
 					g2.drawImage(tile[tileNum].image, screenX, screenY, null);
 				}
 			}
-		}	
+		}
 	}
 }

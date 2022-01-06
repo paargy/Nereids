@@ -14,16 +14,16 @@ import javax.swing.SwingConstants;
  */
 
 @SuppressWarnings("serial")
-public class IntroPanel extends JPanel{
+public class IntroPanel extends JPanel {
 	public IntroPanel() {
 		JLabel creditLabel = new JLabel("A DMST student original game 2021  ", SwingConstants.RIGHT);
-	    creditLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
-	    Gameplay.frame.add(creditLabel, BorderLayout.PAGE_END);
+		creditLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
+		Gameplay.frame.add(creditLabel, BorderLayout.PAGE_END);
 		JLabel logoLabel = new JLabel();
 		ImageIcon imageIcon = new ImageIcon("res/logo/logo.png");
-		Image image = imageIcon.getImage(); // transform it 
-		Image newimg = image.getScaledInstance(530, 530,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-		imageIcon = new ImageIcon(newimg);  // transform it back
+		Image image = imageIcon.getImage(); // transform it
+		Image newimg = image.getScaledInstance(530, 530, java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+		imageIcon = new ImageIcon(newimg); // transform it back
 		logoLabel.setIcon(imageIcon);
 		logoLabel.setHorizontalAlignment(JLabel.CENTER);
 		this.add(logoLabel);

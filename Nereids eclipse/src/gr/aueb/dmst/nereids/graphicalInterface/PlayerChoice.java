@@ -25,12 +25,10 @@ import java.awt.Graphics2D;
 /**
  * PlayerChoice screen
  * 
- * changes the Gameplay.frame to the player choice screen 
- * 9 nereid buttons on the left side and when chosen,
- * the characteristics of the nereid on the right side. 
- * Button "choose her" at the bottom right side.
- * Can choose 3 nereids.
- * The same nereid cannot be chosen twice.
+ * changes the Gameplay.frame to the player choice screen 9 nereid buttons on
+ * the left side and when chosen, the characteristics of the nereid on the right
+ * side. Button "choose her" at the bottom right side. Can choose 3 nereids. The
+ * same nereid cannot be chosen twice.
  */
 
 public class PlayerChoice {
@@ -41,7 +39,7 @@ public class PlayerChoice {
 	ImageTool it = new ImageTool();
 	int numOfChoice;
 	/** out of bounds numbers so it operates right the first time */
-	int[] chosenNereidsIndexes = {99, 99, 99};
+	int[] chosenNereidsIndexes = { 99, 99, 99 };
 	ArrayList<JPanel> nereidPanel = new ArrayList<>();
 	JLabel nameLabel;
 	JTextArea nameArea, charArea;
@@ -55,29 +53,23 @@ public class PlayerChoice {
 			Arrays.asList("Actaea", "Doris", "Euagore", "Eucrate", "Eupompe", "Thetis", "Thoe", "Menippe", "Ploto"));
 	/** HashMap that connects each nereid's name with her characteristics */
 	HashMap<String, int[]> nereidInfo = new HashMap<>();
-	int[][] chars = { {2, 0, 2, 0, 0, 0, 0, 3, 1},
-					  {0, 2, 0, 2, 2, 0, 3, 0, 0},
-					  {0, 1, 2, 0, 0, 0, 0, 2, 1},
-					  {2, 0, 0, 2, 3, 2, 0, 0, 0},
-					  {1, 2, 2, 0, 0, 1, 0, 0, 0},
-					  {0, 4, 0, 0, 0, 2, 0, 1, 1},
-					  {4, 2, 0, 2, 0, 0, 0, 0, 0},
-					  {2, 3, 0, 0, 3, 0, 0, 0, 0},
-					  {4, 1, 0, 0, 2, 0, 0, 0, 0} };
+	int[][] chars = { { 2, 0, 2, 0, 0, 0, 0, 3, 1 }, { 0, 2, 0, 2, 2, 0, 3, 0, 0 }, { 0, 1, 2, 0, 0, 0, 0, 2, 1 },
+			{ 2, 0, 0, 2, 3, 2, 0, 0, 0 }, { 1, 2, 2, 0, 0, 1, 0, 0, 0 }, { 0, 4, 0, 0, 0, 2, 0, 1, 1 },
+			{ 4, 2, 0, 2, 0, 0, 0, 0, 0 }, { 2, 3, 0, 0, 3, 0, 0, 0, 0 }, { 4, 1, 0, 0, 2, 0, 0, 0, 0 } };
 	/** use this to get the total characteristics of the chosen nereids */
 	int[] totalChars;
-	
+
 	public PlayerChoice(JButton playButton, int[] totalChars) {
 		this.playButton = playButton;
 		this.totalChars = totalChars;
 	}
-	
-    public void putNereidImage() {
+
+	public void putNereidImage() {
 		for (int i = 1; i < 10; i++) {
-			nereidsImages.add(resize(new ImageIcon("res/nereids/nereid" + i + ".png"), 60, 60)); 
+			nereidsImages.add(resize(new ImageIcon("res/nereids/nereid" + i + ".png"), 60, 60));
 		}
 	}
- 
+
 	public static ImageIcon resize(ImageIcon image, int width, int height) {
 		BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
 		Graphics2D g2d = (Graphics2D) bi.createGraphics();
@@ -85,7 +77,7 @@ public class PlayerChoice {
 		g2d.dispose();
 		return new ImageIcon(bi);
 	}
-        
+
 	public void nereidDeclaration() {
 		for (int i = 0; i < 9; i++) {
 			nereidInfo.put(nereidNames.get(i), chars[i]);
@@ -167,15 +159,12 @@ public class PlayerChoice {
 		charPanel.setOpaque(false);
 		Gameplay.frame.add(charPanel);
 
-		charArea = new JTextArea("\n" + "  Agility: " + nereidInfo.get(name)[0] + "  " + "\n" +
-						"  Organization: " + nereidInfo.get(name)[1] + "  " + "\n" +
-						"  Wisdom: " + nereidInfo.get(name)[2] + "  " + "\n" +
-						"  Windlessness: " + nereidInfo.get(name)[3] + "  " + "\n" +
-						"  Courage: " + nereidInfo.get(name)[4] + "  " + "\n" + 
-						"  Strength: " + nereidInfo.get(name)[5] + "  " + "\n" + 
-						"  Animal Friendliness: " + nereidInfo.get(name)[6] + "  " + "\n" + 
-						"  Orientation: " + nereidInfo.get(name)[7] + "  " + "\n" +
-						"  Justice: " + nereidInfo.get(name)[8] + "  " + "\n");
+		charArea = new JTextArea("\n" + "  Agility: " + nereidInfo.get(name)[0] + "  " + "\n" + "  Organization: "
+				+ nereidInfo.get(name)[1] + "  " + "\n" + "  Wisdom: " + nereidInfo.get(name)[2] + "  " + "\n"
+				+ "  Windlessness: " + nereidInfo.get(name)[3] + "  " + "\n" + "  Courage: " + nereidInfo.get(name)[4]
+				+ "  " + "\n" + "  Strength: " + nereidInfo.get(name)[5] + "  " + "\n" + "  Animal Friendliness: "
+				+ nereidInfo.get(name)[6] + "  " + "\n" + "  Orientation: " + nereidInfo.get(name)[7] + "  " + "\n"
+				+ "  Justice: " + nereidInfo.get(name)[8] + "  " + "\n");
 		charArea.setEditable(false);
 		charArea.setBounds(500, 250, 200, 250);
 		charArea.setFont(charFont);
@@ -191,8 +180,10 @@ public class PlayerChoice {
 		choicePanel.setOpaque(false);
 		Gameplay.frame.add(choicePanel);
 
-		/** Use the chosenNereidsIndexes array to check whether or not 
-		 * a certain nereid has already been chosen */
+		/**
+		 * Use the chosenNereidsIndexes array to check whether or not a certain nereid
+		 * has already been chosen
+		 */
 		if (currentIndex != chosenNereidsIndexes[0] && currentIndex != chosenNereidsIndexes[1]
 				&& currentIndex != chosenNereidsIndexes[2]) {
 			choiceButton[currentIndex] = new JButton(" Choose her... ");
@@ -218,7 +209,7 @@ public class PlayerChoice {
 			for (int j = 0; j < 9; j++) {
 				totalChars[j] += nereidInfo.get(nereidNames.get(i))[j];
 			}
-		} catch(ArrayIndexOutOfBoundsException e) {
+		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("ignore");
 		}
 		if (numOfChoice == 3) {
@@ -246,9 +237,9 @@ public class PlayerChoice {
 			btnPanel.add(playButton);
 			Gameplay.frame.add(txtPanel);
 			Gameplay.frame.add(btnPanel);
-			
+
 		}
-		
+
 		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
 		Gameplay.frame.pack();
 		Gameplay.frame.setMinimumSize(null);
@@ -280,9 +271,11 @@ public class PlayerChoice {
 	@SuppressWarnings("serial")
 	public class ImagePanel extends JComponent {
 		private Image image;
+
 		public ImagePanel(Image image) {
 			this.image = image;
 		}
+
 		@Override
 		protected void paintComponent(Graphics g) {
 			super.paintComponent(g);

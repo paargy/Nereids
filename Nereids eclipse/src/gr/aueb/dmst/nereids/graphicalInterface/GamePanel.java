@@ -27,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	/** map settings */
 	final int maxMapCol = 177;
-	final int maxMapRow = 12;	
+	final int maxMapRow = 12;
 
 	/** FramesPerSecond */
 	int FPS = 40;
@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	/** score */
 	int score = 5;
-	
+
 	public GamePanel(int[] totalChars) {
 		boat = new Boat(this, keyH, totalChars);
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -80,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable {
 		double nextDrawTime = System.nanoTime() + drawInterval;
 		double remainingTime;
 		/** game loop */
-		while(gameThread != null) {	
+		while (gameThread != null) {
 			update();
 			repaint();
 			try {
@@ -102,15 +102,15 @@ public class GamePanel extends JPanel implements Runnable {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void update() {
 		boat.update();
 	}
-	
+
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		//long drawStart = System.nanoTime(); // use for drawing time optimization
+		// long drawStart = System.nanoTime(); // use for drawing time optimization
 		tileM.draw(g2);
 		for (int i = 0; i < 3; i++) {
 			if (screenObs[i] != null) {
@@ -119,22 +119,23 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 		boat.draw(g2);
 		ui.draw(g2);
-		//long drawEnd = System.nanoTime(); // use for drawing time optimization
-		//long passed = drawEnd - drawStart; // use for drawing time optimization
-		//System.out.println("Draw time that has passed :" + passed); // use for drawing time optimization
+		// long drawEnd = System.nanoTime(); // use for drawing time optimization
+		// long passed = drawEnd - drawStart; // use for drawing time optimization
+		// System.out.println("Draw time that has passed :" + passed); // use for
+		// drawing time optimization
 		g2.dispose();
 	}
-	
+
 	public void playMusic(int i) {
 		music.setFile(i);
 		music.play();
 		music.loop();
 	}
-	
+
 	public void stopMusic() {
 		music.stop();
 	}
-	
+
 	public void playSE(int i) {
 		sound.setFile(i);
 		sound.play();

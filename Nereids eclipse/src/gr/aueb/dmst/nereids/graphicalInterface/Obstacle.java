@@ -9,9 +9,7 @@ import javax.imageio.ImageIO;
 /**
  * Creates obstacles
  * 
- * These are the obstacles that
- * the player will encounter throughout
- * the game.
+ * These are the obstacles that the player will encounter throughout the game.
  */
 
 public class Obstacle {
@@ -34,7 +32,9 @@ public class Obstacle {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		/** will be used to check if collision is happening on this certain obstacle area */
+		/**
+		 * will be used to check if collision is happening on this certain obstacle area
+		 */
 		solidArea = new Rectangle(screenX, screenY, gp.tileSize * 3, gp.tileSize * 3);
 		/** the boat collides with every obstacle */
 		collision = true;
@@ -47,7 +47,7 @@ public class Obstacle {
 		g2.drawImage(image, screenX, screenY, null);
 		solidArea.x = screenX;
 		solidArea.y = screenY;
-		//g2.setColor(Color.red); //use to check for collision
-		//g2.draw(solidArea); //use to check for collision
+		// g2.setColor(Color.red); //use to check for collision
+		// g2.draw(solidArea); //use to check for collision
 	}
 }

@@ -11,8 +11,8 @@ import javax.swing.JMenuItem;
 /**
  * Makes a menu bar
  * 
- * MenuBar creates a menu bar on top of the frame
- * with the menu items: exit: terminate, restart.
+ * MenuBar creates a menu bar on top of the frame with the menu items: exit:
+ * terminate, restart.
  */
 
 @SuppressWarnings("serial")
@@ -21,9 +21,9 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	JMenuItem m1, m2, menuItem;
 	JFileChooser jf;
 	ScreenHandler sh;
-	Gameplay gp; 
-	
-	public MenuBar(ScreenHandler sh){ 
+	Gameplay gp;
+
+	public MenuBar(ScreenHandler sh) {
 		this.sh = sh;
 		m = new JMenu("Exit");
 		m.setMnemonic(KeyEvent.VK_R);
@@ -31,11 +31,12 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		m1 = new JMenuItem("Terminate game");
 		m1.addActionListener(this);
 		m.add(m1);
-		m2=new JMenuItem("Restart");
+		m2 = new JMenuItem("Restart");
 		m2.addActionListener(this);
-		m.add(m2);  
+		m.add(m2);
 	}
-	public MenuBar(Gameplay gameplay){ 
+
+	public MenuBar(Gameplay gameplay) {
 		this.gp = gameplay;
 		m = new JMenu("Exit");
 		m.setMnemonic(KeyEvent.VK_R);
@@ -43,24 +44,24 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		m1 = new JMenuItem("Terminate game");
 		m1.addActionListener(this);
 		m.add(m1);
-		m2=new JMenuItem("Restart");
+		m2 = new JMenuItem("Restart");
 		m2.addActionListener(this);
-		m.add(m2); 
+		m.add(m2);
 	}
-	
-	// use to restart the game 
+
+	// use to restart the game
 	public void restart() {
 		Gameplay.mainMusic.stop();
 		Gameplay.restartGameplay();
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object obj = e.getSource();
 		if (obj == m1) {
 			System.out.println("Terminate game");
 			System.exit(0);
-		}else if (obj == m2) {
+		} else if (obj == m2) {
 			restart();
 		}
 	}

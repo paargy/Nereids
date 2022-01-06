@@ -5,8 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 /**
- * constructs Frame in accordance
- * to our game's requirements
+ * constructs Frame in accordance to our game's requirements
  */
 
 @SuppressWarnings("serial")

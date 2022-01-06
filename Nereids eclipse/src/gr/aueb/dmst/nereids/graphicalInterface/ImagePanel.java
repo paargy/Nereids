@@ -11,7 +11,7 @@ public class ImagePanel extends JComponent {
 	Image image;
 	int width;
 	int height;
-	
+
 	public ImagePanel(Image image, int width, int height) {
 		this.image = image;
 		this.width = width;

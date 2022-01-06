@@ -5,25 +5,27 @@ import java.util.Random;
 /**
  * Sets obstacles on screen
  * 
- * ObstacleSetter creates 9 different Obstacle objects
- * ands puts them on the map so that the player
- * encounters them.
+ * ObstacleSetter creates 9 different Obstacle objects ands puts them on the map
+ * so that the player encounters them.
  */
 
 public class ObstacleSetter {
 	GamePanel gp;
-	/** contains the different obstacle objects (one time each) that will be used on the game */
+	/**
+	 * contains the different obstacle objects (one time each) that will be used on
+	 * the game
+	 */
 	Obstacle[] obs = new Obstacle[8];
 	/** contains the traits that are used to overcome each obstacle */
-	int[][] traits = {{2, 1, 0, 0, 0, 0, 0, 0, 0}, 
-					  {0, 0, 0, 1, 1, 1, 0, 0, 0},
-					  {1, 1, 0, 0, 1, 0, 0, 0, 0},
-					  {1, 1, 0, 0, 0, 1, 0, 0, 0},
-					  {1, 0, 0, 0, 1, 0, 1, 0, 0},
-					  {0, 0, 0, 1, 1, 0, 0, 1, 0},
-					  {0, 1, 1, 0, 0, 0, 0, 0, 1},
-					  {0, 0, 1, 0, 0, 0, 0, 2, 0}};
-	/** indicates the number of times the player overcame an obstacle*/
+	int[][] traits = { { 2, 1, 0, 0, 0, 0, 0, 0, 0 }, 
+					   { 0, 0, 0, 1, 1, 1, 0, 0, 0 }, 
+					   { 1, 1, 0, 0, 1, 0, 0, 0, 0 },
+					   { 1, 1, 0, 0, 0, 1, 0, 0, 0 }, 
+					   { 1, 0, 0, 0, 1, 0, 1, 0, 0 }, 
+					   { 0, 0, 0, 1, 1, 0, 0, 1, 0 },
+					   { 0, 1, 1, 0, 0, 0, 0, 0, 1 }, 
+					   { 0, 0, 1, 0, 0, 0, 0, 2, 0 } };
+	/** indicates the number of times the player overcame an obstacle */
 	int level = 1;
 
 	public ObstacleSetter(GamePanel gp) {
@@ -37,14 +39,17 @@ public class ObstacleSetter {
 		obs[6] = new Obstacle("wind", gp, traits[6], gp.tileSize * 2);
 		obs[7] = new Obstacle("seaanimals", gp, traits[7], gp.tileSize * 2);
 	}
-	
+
 	/** takes three different obstacles randomly and puts them on the map */
 	public void setObstacle() {
 		if (level == 9) {
 			gp.ui.gameFinished = true;
 		} else {
 			Random rand = new Random();
-			/** use these indexes to check that there won't be 2 or more same obstacles at the same time */
+			/**
+			 * use these indexes to check that there won't be 2 or more same obstacles at
+			 * the same time
+			 */
 			int index0, index1, index2;
 			index0 = rand.nextInt(obs.length);
 			do {
@@ -58,14 +63,15 @@ public class ObstacleSetter {
 			gp.screenObs[0].mapX = level * 19 * gp.tileSize; // * 19 because every level appears every 19 columns
 			gp.screenObs[0].mapY = 3 * gp.tileSize; // high height
 			gp.screenObs[1] = obs[index1];
-			gp.screenObs[1].mapX = (level * 19 - 1) * gp.tileSize; // * 18 because every level appears every 19 columns but this appears sooner
+			gp.screenObs[1].mapX = (level * 19 - 1) * gp.tileSize; // * 18 because every level appears every 19 columns
+																	// but this appears sooner
 			gp.screenObs[1].mapY = 6 * gp.tileSize; // medium height
 			gp.screenObs[2] = obs[index2];
 			gp.screenObs[2].mapX = level * 19 * gp.tileSize; // * 19 because every level appears every 19 columns
 			gp.screenObs[2].mapY = 9 * gp.tileSize; // low height
 			System.out.println("LEVEL: " + level);
 			/** upgrade level */
-			level++;	
+			level++;
 		}
 	}
 }

@@ -6,20 +6,18 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 
-/** 
+/**
  * Contains all the game music
  * 
- * Initializes the .wav files
- * that are found on the res/sounds package
- * and also has certain methods to control them
- * throughout the game. 
+ * Initializes the .wav files that are found on the res/sounds package and also
+ * has certain methods to control them throughout the game.
  */
 
 public class Sound {
 
 	static Clip clip;
 	URL[] soundURL = new URL[12];
-	static Clip [] clips = new Clip[13];
+	static Clip[] clips = new Clip[13];
 	static int i = 0;
 
 	public Sound() {
@@ -59,22 +57,21 @@ public class Sound {
 	}
 
 	public static void stop() {
-		
+
 		clip.stop();
-		/* 
-		 * stop every clip made 
-		 * stop every Clip item in the table clips
+		/*
+		 * stop every clip made stop every Clip item in the table clips
 		 */
 		for (int j = 0; j < clips.length; j++) {
 			if (clips[j] != null) {
 				clips[j].stop();
-				System.out.println("-----"+j);
+				System.out.println("-----" + j);
 				System.out.println(clips[j].toString());
 			} else {
-				System.out.println("-----"+j);
+				System.out.println("-----" + j);
 				System.out.println("null");
 			}
-			
+
 		}
 	}
 }
