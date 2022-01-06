@@ -29,12 +29,12 @@ public class ScreenHandler implements ActionListener {
 	JButton startButton;
 	JButton nextButton;
 	JButton playButton;
-	GamePanel gamePanel;
+	static GamePanel gamePanel;
 	MenuBar menu = new MenuBar(this);
 	int[] totalChars = new int[9];
 
 	public ScreenHandler() {
-		/** puts image as frame background*/
+		/* puts image as frame background*/
 		try {
 			Image bg = ImageIO.read(new File("res/backgrounds/titleScreen.png"));
 			Gameplay.frame.setContentPane(new ImagePanel(bg, 864, 576));
@@ -42,7 +42,7 @@ public class ScreenHandler implements ActionListener {
 			e.printStackTrace();
 		}
 		Gameplay.frame.setLayout(null);
-		/** creates start button to use in the first screen */
+		/* creates start button to use in the first screen */
 		startButtonPanel = new JPanel();
 		startButtonPanel.setBounds(360, 330, 127, 77);
 		startButtonPanel.setOpaque(false);
@@ -50,20 +50,24 @@ public class ScreenHandler implements ActionListener {
 		startButton.setOpaque(false);
 		startButton.addActionListener((ActionListener) this);
 		startButtonPanel.add(startButton);
-		/** standard fuctions */
+		/* standard fuctions */
 		Gameplay.frame.getContentPane().add(startButtonPanel);
 		Gameplay.frame.repaint();
 		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
 		Gameplay.frame.pack();
 		Gameplay.frame.setMinimumSize(null);
 		Gameplay.frame.setVisible(true);
-		/** creates play button to use in the player choice screen */
+		/* creates play button to use in the player choice screen */
 		playButton = new JButton("YES");
 		playButton.setPreferredSize(new Dimension(150, 50));
 		playButton.setFont(new Font("Tahoma", Font.BOLD, 35));
 		playButton.setForeground(Color.white);
 		playButton.setBackground(new Color(6, 45, 98));
 		playButton.addActionListener((ActionListener) this);
+	}
+	public static void interruptGameThread() {
+		gamePanel.interruptGameThread();
+			
 	}
 	
 	public void createInstructionScreen() {

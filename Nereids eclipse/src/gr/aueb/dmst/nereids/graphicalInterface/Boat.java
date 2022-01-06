@@ -34,9 +34,9 @@ public class Boat {
 		this.totalChars = totalChars;
 		screenX = 100;
 		screenY = 230;
-		/** sets the size of the boat image */
+		/* sets the size of the boat image */
 		size = gp.tileSize * 3;
-		/** will be used to check if collision is happening on this certain boat area */
+		/* will be used to check if collision is happening on this certain boat area */
 		solidArea = new Rectangle(screenX, screenY + gp.tileSize * 2, gp.tileSize * 3, gp.tileSize);
 		setDefaultValues();
 		getBoatImage();
@@ -60,30 +60,30 @@ public class Boat {
 		}
 	}
 
-	/** updates the boats coordinates while checking for collision */
+	/* updates the boats coordinates while checking for collision */
 	public void update() {
-		/** check whether or not tile collision is happening */
+		/* check whether or not tile collision is happening */
 		collisionOn = false;
 		gp.checker.checkTile(this);
 		if (keyH.upPressed == true) {
 			direction = "up";
-			/** if there's not tile collision and player presses up arrow, boat can move */
+			/* if there's not tile collision and player presses up arrow, boat can move */
 			if (collisionOn == false) {
 				mapY -= SPEED;
 			}
 		}
 		if (keyH.downPressed == true) {
 			direction = "down";
-			/**
+			/*
 			 * if there's not tile collision and player presses down arrow, boat can move
 			 */
 			if (collisionOn == false) {
 				mapY += SPEED;
 			}
 		}
-		/** check whether or not obstacle collision is happening */
+		/* check whether or not obstacle collision is happening */
 		collisionOn = false;
-		/** if it's not happening the checkObstacle method returns -1 */
+		/* if it's not happening the checkObstacle method returns -1 */
 		int i = gp.checker.checkObstacle(this);
 		if (collisionOn == true && !gp.ui.gameFinished) {
 			react(gp.screenObs[i]);
@@ -97,11 +97,11 @@ public class Boat {
 					totalChars[j] = 0;
 				}
 			}
-			/** if the player has all the needed traits, score goes up */
+			/* if the player has all the needed traits, score goes up */
 			if (numOfTraits == 9) {
 				gp.score += 1;
 			}
-			/**
+			/*
 			 * the 9th time the setObstacle method is called the gameFinished variable will
 			 * become true
 			 */
@@ -120,7 +120,7 @@ public class Boat {
 			gp.playSE(11);
 		}
 		screenY = mapY;
-		/**
+		/*
 		 * the map is always moving to the right no matter what the player does with the
 		 * boat (the boat stays on the same position on the x axis on the screen)
 		 */
@@ -128,7 +128,7 @@ public class Boat {
 		/** update solid areas coordinates as boat moves */
 		solidArea.x = screenX;
 		solidArea.y = screenY + gp.tileSize * 2;
-		/**
+		/*
 		 * every 11th time this method is called the boat's sprite will change to
 		 * implement movement
 		 */
@@ -139,7 +139,7 @@ public class Boat {
 		}
 	}
 
-	/** play sound effect based on the obstacle the boat collided with */
+	/* play sound effect based on the obstacle the boat collided with */
 	public void react(Obstacle obs) {
 		switch (obs.name) {
 		case "conflict":

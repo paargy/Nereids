@@ -7,6 +7,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import gr.aueb.dmst.nereids.graphicalInterface.ScreenHandler;
 
 /**
  * Makes a menu bar
@@ -51,6 +52,10 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
 	// use to restart the game
 	public void restart() {
+		if (ScreenHandler.gamePanel != null) {
+			ScreenHandler.interruptGameThread();
+		}
+		Gameplay.frame.dispose();
 		Gameplay.mainMusic.stop();
 		Gameplay.restartGameplay();
 	}

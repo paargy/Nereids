@@ -43,6 +43,7 @@ public class Sound {
 			clips[i] = clip;
 			// store Clip object in table clips[]
 			i++;
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -53,9 +53,15 @@ public class PlayerChoice {
 			Arrays.asList("Actaea", "Doris", "Euagore", "Eucrate", "Eupompe", "Thetis", "Thoe", "Menippe", "Ploto"));
 	/** HashMap that connects each nereid's name with her characteristics */
 	HashMap<String, int[]> nereidInfo = new HashMap<>();
-	int[][] chars = { { 2, 0, 2, 0, 0, 0, 0, 3, 1 }, { 0, 2, 0, 2, 2, 0, 3, 0, 0 }, { 0, 1, 2, 0, 0, 0, 0, 2, 1 },
-			{ 2, 0, 0, 2, 3, 2, 0, 0, 0 }, { 1, 2, 2, 0, 0, 1, 0, 0, 0 }, { 0, 4, 0, 0, 0, 2, 0, 1, 1 },
-			{ 4, 2, 0, 2, 0, 0, 0, 0, 0 }, { 2, 3, 0, 0, 3, 0, 0, 0, 0 }, { 4, 1, 0, 0, 2, 0, 0, 0, 0 } };
+	int[][] chars = { { 2, 0, 2, 0, 0, 0, 0, 3, 1 }, 
+					  { 0, 2, 0, 2, 2, 0, 3, 0, 0 }, 
+					  { 0, 1, 2, 0, 0, 0, 0, 2, 1 },
+					  { 2, 0, 0, 2, 3, 2, 0, 0, 0 }, 
+					  { 1, 2, 2, 0, 0, 1, 0, 0, 0 }, 
+					  { 0, 4, 0, 0, 0, 2, 0, 1, 1 },
+					  { 4, 2, 0, 2, 0, 0, 0, 0, 0 }, 
+					  { 2, 3, 0, 0, 3, 0, 0, 0, 0 }, 
+					  { 4, 1, 0, 0, 2, 0, 0, 0, 0 } };
 	/** use this to get the total characteristics of the chosen nereids */
 	int[] totalChars;
 
@@ -245,7 +251,7 @@ public class PlayerChoice {
 		Gameplay.frame.setMinimumSize(null);
 	}
 
-	/*
+	/**
 	 * returns an int [3] with the numbers of the chosen nereids integers from 0 to
 	 * 8 as in the array
 	 */
