@@ -21,10 +21,11 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	JMenuItem m1, m2, menuItem;
 	JFileChooser jf;
 	ScreenHandler sh;
+	Gameplay gp; 
 	
 	public MenuBar(ScreenHandler sh){ 
 		this.sh = sh;
-		m = new JMenu("Settings");
+		m = new JMenu("Exit");
 		m.setMnemonic(KeyEvent.VK_R);
 		this.add(m);
 		m1 = new JMenuItem("Terminate game");
@@ -34,12 +35,23 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		m2.addActionListener(this);
 		m.add(m2);  
 	}
-
+	public MenuBar(Gameplay gameplay){ 
+		this.gp = gameplay;
+		m = new JMenu("Exit");
+		m.setMnemonic(KeyEvent.VK_R);
+		this.add(m);
+		m1 = new JMenuItem("Terminate game");
+		m1.addActionListener(this);
+		m.add(m1);
+		m2=new JMenuItem("Restart");
+		m2.addActionListener(this);
+		m.add(m2); 
+	}
+	
+	// use to restart the game 
 	public void restart() {
-		if (sh.gamePanel != null) {
-			sh.gamePanel.stopMusic();
-		}
-		sh.createPlayerChoiceScreen();
+		Gameplay.mainMusic.stop();
+		Gameplay.restartGameplay();
 	}
 	
 	@Override

@@ -11,14 +11,30 @@ package gr.aueb.dmst.nereids.graphicalInterface;
 public class Gameplay implements Runnable {
 	static Frame frame = new Frame();
 	static Sound mainMusic = new Sound();
+	MenuBar menu = new MenuBar(this);
 	
+	public static void makeSoundObj() {
+		mainMusic = new Sound();
+	}
 	public Gameplay() {
+		//mainMusic = new Sound();
+		// makeSoundObj();
 		frame.setTitle("NEREIDS");
 		playMusic(9);
 		createLogoScreen();
+		Gameplay.frame.setJMenuBar(menu); // adds menubar on frame
 		new ScreenHandler();
 	}
 	
+	public static void restartGameplay() {
+		stopMusic();
+		//mainMusic = new Sound();
+		// makeSoundObj();
+		mainMusic.stop();
+		frame.setTitle("NEREIDS");
+		playMusic(9);
+		new ScreenHandler();
+	}
 	public void createLogoScreen() {
 		Thread intro = new Thread(this);
 		intro.start();
@@ -36,7 +52,7 @@ public class Gameplay implements Runnable {
 		frame.repaint();
 	}
 	
-	public void playMusic(int i) {
+	public static void playMusic(int i) {
 		mainMusic.setFile(i);
 		mainMusic.play();
 		mainMusic.loop();
