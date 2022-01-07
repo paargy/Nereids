@@ -77,7 +77,9 @@ public class GamePanel extends JPanel implements Runnable {
 
 	// interrupt the game thread
 	public void interruptGameThread() {
-		gameThread.interrupt();
+		if (gameThread != null) {
+			gameThread.interrupt();
+		}
 		play = false; 
 	}
 
