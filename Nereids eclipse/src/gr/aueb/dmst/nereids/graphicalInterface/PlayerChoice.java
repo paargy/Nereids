@@ -16,6 +16,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -32,6 +33,7 @@ import java.awt.Graphics2D;
  */
 
 public class PlayerChoice {
+	JFrame frame;
 	JPanel namePanel, charPanel, iconPanel, choicePanel;
 	JPanel[] teamPanel = new JPanel[3];
 	JButton[] choiceButton = new JButton[9];
@@ -65,14 +67,16 @@ public class PlayerChoice {
 	/** use this to get the total characteristics of the chosen nereids */
 	int[] totalChars;
 
-	public PlayerChoice(JButton playButton, int[] totalChars) {
+	public PlayerChoice(JFrame frame, JButton playButton, int[] totalChars) {
+		this.frame = frame;
 		this.playButton = playButton;
 		this.totalChars = totalChars;
 	}
 
 	public void putNereidImage() {
 		for (int i = 1; i < 10; i++) {
-			nereidsImages.add(resize(new ImageIcon("res/nereids/nereid" + i + ".png"), 60, 60));
+			//nereidsImages.add(resize(new ImageIcon("res/nereids/nereid" + i + ".png"), 256, 256));
+			nereidsImages.add(new ImageIcon("res/nereids/nereid" + i + ".png"));
 		}
 	}
 
@@ -94,7 +98,7 @@ public class PlayerChoice {
 		try {
 			/** sets image as frame background */
 			Image bg = ImageIO.read(new File("res/backgrounds/background.png"));
-			Gameplay.frame.setContentPane(new ImagePanel(bg));
+			frame.setContentPane(new ImagePanel(bg));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +106,7 @@ public class PlayerChoice {
 		putNereidImage();
 		nereidDeclaration();
 		for (int i = 0; i < 9; i++) {
-			Icon nereid = nereidsImages.get(i);
+			Icon nereid = resize(nereidsImages.get(i), 60, 60);
 			nereidPanel.add(new JPanel());
 			nereidPanel.get(i).setBounds(x * 70, y * 70 - 10, 70, 70);
 			nereidPanel.get(i).setOpaque(false);
@@ -112,7 +116,7 @@ public class PlayerChoice {
 			nereidButton.get(i).setBorderPainted(false);
 			nereidButton.get(i).setContentAreaFilled(false);
 			nereidPanel.get(i).add(nereidButton.get(i));
-			Gameplay.frame.add(nereidPanel.get(i));
+			frame.add(nereidPanel.get(i));
 			/** changes x, y in order to create a 3x3 table of nereid buttons */
 			x = ((i + 1) % 3 == 0 ? 1 : x + 1);
 			y = ((i + 1) % 3 == 0 ? y + 1 : y);
@@ -121,10 +125,10 @@ public class PlayerChoice {
 			teamPanel[i] = new JPanel();
 			teamPanel[i].setBounds((i + 1) * 70, 420, 70, 70);
 			teamPanel[i].setOpaque(false);
-			Gameplay.frame.add(teamPanel[i]);
+			frame.add(teamPanel[i]);
 		}
 		/** needs to be here in order for the frame to appear */
-		Gameplay.frame.setVisible(true);
+		frame.setVisible(true);
 	}
 
 	public void nereidChoiceDisplay(String name) {
@@ -133,13 +137,13 @@ public class PlayerChoice {
 		}
 
 		namePanel = new JPanel();
-		namePanel.setBounds(400, 30, 500, 500);
+		namePanel.setBounds(390, 25, 500, 500);
 		namePanel.setOpaque(false);
-		Gameplay.frame.add(namePanel);
+		frame.add(namePanel);
 
 		nameArea = new JTextArea(name);
 		nameArea.setEditable(false);
-		nameArea.setBounds(400, 30, 500, 500);
+		nameArea.setBounds(390, 25, 500, 500);
 		nameArea.setFont(nameFont);
 		nameArea.setOpaque(false);
 		nameArea.setForeground(new Color(6, 45, 98));
@@ -149,13 +153,13 @@ public class PlayerChoice {
 			iconPanel.removeAll();
 		}
 		iconPanel = new JPanel();
-		iconPanel.setBounds(525, 115, 250, 250);
+		iconPanel.setBounds(565, 100, 150, 150);
 		iconPanel.setOpaque(false);
 
 		int currentIndex = nereidNames.indexOf(name);
-		picLabel = new JLabel(resize(nereidsImages.get(currentIndex), 100, 100));
+		picLabel = new JLabel(resize(nereidsImages.get(currentIndex), 140, 140));
 		iconPanel.add(picLabel);
-		Gameplay.frame.add(iconPanel);
+		frame.add(iconPanel);
 
 		if (charPanel != null) {
 			charPanel.removeAll();
@@ -163,14 +167,17 @@ public class PlayerChoice {
 		charPanel = new JPanel();
 		charPanel.setBounds(550, 225, 210, 240);
 		charPanel.setOpaque(false);
-		Gameplay.frame.add(charPanel);
+		frame.add(charPanel);
 
-		charArea = new JTextArea("\n" + "  Agility: " + nereidInfo.get(name)[0] + "  " + "\n" + "  Organization: "
-				+ nereidInfo.get(name)[1] + "  " + "\n" + "  Wisdom: " + nereidInfo.get(name)[2] + "  " + "\n"
-				+ "  Windlessness: " + nereidInfo.get(name)[3] + "  " + "\n" + "  Courage: " + nereidInfo.get(name)[4]
-				+ "  " + "\n" + "  Strength: " + nereidInfo.get(name)[5] + "  " + "\n" + "  Animal Friendliness: "
-				+ nereidInfo.get(name)[6] + "  " + "\n" + "  Orientation: " + nereidInfo.get(name)[7] + "  " + "\n"
-				+ "  Justice: " + nereidInfo.get(name)[8] + "  " + "\n");
+		charArea = new JTextArea("\n" + "  Agility: " + nereidInfo.get(name)[0] + "  " + "\n" 
+									  + "  Organization: " + nereidInfo.get(name)[1] + "  " + "\n"
+									  + "  Wisdom: " + nereidInfo.get(name)[2] + "  " + "\n"
+									  + "  Windlessness: " + nereidInfo.get(name)[3] + "  " + "\n"
+									  + "  Courage: " + nereidInfo.get(name)[4] + "  " + "\n"
+									  + "  Strength: " + nereidInfo.get(name)[5] + "  " + "\n"
+									  + "  Animal Friendliness: " + nereidInfo.get(name)[6] + "  " + "\n"
+									  + "  Orientation: " + nereidInfo.get(name)[7] + "  " + "\n"
+									  + "  Justice: " + nereidInfo.get(name)[8] + "  " + "\n");
 		charArea.setEditable(false);
 		charArea.setBounds(500, 250, 200, 250);
 		charArea.setFont(charFont);
@@ -182,9 +189,9 @@ public class PlayerChoice {
 			choicePanel.removeAll();
 		}
 		choicePanel = new JPanel();
-		choicePanel.setBounds(600, 450, 100, 100);
+		choicePanel.setBounds(600, 470, 100, 100);
 		choicePanel.setOpaque(false);
-		Gameplay.frame.add(choicePanel);
+		frame.add(choicePanel);
 
 		/**
 		 * Use the chosenNereidsIndexes array to check whether or not a certain nereid
@@ -196,10 +203,10 @@ public class PlayerChoice {
 			choiceButton[currentIndex].addActionListener(tsHandler);
 			choicePanel.add(choiceButton[currentIndex]);
 		}
-		Gameplay.frame.repaint();
-		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
-		Gameplay.frame.pack();
-		Gameplay.frame.setMinimumSize(null);
+		frame.repaint();
+		frame.setMinimumSize(frame.getSize());
+		frame.pack();
+		frame.setMinimumSize(null);
 	}
 
 	public void chooseTeam(int i) {
@@ -241,14 +248,12 @@ public class PlayerChoice {
 			btnPanel.setBounds(340, 200, 150, 50);
 			btnPanel.setOpaque(false);
 			btnPanel.add(playButton);
-			Gameplay.frame.add(txtPanel);
-			Gameplay.frame.add(btnPanel);
-
+			frame.add(txtPanel);
+			frame.add(btnPanel);
 		}
-
-		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
-		Gameplay.frame.pack();
-		Gameplay.frame.setMinimumSize(null);
+		frame.setMinimumSize(frame.getSize());
+		frame.pack();
+		frame.setMinimumSize(null);
 	}
 
 	/**

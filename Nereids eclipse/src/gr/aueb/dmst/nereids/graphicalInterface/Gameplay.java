@@ -8,32 +8,16 @@ package gr.aueb.dmst.nereids.graphicalInterface;
  */
 
 public class Gameplay implements Runnable {
-	static Frame frame = new Frame();
+	Frame frame = new Frame();
 	static Sound mainMusic = new Sound();
 	MenuBar menu = new MenuBar(this);
 
-	public static void makeSoundObj() {
-		mainMusic = new Sound();
-	}
-
 	public Gameplay() {
-		// mainMusic = new Sound();
-		// makeSoundObj();
 		frame.setTitle("NEREIDS");
 		playMusic(9);
 		createLogoScreen();
-		Gameplay.frame.setJMenuBar(menu); // adds menubar on frame
-		new ScreenHandler();
-	}
-
-	public static void restartGameplay() {
-		stopMusic();
-		// mainMusic = new Sound();
-		// makeSoundObj();
-		mainMusic.stop();
-		frame.setTitle("NEREIDS");
-		playMusic(9);
-		new ScreenHandler();
+		frame.setJMenuBar(menu); // adds menubar on frame
+		new ScreenHandler(this);
 	}
 
 	public void createLogoScreen() {
@@ -48,7 +32,7 @@ public class Gameplay implements Runnable {
 		clearScreen();
 	}
 
-	public static void clearScreen() {
+	public void clearScreen() {
 		frame.getContentPane().removeAll();
 		frame.repaint();
 	}
@@ -62,13 +46,21 @@ public class Gameplay implements Runnable {
 	public static void stopMusic() {
 		mainMusic.stop();
 	}
+	
+	public void restartGameplay() {
+		stopMusic();
+		mainMusic.stop();
+		frame.setTitle("NEREIDS");
+		playMusic(9);
+		new ScreenHandler(this); //check if it works correctly
+	}
 
 	@Override
 	public void run() {
-		IntroPanel iPanel = new IntroPanel();
-		Gameplay.frame.add(iPanel);
-		Gameplay.frame.pack();
-		Gameplay.frame.setVisible(true);
-		Gameplay.frame.setSize(864, 576);
+		IntroPanel iPanel = new IntroPanel(frame);
+		frame.add(iPanel);
+		frame.pack();
+		frame.setVisible(true);
+		frame.setSize(864, 596);
 	}
 }

@@ -20,7 +20,6 @@ public class CollisionChecker {
 		int bottomY = boat.mapY + gp.tileSize + boat.solidArea.height;
 
 		int leftCol = leftX / gp.tileSize;
-		// check leftCol == maxMapCol - ?? then switch to win frame
 		int topRow = (topY - boat.SPEED) / gp.tileSize;
 		int bottomRow = ((bottomY - boat.SPEED) / gp.tileSize) + 2;
 		int tileNum;

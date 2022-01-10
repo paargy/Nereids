@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 		// make the frame
 		this.setTitle("NEREIDS");
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setSize(864, 576);
+		this.setSize(864, 636); //606
 		this.setVisible(true);
 		this.setResizable(false);
 		// put the logo image as frame icon

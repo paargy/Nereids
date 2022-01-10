@@ -15,11 +15,11 @@ import javax.swing.JPanel;
  */
 
 @SuppressWarnings("serial")
-public class InstuctionsPanel extends JPanel {
+public class InstructionsPanel extends JPanel {
 	public Color SeaBlue = new Color(6, 45, 98);
 	JButton nextButton;
 
-	public InstuctionsPanel(JButton nextButton) {
+	public InstructionsPanel(JButton nextButton) {
 		this.nextButton = nextButton;
 		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
@@ -44,8 +44,8 @@ public class InstuctionsPanel extends JPanel {
 		c.gridy = 0;
 		pane.add(label2, c);
 
-		InstructionsTextField iField = new InstructionsTextField();
-		c.ipady = 135; // make this component tall
+		InstructionsTextArea iField = new InstructionsTextArea();
+		c.ipady = 110; // make this component tall
 		c.weightx = 0.0;
 		c.gridwidth = 3;
 		c.gridx = 0;

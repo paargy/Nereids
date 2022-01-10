@@ -7,7 +7,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import gr.aueb.dmst.nereids.graphicalInterface.ScreenHandler;
 
 /**
  * Makes a menu bar
@@ -26,7 +25,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
 	public MenuBar(ScreenHandler sh) {
 		this.sh = sh;
-		m = new JMenu("Exit");
+		m = new JMenu("Options");
 		m.setMnemonic(KeyEvent.VK_R);
 		this.add(m);
 		m1 = new JMenuItem("Terminate game");
@@ -39,7 +38,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
 	public MenuBar(Gameplay gameplay) {
 		this.gp = gameplay;
-		m = new JMenu("Exit");
+		m = new JMenu("Options");
 		m.setMnemonic(KeyEvent.VK_R);
 		this.add(m);
 		m1 = new JMenuItem("Terminate game");
@@ -52,12 +51,15 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
 	// use to restart the game
 	public void restart() {
-		if (ScreenHandler.gamePanel != null) {
-			ScreenHandler.interruptGameThread();
+		if (gp == null) {
+			sh.gplay.frame.dispose();
+			Gameplay.mainMusic.stop();
+			sh.gplay.restartGameplay();
+		} else if (sh == null) {
+			gp.frame.dispose();
+			Gameplay.mainMusic.stop();
+			gp.restartGameplay();
 		}
-		Gameplay.frame.dispose();
-		Gameplay.mainMusic.stop();
-		Gameplay.restartGameplay();
 	}
 
 	@Override

@@ -13,20 +13,20 @@ import javax.imageio.ImageIO;
 
 public class Boat {
 
-	GamePanel gp;
-	KeyHandler keyH;
+	final int SPEED = 5;
 	int mapX, mapY;
 	int screenX, screenY;
-	final int SPEED = 5;
+	int spriteCounter = 0;
+	int spriteNum = 1;
+	int size;
+	int[] totalChars;
+	boolean collisionOn = false;
+	GamePanel gp;
+	KeyHandler keyH;
 	BufferedImage up;
 	BufferedImage down;
 	String direction;
-	int spriteCounter = 0;
-	int spriteNum = 1;
 	Rectangle solidArea;
-	boolean collisionOn = false;
-	int size;
-	int[] totalChars;
 
 	public Boat(GamePanel gp, KeyHandler keyH, int[] totalChars) {
 		this.gp = gp;
@@ -129,7 +129,7 @@ public class Boat {
 		solidArea.x = screenX;
 		solidArea.y = screenY + gp.tileSize * 2;
 		/*
-		 * every 11th time this method is called the boat's sprite will change to
+		 * every 13th time this method is called the boat's sprite will change to
 		 * implement movement
 		 */
 		spriteCounter++;

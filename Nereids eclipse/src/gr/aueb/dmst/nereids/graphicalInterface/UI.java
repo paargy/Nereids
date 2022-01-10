@@ -98,21 +98,18 @@ public class UI {
 		g2.drawString(messages[messageIndex], 670, 480);
 	}
 
-	/** draws player's score */
 	public void drawScore() {
 		g2.setColor(Color.white);
 		g2.setFont(new Font("Tahoma", Font.BOLD, 30));
 		g2.drawString("SCORE : " + gp.score, 70, 80);
 	}
 
-	/** draws defeat screen */
 	public void drawDefeatScreen() {
 		g2.setColor(Color.white);
 		g2.setFont(new Font("Tahoma", Font.BOLD, 60));
 		g2.drawString("OH NO DEFEAT :(", 160, 100);
 	}
 
-	/** draws win screen */
 	public void drawWinScreen() {
 		g2.setColor(Color.white);
 		g2.setFont(new Font("Tahoma", Font.BOLD, 60));

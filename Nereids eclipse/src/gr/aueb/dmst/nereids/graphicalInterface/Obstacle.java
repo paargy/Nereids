@@ -19,7 +19,7 @@ public class Obstacle {
 	int mapX, mapY;
 	int screenX, screenY;
 	int[] traits;
-	/** use this rectangle to check for boat to obstacle collsion */
+	/** use this rectangle to check for boat to obstacle collision */
 	Rectangle solidArea;
 	GamePanel gp;
 
@@ -47,7 +47,7 @@ public class Obstacle {
 		g2.drawImage(image, screenX, screenY, null);
 		solidArea.x = screenX;
 		solidArea.y = screenY;
-		// g2.setColor(Color.red); //use to check for collision
-		// g2.draw(solidArea); //use to check for collision
+		//g2.setColor(Color.red); //use to check for collision
+		//g2.draw(solidArea); //use to check for collision
 	}
 }

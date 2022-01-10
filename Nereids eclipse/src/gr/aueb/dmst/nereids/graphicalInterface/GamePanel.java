@@ -75,14 +75,6 @@ public class GamePanel extends JPanel implements Runnable {
 		}
 	}
 
-	// interrupt the game thread
-	public void interruptGameThread() {
-		if (gameThread != null) {
-			gameThread.interrupt();
-		}
-		play = false; 
-	}
-
 	@Override
 	public void run() {
 		double drawInterval = 1000000000 / FPS; // 0.0166
@@ -130,8 +122,7 @@ public class GamePanel extends JPanel implements Runnable {
 		ui.draw(g2);
 		// long drawEnd = System.nanoTime(); // use for drawing time optimization
 		// long passed = drawEnd - drawStart; // use for drawing time optimization
-		// System.out.println("Draw time that has passed :" + passed); // use for
-		// drawing time optimization
+		// System.out.println("Draw time that has passed :" + passed); // use for drawing time optimization
 		g2.dispose();
 	}
 

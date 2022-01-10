@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -15,10 +16,10 @@ import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
 public class IntroPanel extends JPanel {
-	public IntroPanel() {
+	public IntroPanel(JFrame frame) {
 		JLabel creditLabel = new JLabel("A DMST student original game 2021  ", SwingConstants.RIGHT);
 		creditLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
-		Gameplay.frame.add(creditLabel, BorderLayout.PAGE_END);
+		frame.add(creditLabel, BorderLayout.PAGE_END);
 		JLabel logoLabel = new JLabel();
 		ImageIcon imageIcon = new ImageIcon("res/logo/logo.png");
 		Image image = imageIcon.getImage(); // transform it

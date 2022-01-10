@@ -29,34 +29,36 @@ public class ScreenHandler implements ActionListener {
 	JButton startButton;
 	JButton nextButton;
 	JButton playButton;
-	static GamePanel gamePanel;
+	Gameplay gplay;
+	GamePanel gamePanel;
 	MenuBar menu = new MenuBar(this);
 	int[] totalChars = new int[9];
 
-	public ScreenHandler() {
+	public ScreenHandler(Gameplay gplay) {
+		this.gplay = gplay;
 		/* puts image as frame background*/
 		try {
 			Image bg = ImageIO.read(new File("res/backgrounds/titleScreen.png"));
-			Gameplay.frame.setContentPane(new ImagePanel(bg, 864, 576));
+			gplay.frame.setContentPane(new ImagePanel(bg, 864, 576));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Gameplay.frame.setLayout(null);
+		gplay.frame.setLayout(null);
 		/* creates start button to use in the first screen */
 		startButtonPanel = new JPanel();
-		startButtonPanel.setBounds(360, 330, 127, 77);
+		startButtonPanel.setBounds(360, 330, 127, 80);
 		startButtonPanel.setOpaque(false);
 		startButton = new JButton((Icon)(new ImageIcon("res/ui/button.png")));
-		startButton.setOpaque(false);
+		startButton.setContentAreaFilled(false);
 		startButton.addActionListener((ActionListener) this);
 		startButtonPanel.add(startButton);
-		/* standard fuctions */
-		Gameplay.frame.getContentPane().add(startButtonPanel);
-		Gameplay.frame.repaint();
-		Gameplay.frame.setMinimumSize(Gameplay.frame.getSize());
-		Gameplay.frame.pack();
-		Gameplay.frame.setMinimumSize(null);
-		Gameplay.frame.setVisible(true);
+		/* standard functions */
+		gplay.frame.getContentPane().add(startButtonPanel);
+		gplay.frame.repaint();
+		gplay.frame.setMinimumSize(gplay.frame.getSize());
+		gplay.frame.pack();
+		gplay.frame.setMinimumSize(null);
+		gplay.frame.setVisible(true);
 		/* creates play button to use in the player choice screen */
 		playButton = new JButton("YES");
 		playButton.setPreferredSize(new Dimension(150, 50));
@@ -65,37 +67,32 @@ public class ScreenHandler implements ActionListener {
 		playButton.setBackground(new Color(6, 45, 98));
 		playButton.addActionListener((ActionListener) this);
 	}
-	public static void interruptGameThread() {
-		gamePanel.interruptGameThread();
-			
-	}
 	
 	public void createInstructionScreen() {
-		Gameplay.clearScreen();
-		Gameplay.frame.setLayout(new BorderLayout());
+		gplay.clearScreen();
+		gplay.frame.setLayout(new BorderLayout());
 		nextButton = new JButton("Next");
 		nextButton.addActionListener(this);
-		InstuctionsPanel panel = new InstuctionsPanel(nextButton);
-		Gameplay.frame.add(panel);
-		Gameplay.frame.setVisible(true);
+		InstructionsPanel panel = new InstructionsPanel(nextButton);
+		gplay.frame.add(panel);
+		gplay.frame.setVisible(true);
 	}
 	
 	public void createPlayerChoiceScreen() {
-		Gameplay.clearScreen();
-		//Gameplay.frame.setJMenuBar(menu);
-		PlayerChoice pc = new PlayerChoice(playButton, totalChars);
+		gplay.clearScreen();
+		PlayerChoice pc = new PlayerChoice(gplay.frame, playButton, totalChars);
 		pc.showPlayerChoice();
 	}
 	
 	public void setGameScreen() {
 		Gameplay.stopMusic();
-		Gameplay.clearScreen();
-		Gameplay.frame.dispose();
-		Gameplay.frame = new Frame();
-		Gameplay.frame.setJMenuBar(menu); // adds menubar on frame
+		gplay.clearScreen();
+		gplay.frame.dispose();
+		gplay.frame = new Frame();
+		gplay.frame.setJMenuBar(menu); // adds menubar on frame
 		gamePanel = new GamePanel(totalChars);
-		Gameplay.frame.add(gamePanel);
-		Gameplay.frame.setVisible(true);
+		gplay.frame.add(gamePanel);
+		gplay.frame.setVisible(true);
 		gamePanel.setupGame();
 	}
 

@@ -4,7 +4,6 @@ import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
 
 /**
  * Contains all the game music
@@ -57,22 +56,19 @@ public class Sound {
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 
-	public static void stop() {
-
+	public void stop() {
 		clip.stop();
-		/*
-		 * stop every clip made stop every Clip item in the table clips
-		 */
+		// stop every clip made by stopping every Clip item in the table clips
+		// and then print table clips
 		for (int j = 0; j < clips.length; j++) {
 			if (clips[j] != null) {
 				clips[j].stop();
 				System.out.println("-----" + j);
-				System.out.println(clips[j].toString());
+				System.out.println(clips[j].toString()); // prints file name
 			} else {
 				System.out.println("-----" + j);
-				System.out.println("null");
+				System.out.println("null"); // prints null since it doesn't exist
 			}
-
 		}
 	}
 }
