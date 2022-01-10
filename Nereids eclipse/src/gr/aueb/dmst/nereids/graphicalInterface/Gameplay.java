@@ -8,8 +8,9 @@ package gr.aueb.dmst.nereids.graphicalInterface;
  */
 
 public class Gameplay implements Runnable {
-	Frame frame = new Frame();
+
 	static Sound mainMusic = new Sound();
+	Frame frame = new Frame();
 	MenuBar menu = new MenuBar(this);
 
 	public Gameplay() {
@@ -20,6 +21,7 @@ public class Gameplay implements Runnable {
 		new ScreenHandler(this);
 	}
 
+	/** shows game logo on the screen for 4 seconds */
 	public void createLogoScreen() {
 		Thread intro = new Thread(this);
 		intro.start();

@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 		// make the frame
 		this.setTitle("NEREIDS");
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setSize(864, 636); //606
+		this.setSize(864, 626);
 		this.setVisible(true);
 		this.setResizable(false);
 		// put the logo image as frame icon
@@ -26,10 +26,11 @@ public class Frame extends JFrame {
 	// code for asking if sure to close the window
 	/*
 	 * 
-	 * public void windowClosing(WindowEvent e) { int a =
-	 * JOptionPane.showConfirmDialog(this, "Are you sure?"); if (a ==
-	 * JOptionPane.YES_OPTION) {
-	 * this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); } }
-	 * 
+	 * public void windowClosing(WindowEvent e) { 
+	 *     int a = JOptionPane.showConfirmDialog(this, "Are you sure?");
+	 *     if (a == JOptionPane.YES_OPTION) {
+	 *         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	 *     }
+	 * }
 	 */
 }

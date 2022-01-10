@@ -25,6 +25,8 @@ import javax.swing.JPanel;
  */
 
 public class ScreenHandler implements ActionListener {
+
+	int[] totalChars = new int[9];
 	JPanel startButtonPanel;
 	JButton startButton;
 	JButton nextButton;
@@ -32,11 +34,10 @@ public class ScreenHandler implements ActionListener {
 	Gameplay gplay;
 	GamePanel gamePanel;
 	MenuBar menu = new MenuBar(this);
-	int[] totalChars = new int[9];
 
 	public ScreenHandler(Gameplay gplay) {
 		this.gplay = gplay;
-		/* puts image as frame background*/
+		// puts image as frame background
 		try {
 			Image bg = ImageIO.read(new File("res/backgrounds/titleScreen.png"));
 			gplay.frame.setContentPane(new ImagePanel(bg, 864, 576));
@@ -44,22 +45,22 @@ public class ScreenHandler implements ActionListener {
 			e.printStackTrace();
 		}
 		gplay.frame.setLayout(null);
-		/* creates start button to use in the first screen */
+		// creates start button to use in the first screen
 		startButtonPanel = new JPanel();
-		startButtonPanel.setBounds(360, 330, 127, 80);
+		startButtonPanel.setBounds(360, 330, 127, 90);
 		startButtonPanel.setOpaque(false);
 		startButton = new JButton((Icon)(new ImageIcon("res/ui/button.png")));
 		startButton.setContentAreaFilled(false);
 		startButton.addActionListener((ActionListener) this);
 		startButtonPanel.add(startButton);
-		/* standard functions */
+		// standard functions
 		gplay.frame.getContentPane().add(startButtonPanel);
 		gplay.frame.repaint();
 		gplay.frame.setMinimumSize(gplay.frame.getSize());
 		gplay.frame.pack();
 		gplay.frame.setMinimumSize(null);
 		gplay.frame.setVisible(true);
-		/* creates play button to use in the player choice screen */
+		// creates play button to use in the player choice screen
 		playButton = new JButton("YES");
 		playButton.setPreferredSize(new Dimension(150, 50));
 		playButton.setFont(new Font("Tahoma", Font.BOLD, 35));
@@ -87,6 +88,8 @@ public class ScreenHandler implements ActionListener {
 	public void setGameScreen() {
 		Gameplay.stopMusic();
 		gplay.clearScreen();
+		// disposes frame to create a new one because the paint component
+		// used to draw background on frame appears on top of everything
 		gplay.frame.dispose();
 		gplay.frame = new Frame();
 		gplay.frame.setJMenuBar(menu); // adds menubar on frame

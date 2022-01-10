@@ -16,13 +16,13 @@ import javax.imageio.ImageIO;
 
 public class TileManager {
 	GamePanel gp;
-	/** contains the different tile objects (one time each) that will be used */
-	Tile[] tile;
 	/**
 	 * contains all the tiles that will be used to create the map (as many times as
 	 * needed)
 	 */
 	int mapTileNum[][];
+	/** contains the different tile objects (one time each) that will be used */
+	Tile[] tile;
 	ImageTool iTool = new ImageTool();
 
 	public TileManager(GamePanel gp) {

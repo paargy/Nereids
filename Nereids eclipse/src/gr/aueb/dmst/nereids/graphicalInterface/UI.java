@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * 
  * This class informs the user about the total characteristics that he has after
  * facing each obstacle, the user's score, shows encouraging messages and in the
- * end displays a message to inform the user whether they won, or lost
+ * end displays a message to inform the user whether they won, or lost.
  */
 
 public class UI {
@@ -76,11 +76,15 @@ public class UI {
 		g2.setFont(tableFont);
 		g2.setColor(Color.WHITE);
 		int y = 17;
-		String text = " AGILITY:" + gp.boat.totalChars[0] + "\n " + "ORGANIZATION:" + gp.boat.totalChars[1] + "\n "
-				+ "WISDOM:" + gp.boat.totalChars[2] + "\n " + "WINDLESSNESS:" + gp.boat.totalChars[3] + "\n "
-				+ "COURAGE: " + gp.boat.totalChars[4] + "\n " + "STRENGTH: " + gp.boat.totalChars[5] + "\n "
-				+ "ANIMAL FRIENDLINESS: " + gp.boat.totalChars[6] + "\n " + "ORIENTATION: " + gp.boat.totalChars[7]
-				+ "\n " + "JUSTICE: " + gp.boat.totalChars[8] + "\n";
+		String text = " AGILITY:" + gp.boat.totalChars[0] + "\n "
+					+ "ORGANIZATION:" + gp.boat.totalChars[1] + "\n "
+					+ "WISDOM:" + gp.boat.totalChars[2] + "\n "
+					+ "WINDLESSNESS:" + gp.boat.totalChars[3] + "\n "
+					+ "COURAGE: " + gp.boat.totalChars[4] + "\n "
+					+ "STRENGTH: " + gp.boat.totalChars[5] + "\n "
+					+ "ANIMAL FRIENDLINESS: " + gp.boat.totalChars[6] + "\n "
+					+ "ORIENTATION: " + gp.boat.totalChars[7] + "\n "
+					+ "JUSTICE: " + gp.boat.totalChars[8] + "\n";
 		for (String line : text.split("\n")) {
 			g2.drawString(line, 620, y += g2.getFontMetrics().getHeight());
 		}

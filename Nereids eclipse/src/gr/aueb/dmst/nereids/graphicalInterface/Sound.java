@@ -13,11 +13,11 @@ import javax.sound.sampled.Clip;
  */
 
 public class Sound {
-
-	static Clip clip;
-	URL[] soundURL = new URL[12];
-	static Clip[] clips = new Clip[13];
+	
 	static int i = 0;
+	static Clip clip;
+	static Clip[] clips = new Clip[13];
+	URL[] soundURL = new URL[12];
 
 	public Sound() {
 		soundURL[0] = getClass().getResource("/sounds/gameplay.wav");

@@ -33,39 +33,39 @@ import java.awt.Graphics2D;
  */
 
 public class PlayerChoice {
+	
+	int numOfChoice;
+	/** use this to get the total characteristics of the chosen nereids */
+	int[] totalChars;
+	/** out of bounds numbers so it operates right the first time */
+	int[] chosenNereidsIndexes = { 99, 99, 99 };
+	int[][] chars = { { 2, 0, 2, 0, 0, 0, 0, 3, 1 }, 
+			  { 0, 2, 0, 2, 2, 0, 3, 0, 0 }, 
+			  { 0, 1, 2, 0, 0, 0, 0, 2, 1 },
+			  { 2, 0, 0, 2, 3, 2, 0, 0, 0 }, 
+			  { 1, 2, 2, 0, 0, 1, 0, 0, 0 }, 
+			  { 0, 4, 0, 0, 0, 2, 0, 1, 1 },
+			  { 4, 2, 0, 2, 0, 0, 0, 0, 0 }, 
+			  { 2, 3, 0, 0, 3, 0, 0, 0, 0 }, 
+			  { 4, 1, 0, 0, 2, 0, 0, 0, 0 } };
 	JFrame frame;
 	JPanel namePanel, charPanel, iconPanel, choicePanel;
 	JPanel[] teamPanel = new JPanel[3];
-	JButton[] choiceButton = new JButton[9];
-	JButton playButton;
-	ImageTool it = new ImageTool();
-	int numOfChoice;
-	/** out of bounds numbers so it operates right the first time */
-	int[] chosenNereidsIndexes = { 99, 99, 99 };
-	ArrayList<JPanel> nereidPanel = new ArrayList<>();
-	JLabel nameLabel;
+	JLabel nameLabel, picLabel;
 	JTextArea nameArea, charArea;
+	JButton playButton;
+	JButton[] choiceButton = new JButton[9];
+	ImageTool it = new ImageTool();
+	ButtonHandler bHandler = new ButtonHandler();
 	Font nameFont = new Font("Tahoma", Font.BOLD, 60);
 	Font charFont = new Font("Tahoma", Font.BOLD, 18);
-	ArrayList<JButton> nereidButton = new ArrayList<>();
-	JLabel picLabel;
-	ArrayList<ImageIcon> nereidsImages = new ArrayList<>();
-	TitleScreenHandler tsHandler = new TitleScreenHandler();
 	ArrayList<String> nereidNames = new ArrayList<>(
 			Arrays.asList("Actaea", "Doris", "Euagore", "Eucrate", "Eupompe", "Thetis", "Thoe", "Menippe", "Ploto"));
+	ArrayList<JPanel> nereidPanel = new ArrayList<>();
+	ArrayList<JButton> nereidButton = new ArrayList<>();
+	ArrayList<ImageIcon> nereidsImages = new ArrayList<>();
 	/** HashMap that connects each nereid's name with her characteristics */
 	HashMap<String, int[]> nereidInfo = new HashMap<>();
-	int[][] chars = { { 2, 0, 2, 0, 0, 0, 0, 3, 1 }, 
-					  { 0, 2, 0, 2, 2, 0, 3, 0, 0 }, 
-					  { 0, 1, 2, 0, 0, 0, 0, 2, 1 },
-					  { 2, 0, 0, 2, 3, 2, 0, 0, 0 }, 
-					  { 1, 2, 2, 0, 0, 1, 0, 0, 0 }, 
-					  { 0, 4, 0, 0, 0, 2, 0, 1, 1 },
-					  { 4, 2, 0, 2, 0, 0, 0, 0, 0 }, 
-					  { 2, 3, 0, 0, 3, 0, 0, 0, 0 }, 
-					  { 4, 1, 0, 0, 2, 0, 0, 0, 0 } };
-	/** use this to get the total characteristics of the chosen nereids */
-	int[] totalChars;
 
 	public PlayerChoice(JFrame frame, JButton playButton, int[] totalChars) {
 		this.frame = frame;
@@ -73,30 +73,9 @@ public class PlayerChoice {
 		this.totalChars = totalChars;
 	}
 
-	public void putNereidImage() {
-		for (int i = 1; i < 10; i++) {
-			//nereidsImages.add(resize(new ImageIcon("res/nereids/nereid" + i + ".png"), 256, 256));
-			nereidsImages.add(new ImageIcon("res/nereids/nereid" + i + ".png"));
-		}
-	}
-
-	public static ImageIcon resize(ImageIcon image, int width, int height) {
-		BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
-		Graphics2D g2d = (Graphics2D) bi.createGraphics();
-		g2d.drawImage(image.getImage(), 0, 0, width, height, null);
-		g2d.dispose();
-		return new ImageIcon(bi);
-	}
-
-	public void nereidDeclaration() {
-		for (int i = 0; i < 9; i++) {
-			nereidInfo.put(nereidNames.get(i), chars[i]);
-		}
-	}
-
 	public void showPlayerChoice() {
 		try {
-			/** sets image as frame background */
+			// sets image as frame background
 			Image bg = ImageIO.read(new File("res/backgrounds/background.png"));
 			frame.setContentPane(new ImagePanel(bg));
 		} catch (IOException e) {
@@ -111,13 +90,13 @@ public class PlayerChoice {
 			nereidPanel.get(i).setBounds(x * 70, y * 70 - 10, 70, 70);
 			nereidPanel.get(i).setOpaque(false);
 			nereidButton.add(new JButton(nereid));
-			nereidButton.get(i).addActionListener(tsHandler);
+			nereidButton.get(i).addActionListener(bHandler);
 			nereidButton.get(i).setOpaque(false);
 			nereidButton.get(i).setBorderPainted(false);
 			nereidButton.get(i).setContentAreaFilled(false);
 			nereidPanel.get(i).add(nereidButton.get(i));
 			frame.add(nereidPanel.get(i));
-			/** changes x, y in order to create a 3x3 table of nereid buttons */
+			// changes x, y in order to create a 3x3 table of nereid buttons
 			x = ((i + 1) % 3 == 0 ? 1 : x + 1);
 			y = ((i + 1) % 3 == 0 ? y + 1 : y);
 		}
@@ -127,20 +106,32 @@ public class PlayerChoice {
 			teamPanel[i].setOpaque(false);
 			frame.add(teamPanel[i]);
 		}
-		/** needs to be here in order for the frame to appear */
+		// needs to be here in order for the frame to appear
 		frame.setVisible(true);
+	}
+	
+	public void putNereidImage() {
+		for (int i = 1; i < 10; i++) {
+			nereidsImages.add(new ImageIcon("res/nereids/nereid" + i + ".png"));
+		}
+	}
+
+	public void nereidDeclaration() {
+		for (int i = 0; i < 9; i++) {
+			nereidInfo.put(nereidNames.get(i), chars[i]);
+		}
 	}
 
 	public void nereidChoiceDisplay(String name) {
+		// the first time this method is called namePanel would be null
 		if (namePanel != null) {
 			namePanel.removeAll();
 		}
-
+		
 		namePanel = new JPanel();
 		namePanel.setBounds(390, 25, 500, 500);
 		namePanel.setOpaque(false);
 		frame.add(namePanel);
-
 		nameArea = new JTextArea(name);
 		nameArea.setEditable(false);
 		nameArea.setBounds(390, 25, 500, 500);
@@ -149,18 +140,19 @@ public class PlayerChoice {
 		nameArea.setForeground(new Color(6, 45, 98));
 		namePanel.add(nameArea);
 
+		// the first time this method is called iconPanel would be null
 		if (iconPanel != null) {
 			iconPanel.removeAll();
 		}
 		iconPanel = new JPanel();
 		iconPanel.setBounds(565, 100, 150, 150);
 		iconPanel.setOpaque(false);
-
 		int currentIndex = nereidNames.indexOf(name);
 		picLabel = new JLabel(resize(nereidsImages.get(currentIndex), 140, 140));
 		iconPanel.add(picLabel);
 		frame.add(iconPanel);
-
+		
+		// the first time this method is called charPanel would be null
 		if (charPanel != null) {
 			charPanel.removeAll();
 		}
@@ -168,7 +160,6 @@ public class PlayerChoice {
 		charPanel.setBounds(550, 225, 210, 240);
 		charPanel.setOpaque(false);
 		frame.add(charPanel);
-
 		charArea = new JTextArea("\n" + "  Agility: " + nereidInfo.get(name)[0] + "  " + "\n" 
 									  + "  Organization: " + nereidInfo.get(name)[1] + "  " + "\n"
 									  + "  Wisdom: " + nereidInfo.get(name)[2] + "  " + "\n"
@@ -194,13 +185,13 @@ public class PlayerChoice {
 		frame.add(choicePanel);
 
 		/**
-		 * Use the chosenNereidsIndexes array to check whether or not a certain nereid
-		 * has already been chosen
+		 * Use the chosenNereidsIndexes array to check if a certain nereid
+		 * has already been chosen, if not display choose button
 		 */
 		if (currentIndex != chosenNereidsIndexes[0] && currentIndex != chosenNereidsIndexes[1]
 				&& currentIndex != chosenNereidsIndexes[2]) {
 			choiceButton[currentIndex] = new JButton(" Choose her... ");
-			choiceButton[currentIndex].addActionListener(tsHandler);
+			choiceButton[currentIndex].addActionListener(bHandler);
 			choicePanel.add(choiceButton[currentIndex]);
 		}
 		frame.repaint();
@@ -208,17 +199,25 @@ public class PlayerChoice {
 		frame.pack();
 		frame.setMinimumSize(null);
 	}
+	
+	public ImageIcon resize(ImageIcon image, int width, int height) {
+		BufferedImage bi = new BufferedImage(width, height, BufferedImage.TRANSLUCENT);
+		Graphics2D g2d = (Graphics2D) bi.createGraphics();
+		g2d.drawImage(image.getImage(), 0, 0, width, height, null);
+		g2d.dispose();
+		return new ImageIcon(bi);
+	}
 
 	public void chooseTeam(int i) {
-
+		//disappears choose button
 		choiceButton[i].setVisible(false);
 		try {
 			chosenNereidsIndexes[numOfChoice] = i;
 			JLabel currentPic = new JLabel(picLabel.getIcon());
 			teamPanel[numOfChoice].add(currentPic);
-			/** use it to check when the player has chosen three nereids */
+			// use it to check when the player has chosen three nereids
 			numOfChoice++;
-			/** Update array with total characteristics of the nereids */
+			// Update array with total characteristics of the nereids
 			for (int j = 0; j < 9; j++) {
 				totalChars[j] += nereidInfo.get(nereidNames.get(i))[j];
 			}
@@ -236,8 +235,9 @@ public class PlayerChoice {
 			} catch (NullPointerException e) {
 				System.out.println("ok move on");
 			}
+			
 			JPanel txtPanel = new JPanel();
-			txtPanel.setBounds(275, 150, 300, 60);
+			txtPanel.setBounds(270, 150, 300, 60);
 			txtPanel.setOpaque(false);
 			JTextArea txt = new JTextArea("READY TO PLAY?");
 			txt.setOpaque(false);
@@ -245,7 +245,7 @@ public class PlayerChoice {
 			txt.setFont(new Font("Tahoma", Font.BOLD, 35));
 			txtPanel.add(txt);
 			JPanel btnPanel = new JPanel();
-			btnPanel.setBounds(340, 200, 150, 50);
+			btnPanel.setBounds(340, 200, 150, 60);
 			btnPanel.setOpaque(false);
 			btnPanel.add(playButton);
 			frame.add(txtPanel);
@@ -264,7 +264,7 @@ public class PlayerChoice {
 		return chosenNereidsIndexes;
 	}
 
-	public class TitleScreenHandler implements ActionListener {
+	public class ButtonHandler implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			Object obj = event.getSource();

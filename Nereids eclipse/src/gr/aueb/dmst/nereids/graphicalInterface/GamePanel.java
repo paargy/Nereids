@@ -14,8 +14,6 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel implements Runnable {
-	// indicates if the game is still playing
-	boolean play = true;
 
 	/* screen settings */
 	final int originalTileSize = 16;
@@ -81,7 +79,7 @@ public class GamePanel extends JPanel implements Runnable {
 		double nextDrawTime = System.nanoTime() + drawInterval;
 		double remainingTime;
 		/* game loop */
-		while (gameThread != null && play == true) {
+		while (gameThread != null) {
 			update();
 			repaint();
 			try {
@@ -93,14 +91,6 @@ public class GamePanel extends JPanel implements Runnable {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}
-	}
-
-	public void pause() {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -130,11 +120,6 @@ public class GamePanel extends JPanel implements Runnable {
 		music.setFile(i);
 		music.play();
 		music.loop();
-
-		// if gameplay music loop
-		if (i == 0) {
-			music.loop();
-		}
 	}
 
 	public void stopMusic() {

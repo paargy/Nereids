@@ -10,6 +10,9 @@ import java.util.Random;
  */
 
 public class ObstacleSetter {
+	
+	/** indicates the number of times the player overcame an obstacle */
+	int level = 1;
 	GamePanel gp;
 	/**
 	 * contains the different obstacle objects (one time each) that will be used on
@@ -25,8 +28,6 @@ public class ObstacleSetter {
 					   { 0, 0, 0, 1, 1, 0, 0, 1, 0 },
 					   { 0, 1, 1, 0, 0, 0, 0, 0, 1 }, 
 					   { 0, 0, 1, 0, 0, 0, 0, 2, 0 } };
-	/** indicates the number of times the player overcame an obstacle */
-	int level = 1;
 
 	public ObstacleSetter(GamePanel gp) {
 		this.gp = gp;

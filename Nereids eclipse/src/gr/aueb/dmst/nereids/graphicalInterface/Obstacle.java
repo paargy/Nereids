@@ -13,12 +13,12 @@ import javax.imageio.ImageIO;
  */
 
 public class Obstacle {
-	BufferedImage image;
-	String name;
-	boolean collision;
 	int mapX, mapY;
 	int screenX, screenY;
 	int[] traits;
+	boolean collision;
+	String name;
+	BufferedImage image;
 	/** use this rectangle to check for boat to obstacle collision */
 	Rectangle solidArea;
 	GamePanel gp;

@@ -8,9 +8,10 @@ import javax.swing.JComponent;
 
 @SuppressWarnings("serial")
 public class ImagePanel extends JComponent {
-	Image image;
+
 	int width;
 	int height;
+	Image image;
 
 	public ImagePanel(Image image, int width, int height) {
 		this.image = image;
