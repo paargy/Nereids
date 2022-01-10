@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

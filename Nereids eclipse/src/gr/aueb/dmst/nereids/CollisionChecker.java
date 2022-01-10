@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 /**
  * Contains 2 methods One to check for tile collision (the boat cannot move on

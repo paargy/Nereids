@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -81,9 +81,19 @@ public class PlayerChoice {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		int x = 1, y = 3;
 		putNereidImage();
 		nereidDeclaration();
+		JPanel messagePanel = new JPanel();
+		messagePanel.setBounds(10, 50, 350, 50);
+		messagePanel.setOpaque(false);
+		JTextArea message = new JTextArea("Choose your nereids");
+		message.setOpaque(false);
+		message.setForeground(new Color(6, 45, 98));
+		message.setFont(new Font("Tahoma", Font.BOLD, 30));
+		messagePanel.add(message);
+		frame.add(messagePanel);
+		
+		int x = 1, y = 3;
 		for (int i = 0; i < 9; i++) {
 			Icon nereid = resize(nereidsImages.get(i), 60, 60);
 			nereidPanel.add(new JPanel());

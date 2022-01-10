@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;

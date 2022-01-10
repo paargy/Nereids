@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 import java.awt.Graphics2D;
 import java.io.BufferedReader;

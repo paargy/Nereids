@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 /**
  * starts by showing the Intro logo screen and after 4 seconds change to the

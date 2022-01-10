@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids.graphicalInterface;
+package gr.aueb.dmst.nereids;
 
 import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
