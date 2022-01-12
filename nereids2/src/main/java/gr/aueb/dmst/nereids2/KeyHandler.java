@@ -4,12 +4,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Handles the keys the player presses
+ * Handles the keys the player presses.
  */
 
 public class KeyHandler implements KeyListener {
 
-	boolean upPressed, downPressed, rightPressed, leftPressed;
+	boolean upPressed;
+	boolean downPressed;
+	boolean rightPressed;
+	boolean leftPressed;
 
 	@Override
 	public void keyPressed(KeyEvent e) {

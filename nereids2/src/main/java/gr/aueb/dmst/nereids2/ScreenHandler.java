@@ -16,12 +16,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * Creates the first Screen in Gameplay.frame.
- * Displays name of the game, start button at the bottom.
- * Calls Instructions when the button gets pressed.
- * Displays Instructions with a next button at the bottom.
- * Goes to player's choice screen when its pressed and
- * after the player is done choosing goes to main game.
+ * Creates the first Screen in Gameplay.frame. Displays name of the game, start
+ * button at the bottom. Calls Instructions when the button gets pressed.
+ * Displays Instructions with a next button at the bottom. Goes to player's
+ * choice screen when its pressed and after the player is done choosing goes to
+ * main game.
  */
 
 public class ScreenHandler implements ActionListener {
@@ -35,12 +34,14 @@ public class ScreenHandler implements ActionListener {
 	GamePanel gamePanel;
 	MenuBar menu = new MenuBar(this);
 
+	/** Constructor. */
 	public ScreenHandler(Gameplay gplay) {
 		this.gplay = gplay;
 		// puts image as frame background
+		Image image;
 		try {
-			Image bg = ImageIO.read(new File("src/main/resources/backgrounds/titleScreen.png"));
-			gplay.frame.setContentPane(new ImagePanel(bg, 864, 576));
+			image = ImageIO.read(getClass().getResourceAsStream("/backgrounds/titleScreen.png"));
+			gplay.frame.setContentPane(new ImagePanel(image, 864, 576));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -49,10 +50,17 @@ public class ScreenHandler implements ActionListener {
 		startButtonPanel = new JPanel();
 		startButtonPanel.setBounds(360, 330, 127, 90);
 		startButtonPanel.setOpaque(false);
-		startButton = new JButton((Icon)(new ImageIcon("src/main/resources/ui/button.png")));
-		startButton.setContentAreaFilled(false);
-		startButton.addActionListener((ActionListener) this);
-		startButtonPanel.add(startButton);
+
+		try {
+			Icon icon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/ui/button.png")));
+			startButton = new JButton(icon);
+			startButton.setContentAreaFilled(false);
+			startButton.addActionListener((ActionListener) this);
+			startButtonPanel.add(startButton);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		// standard functions
 		gplay.frame.getContentPane().add(startButtonPanel);
 		gplay.frame.repaint();
@@ -68,7 +76,8 @@ public class ScreenHandler implements ActionListener {
 		playButton.setBackground(new Color(6, 45, 98));
 		playButton.addActionListener((ActionListener) this);
 	}
-	
+
+	/** displays instructions. */
 	public void createInstructionScreen() {
 		gplay.clearScreen();
 		gplay.frame.setLayout(new BorderLayout());
@@ -78,13 +87,15 @@ public class ScreenHandler implements ActionListener {
 		gplay.frame.add(panel);
 		gplay.frame.setVisible(true);
 	}
-	
+
+	/** creates player choice screen. */
 	public void createPlayerChoiceScreen() {
 		gplay.clearScreen();
 		PlayerChoice pc = new PlayerChoice(gplay.frame, playButton, totalChars);
 		pc.showPlayerChoice();
 	}
-	
+
+	/** sets game screen. */
 	public void setGameScreen() {
 		Gameplay.stopMusic();
 		gplay.clearScreen();
@@ -92,7 +103,7 @@ public class ScreenHandler implements ActionListener {
 		// used to draw background on frame appears on top of everything
 		gplay.frame.dispose();
 		gplay.frame = new Frame();
-		gplay.frame.setJMenuBar(menu); // adds menubar on frame
+		gplay.frame.setJMenuBar(menu); // adds menu bar on frame
 		gamePanel = new GamePanel(totalChars);
 		gplay.frame.add(gamePanel);
 		gplay.frame.setVisible(true);

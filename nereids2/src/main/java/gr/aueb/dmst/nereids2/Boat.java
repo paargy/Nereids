@@ -7,15 +7,17 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * Creates the boat the player will control with the arrow keys in order to
- * reach Sicily
+ * Creates the boat the player will control with the arrow keys in order to.
+ * reach Sicily.
  */
 
 public class Boat {
 
-	final int SPEED = 5;
-	int mapX, mapY;
-	int screenX, screenY;
+	final int speed = 5;
+	int mapX;
+	int mapY;
+	int screenX;
+	int screenY;
 	int spriteCounter = 0;
 	int spriteNum = 1;
 	int size;
@@ -28,6 +30,7 @@ public class Boat {
 	String direction;
 	Rectangle solidArea;
 
+	/** Constructor. */
 	public Boat(GamePanel gp, KeyHandler keyH, int[] totalChars) {
 		this.gp = gp;
 		this.keyH = keyH;
@@ -42,25 +45,27 @@ public class Boat {
 		getBoatImage();
 	}
 
+	/** sets default values for mapX, mapY, direction. */
 	public void setDefaultValues() {
 		mapX = screenX;
 		mapY = screenY;
 		direction = "up";
 	}
 
+	/** loads boat images. */
 	public void getBoatImage() {
-		ImageTool iTool = new ImageTool();
+		ImageTool itool = new ImageTool();
 		try {
 			up = ImageIO.read(getClass().getResourceAsStream("/boat/boat1.png"));
-			up = iTool.scaleImage(up, size, size);
+			up = itool.scaleImage(up, size, size);
 			down = ImageIO.read(getClass().getResourceAsStream("/boat/boat2.png"));
-			down = iTool.scaleImage(down, size, size);
+			down = itool.scaleImage(down, size, size);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	/* updates the boats coordinates while checking for collision */
+	/** updates the boats coordinates while checking for collision. */
 	public void update() {
 		/* check whether or not tile collision is happening */
 		collisionOn = false;
@@ -69,7 +74,7 @@ public class Boat {
 			direction = "up";
 			/* if there's not tile collision and player presses up arrow, boat can move */
 			if (collisionOn == false) {
-				mapY -= SPEED;
+				mapY -= speed;
 			}
 		}
 		if (keyH.downPressed == true) {
@@ -78,7 +83,7 @@ public class Boat {
 			 * if there's not tile collision and player presses down arrow, boat can move
 			 */
 			if (collisionOn == false) {
-				mapY += SPEED;
+				mapY += speed;
 			}
 		}
 		/* check whether or not obstacle collision is happening */
@@ -117,15 +122,16 @@ public class Boat {
 			gp.ui.lost = true;
 			gp.ui.gameFinished = true;
 			gp.stopMusic();
-			gp.playSE(11);
+			gp.playSe(11);
 		}
 		screenY = mapY;
 		/*
 		 * the map is always moving to the right no matter what the player does with the
 		 * boat (the boat stays on the same position on the x axis on the screen)
 		 */
-		mapX += SPEED;
-		/** update solid areas coordinates as boat moves */
+		mapX += speed;
+
+		/* update solid areas coordinates as boat moves */
 		solidArea.x = screenX;
 		solidArea.y = screenY + gp.tileSize * 2;
 		/*
@@ -139,36 +145,39 @@ public class Boat {
 		}
 	}
 
-	/* play sound effect based on the obstacle the boat collided with */
+	/** play sound effect based on the obstacle the boat collided with. */
 	public void react(Obstacle obs) {
 		switch (obs.name) {
 		case "conflict":
-			gp.playSE(1);
+			gp.playSe(1);
 			break;
 		case "rocks":
-			gp.playSE(2);
+			gp.playSe(2);
 			break;
 		case "seaanimals":
-			gp.playSE(3);
+			gp.playSe(3);
 			break;
 		case "storm":
-			gp.playSE(4);
+			gp.playSe(4);
 			break;
 		case "swell":
-			gp.playSE(5);
+			gp.playSe(5);
 			break;
 		case "wind":
-			gp.playSE(6);
+			gp.playSe(6);
 			break;
 		case "disorientation":
-			gp.playSE(7);
+			gp.playSe(7);
 			break;
 		case "pirates":
-			gp.playSE(10);
+			gp.playSe(10);
+			break;
+		default:
 			break;
 		}
 	}
 
+	/** draws Image. */
 	public void draw(Graphics2D g2) {
 		BufferedImage image = (spriteNum == 1 ? up : down);
 		g2.drawImage(image, screenX, screenY, null);

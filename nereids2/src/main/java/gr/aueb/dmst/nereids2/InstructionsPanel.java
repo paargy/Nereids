@@ -9,19 +9,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * Extends JPanel an constructs the panel used from Instructions dark blue
+ * Extends JPanel an constructs the panel used from Instructions dark blue.
  * background, label "Instructions" on top, text box with instructions, button
  * "next"
  */
 
 @SuppressWarnings("serial")
 public class InstructionsPanel extends JPanel {
-	public Color SeaBlue = new Color(6, 45, 98);
+	public Color seaBlue = new Color(6, 45, 98);
 	JButton nextButton;
 
+	/** Constructor. */
 	public InstructionsPanel(JButton nextButton) {
 		this.nextButton = nextButton;
-		JPanel pane = new JPanel(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 
@@ -31,6 +31,7 @@ public class InstructionsPanel extends JPanel {
 		c.weightx = 1;
 		c.gridx = 2;
 		c.gridy = 0;
+		JPanel pane = new JPanel(new GridBagLayout());
 		pane.add(label, c);
 
 		JLabel label1 = new JLabel();
@@ -44,13 +45,13 @@ public class InstructionsPanel extends JPanel {
 		c.gridy = 0;
 		pane.add(label2, c);
 
-		InstructionsTextArea iField = new InstructionsTextArea();
 		c.ipady = 110; // make this component tall
 		c.weightx = 0.0;
 		c.gridwidth = 3;
 		c.gridx = 0;
 		c.gridy = 1;
-		pane.add(iField, c);
+		InstructionsTextArea ifield = new InstructionsTextArea();
+		pane.add(ifield, c);
 
 		c.ipady = 0; // reset to default
 		c.weighty = 0.5; // request any extra vertical space
@@ -60,8 +61,8 @@ public class InstructionsPanel extends JPanel {
 		c.gridy = 2; // third row
 		pane.add(nextButton, c);
 
-		pane.setBackground(SeaBlue);
-		this.setBackground(SeaBlue);
+		pane.setBackground(seaBlue);
+		this.setBackground(seaBlue);
 		this.add(pane);
 	}
 }

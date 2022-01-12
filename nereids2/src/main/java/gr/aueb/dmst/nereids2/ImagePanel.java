@@ -3,8 +3,11 @@ package gr.aueb.dmst.nereids2;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-
 import javax.swing.JComponent;
+
+/**
+ * paints images with specific size.
+ */
 
 @SuppressWarnings("serial")
 public class ImagePanel extends JComponent {
@@ -13,6 +16,7 @@ public class ImagePanel extends JComponent {
 	int height;
 	Image image;
 
+	/** Constructor. */
 	public ImagePanel(Image image, int width, int height) {
 		this.image = image;
 		this.width = width;

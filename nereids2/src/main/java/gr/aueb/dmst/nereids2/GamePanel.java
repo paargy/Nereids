@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable {
 	final int maxMapRow = 12;
 
 	/* FramesPerSecond */
-	int FPS = 40;
+	int fps = 40;
 
 	/* tools */
 	TileManager tileM = new TileManager(this);
@@ -38,7 +38,7 @@ public class GamePanel extends JPanel implements Runnable {
 	ObstacleSetter obsSetter = new ObstacleSetter(this);
 	Sound music = new Sound();
 	Sound sound = new Sound();
-	UI ui = new UI(this);
+	UserInterface ui = new UserInterface(this);
 
 	/* game thread */
 	Thread gameThread;
@@ -50,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable {
 	/* score */
 	int score = 5;
 
+	/** Constructor. */
 	public GamePanel(int[] totalChars) {
 		boat = new Boat(this, keyH, totalChars);
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -58,12 +59,14 @@ public class GamePanel extends JPanel implements Runnable {
 		this.setFocusable(true);
 	}
 
+	/** plays music and creates map with obstacles. */
 	public void setupGame() {
 		obsSetter.setObstacle();
 		playMusic(0);
 		startGameThread();
 	}
 
+	/** starts thread. */
 	public void startGameThread() {
 		try {
 			gameThread = new Thread(this);
@@ -75,7 +78,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 	@Override
 	public void run() {
-		double drawInterval = 1000000000 / FPS; // 0.0166
+		double drawInterval = 1000000000 / fps; // 0.0166
 		double nextDrawTime = System.nanoTime() + drawInterval;
 		double remainingTime;
 		/* game loop */
@@ -98,6 +101,7 @@ public class GamePanel extends JPanel implements Runnable {
 		boat.update();
 	}
 
+	/** paints the three obstacles in each level of the game. */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
@@ -112,21 +116,25 @@ public class GamePanel extends JPanel implements Runnable {
 		ui.draw(g2);
 		// long drawEnd = System.nanoTime(); // use for drawing time optimization
 		// long passed = drawEnd - drawStart; // use for drawing time optimization
-		// System.out.println("Draw time that has passed :" + passed); // use for drawing time optimization
+		// System.out.println("Draw time that has passed :" + passed);
+		// use for drawing time optimization
 		g2.dispose();
 	}
 
+	/** plays background music. */
 	public void playMusic(int i) {
 		music.setFile(i);
 		music.play();
 		music.loop();
 	}
 
+	/** stops music. */
 	public void stopMusic() {
 		music.stop();
 	}
 
-	public void playSE(int i) {
+	/** plays sound of the obstacle. */
+	public void playSe(int i) {
 		sound.setFile(i);
 		sound.play();
 	}

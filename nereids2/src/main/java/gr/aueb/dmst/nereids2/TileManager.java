@@ -8,23 +8,20 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
 /**
- * Creates and manages tiles
- * 
- * Creates all the tiles that will be used throughout main game and draws them
- * efficiently.
+ * Creates and manages tiles Creates all the tiles that will be used throughout
+ * main game and draws them efficiently.
  */
 
 public class TileManager {
 	GamePanel gp;
-	/**
-	 * contains all the tiles that will be used to create the map (as many times as
-	 * needed)
-	 */
-	int mapTileNum[][];
-	/** contains the different tile objects (one time each) that will be used */
+	// contains all the tiles that will be used to create the map (as many times as
+	// needed)
+	int[][] mapTileNum;
+	/** contains the different tile objects (one time each) that will be used. */
 	Tile[] tile;
-	ImageTool iTool = new ImageTool();
+	ImageTool itool = new ImageTool();
 
+	/** Constructor. */
 	public TileManager(GamePanel gp) {
 		this.gp = gp;
 		tile = new Tile[17];
@@ -33,6 +30,7 @@ public class TileManager {
 		loadMap("/maps/mediterraneanmap.txt");
 	}
 
+	/** sets tile image. */
 	public void getTileImage() {
 		setup(0, "water1", false);
 		setup(1, "water2", false);
@@ -53,17 +51,19 @@ public class TileManager {
 		setup(16, "grass4", true);
 	}
 
+	/** setup given specific collision. */
 	public void setup(int index, String path, boolean collision) {
 		try {
 			tile[index] = new Tile();
 			tile[index].image = ImageIO.read(getClass().getResourceAsStream("/tiles/" + path + ".png"));
-			tile[index].image = iTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
+			tile[index].image = itool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
 			tile[index].collision = collision;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/** loads Map. */
 	public void loadMap(String map) {
 		try {
 			InputStream is = getClass().getResourceAsStream(map);
@@ -85,9 +85,12 @@ public class TileManager {
 		}
 	}
 
+	/** draws image. */
 	public void draw(Graphics2D g2) {
-		int x, y;
-		int screenX, screenY;
+		int x;
+		int y;
+		int screenX;
+		int screenY;
 		int tileNum;
 		for (int mapRow = 0; mapRow < gp.maxMapRow; mapRow++) {
 			for (int mapCol = 0; mapCol < gp.maxMapCol; mapCol++) {
@@ -96,10 +99,9 @@ public class TileManager {
 				y = mapRow * gp.tileSize;
 				screenX = x - gp.boat.mapX + gp.boat.screenX;
 				screenY = y;
-				/**
-				 * improves efficiency because it draws only the tiles that are/will soon be on
-				 * the screen
-				 */
+				// improves efficiency because it draws only the tiles that are/will soon be on
+				// the screen
+
 				if (x + gp.tileSize > gp.boat.mapX - gp.boat.screenX
 						&& x - gp.tileSize < gp.boat.mapX + gp.boat.screenX * 8) {
 					g2.drawImage(tile[tileNum].image, screenX, screenY, null);

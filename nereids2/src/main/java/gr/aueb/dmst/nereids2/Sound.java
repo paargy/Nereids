@@ -6,43 +6,43 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 /**
- * Contains all the game music
- * 
- * Initializes the .wav files that are found on the res/sounds package and also
- * has certain methods to control them throughout the game.
+ * Contains all the game music Initializes the .wav files that are found on the
+ * res/sounds package and also has certain methods to control them throughout
+ * the game.
  */
 
 public class Sound {
-	
 	static int i = 0;
 	static Clip clip;
 	static Clip[] clips = new Clip[13];
-	URL[] soundURL = new URL[12];
+	URL[] soundUrl = new URL[12];
 
+	/** Constructor. */
 	public Sound() {
-		soundURL[0] = getClass().getResource("/sounds/gameplay.wav");
-		soundURL[1] = getClass().getResource("/sounds/conflict.wav");
-		soundURL[2] = getClass().getResource("/sounds/rocks.wav");
-		soundURL[3] = getClass().getResource("/sounds/seaanimals.wav");
-		soundURL[4] = getClass().getResource("/sounds/storm.wav");
-		soundURL[5] = getClass().getResource("/sounds/swell.wav");
-		soundURL[6] = getClass().getResource("/sounds/wind.wav");
-		soundURL[7] = getClass().getResource("/sounds/ohno.wav");
-		soundURL[8] = getClass().getResource("/sounds/wingame.wav");
-		soundURL[9] = getClass().getResource("/sounds/main1.wav");
-		soundURL[10] = getClass().getResource("/sounds/pirate.wav");
-		soundURL[11] = getClass().getResource("/sounds/losegame.wav");
+		soundUrl[0] = getClass().getResource("/sounds/gameplay.wav");
+		soundUrl[1] = getClass().getResource("/sounds/conflict.wav");
+		soundUrl[2] = getClass().getResource("/sounds/rocks.wav");
+		soundUrl[3] = getClass().getResource("/sounds/seaanimals.wav");
+		soundUrl[4] = getClass().getResource("/sounds/storm.wav");
+		soundUrl[5] = getClass().getResource("/sounds/swell.wav");
+		soundUrl[6] = getClass().getResource("/sounds/wind.wav");
+		soundUrl[7] = getClass().getResource("/sounds/ohno.wav");
+		soundUrl[8] = getClass().getResource("/sounds/wingame.wav");
+		soundUrl[9] = getClass().getResource("/sounds/main1.wav");
+		soundUrl[10] = getClass().getResource("/sounds/pirate.wav");
+		soundUrl[11] = getClass().getResource("/sounds/losegame.wav");
 	}
 
+	/** sets audio file. */
 	public void setFile(int i) {
 		try {
-			AudioInputStream ais = AudioSystem.getAudioInputStream(soundURL[i]);
+			AudioInputStream ais = AudioSystem.getAudioInputStream(soundUrl[i]);
 			clip = AudioSystem.getClip();
 			clip.open(ais);
 			clips[i] = clip;
 			// store Clip object in table clips[]
 			i++;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -56,6 +56,7 @@ public class Sound {
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 
+	/** stops sound. */
 	public void stop() {
 		clip.stop();
 		// stop every clip made by stopping every Clip item in the table clips
