@@ -1,6 +1,7 @@
 package gr.aueb.dmst.nereids2;
 
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +21,8 @@ public class TileManager {
   /** contains the different tile objects (one time each) that will be used. */
   Tile[] tile;
   ImageTool itool = new ImageTool();
+  InputStream is;
+  BufferedImage testTile;
   
   /**Constructor.*/
   public TileManager(GamePanel gp) {
@@ -28,6 +31,17 @@ public class TileManager {
     mapTileNum = new int[gp.maxMapRow][gp.maxMapCol];
     getTileImage();
     loadMap("/maps/mediterraneanmap.txt");
+  }
+  
+  /**Constructor for JUnit testing.*/
+  public TileManager() {
+    String map = "/maps/mediterraneanmap.txt";
+    is = getClass().getResourceAsStream(map);
+    try {
+      testTile = ImageIO.read(getClass().getResourceAsStream("/tiles/grass1.png"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
   
   /**sets tile image.*/

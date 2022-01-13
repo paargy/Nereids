@@ -23,7 +23,9 @@ public class UserInterface {
   Font messageFont;
   Color rectColor;
   BufferedImage table;
+  BufferedImage testImage2 = null; //used for JUnit testing
   BufferedImage bg;
+  BufferedImage testImage1 = null; //used for JUnit testing
   BufferedImage introTable;
   JButton startButton;
   Graphics2D g2;
@@ -47,6 +49,26 @@ public class UserInterface {
     try {
       table = ImageIO.read(getClass().getResourceAsStream("/ui/table.png"));
       table = new ImageTool().scaleImage(table, gp.tileSize * 5, gp.tileSize * 3);
+      introTable = new ImageTool().scaleImage(table, 600, 550);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
+  /** Constructor for testing.*/
+  public UserInterface() {
+    tableFont = new Font("Tahoma", Font.BOLD, 10);
+    messageFont = new Font("Tahoma", Font.BOLD, 13);
+    rectColor = new Color(24, 13, 4, 230);
+    try {
+      bg = ImageIO.read(getClass().getResourceAsStream("/backgrounds/background.png"));
+      testImage1 = bg; // to test from UserInterfaceTest
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    try {
+      table = ImageIO.read(getClass().getResourceAsStream("/ui/table.png"));
+      testImage2 = table; // to test from UserInterfaceTest
       introTable = new ImageTool().scaleImage(table, 600, 550);
     } catch (IOException e) {
       e.printStackTrace();

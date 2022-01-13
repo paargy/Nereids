@@ -14,6 +14,7 @@ import javax.sound.sampled.Clip;
 public class Sound {
   static int i = 0;
   static Clip clip;
+  public Clip clipTest; // clipTest used for JUnit testing
   static Clip[] clips = new Clip[13];
   URL[] soundUrl = new URL[12];
   
@@ -38,6 +39,7 @@ public class Sound {
     try {
       AudioInputStream ais = AudioSystem.getAudioInputStream(soundUrl[i]);
       clip = AudioSystem.getClip();
+      clipTest = clip; // in order to test it in SoundTest()
       clip.open(ais);
       clips[i] = clip;
       // store Clip object in table clips[]
