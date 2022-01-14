@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 
 /** Test Obstacle class.*/
-public class ObstaccleTest {
+public class ObstacleTest {
   Obstacle obs;
   
   @BeforeEach
