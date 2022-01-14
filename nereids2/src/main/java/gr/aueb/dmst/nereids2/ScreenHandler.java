@@ -35,12 +35,13 @@ public class ScreenHandler implements ActionListener {
   Gameplay gplay;
   GamePanel gamePanel;
   MenuBar menu = new MenuBar(this);
+  Image image;
+  Icon icon;
   
   /**Constructor.*/
   public ScreenHandler(Gameplay gplay) {
     this.gplay = gplay;
     // puts image as frame background
-    Image image;
     try {
       image = ImageIO.read(getClass().getResourceAsStream("/backgrounds/titleScreen.png"));
       gplay.frame.setContentPane(new ImagePanel(image, 864, 576));
@@ -54,7 +55,7 @@ public class ScreenHandler implements ActionListener {
     startButtonPanel.setOpaque(false);
 
     try {
-      Icon icon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/ui/button.png")));
+      icon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/ui/button.png")));
       startButton = new JButton(icon);
       startButton.setContentAreaFilled(false);
       startButton.addActionListener((ActionListener) this);
@@ -77,6 +78,21 @@ public class ScreenHandler implements ActionListener {
     playButton.setForeground(Color.white);
     playButton.setBackground(new Color(6, 45, 98));
     playButton.addActionListener((ActionListener) this);
+  }
+  
+  /**Constructor used by JUnit testing.*/
+  public ScreenHandler() {
+    try {
+      image = ImageIO.read(getClass().getResourceAsStream("/backgrounds/titleScreen.png"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    try {
+      icon = new ImageIcon(ImageIO.read(getClass().getResourceAsStream("/ui/button.png")));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    
   }
   
   /**displays instructions.*/

@@ -62,6 +62,7 @@ public class PlayerChoice {
   JButton playButton;
   JButton[] choiceButton = new JButton[9];
   ImageTool it = new ImageTool();
+  Icon icon;
   ButtonHandler bhandler = new ButtonHandler();
   Font nameFont = new Font("Tahoma", Font.BOLD, 60);
   Font charFont = new Font("Tahoma", Font.BOLD, 18);
@@ -79,6 +80,11 @@ public class PlayerChoice {
     this.frame = frame;
     this.playButton = playButton;
     this.totalChars = totalChars;
+  }
+  
+  /** Simple Constructor used by JUnit testing. */
+  public PlayerChoice() {
+    ;
   }
 
   /**shows the image of the nereid chosen.*/
@@ -134,7 +140,7 @@ public class PlayerChoice {
   public void putNereidImage() {
     for (int i = 1; i < 10; i++) {
       try {
-        Icon icon = 
+        icon = 
             new ImageIcon(ImageIO.read(
             getClass().getResourceAsStream("/nereids/nereid" + i + ".png")));
         nereidsImages.add((ImageIcon) icon);
@@ -142,6 +148,20 @@ public class PlayerChoice {
         e.printStackTrace();
       }
     }
+  }
+  
+  /** Used from PlayerChoiceTest to test if an chosen icon exists.*/
+  public Icon putNereidImage(int i) {
+    Icon ic = null;
+    if (i > 0 && i < 10) {
+      try {
+        ic = new ImageIcon(ImageIO.read(
+                getClass().getResourceAsStream("/nereids/nereid" + i + ".png")));
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
+    return ic;
   }
   
   /**Declares nereids' games.*/
