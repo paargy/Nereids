@@ -14,6 +14,7 @@ public class ObstacleTest {
   
   @BeforeEach
   void setUp() {
+    // make a test conflict object
     obs = new Obstacle("conflict");
   }
   
