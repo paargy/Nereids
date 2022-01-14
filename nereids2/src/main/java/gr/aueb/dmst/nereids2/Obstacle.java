@@ -41,6 +41,16 @@ public class Obstacle {
      
   }
   
+  /** Constructor used for JUnit testing from ObstacleTest class. */
+  public Obstacle(String name) {
+    this.name = name;
+    try {
+      image = ImageIO.read(getClass().getResourceAsStream("/obstacles/" + name + ".png"));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+  
   /**draws map image.*/
   public void draw(Graphics2D g2) {
     screenX = mapX - gp.boat.mapX + gp.boat.screenX;
