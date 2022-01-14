@@ -9,7 +9,6 @@ import javax.sound.sampled.Clip;
  * Contains all the game music
  * Initializes the .wav files that are found on the res/sounds package and also
  * has certain methods to control them throughout the game.
- * 
  * Special thanks to: https://www.chosic.com for the music
  */
 
