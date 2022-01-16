@@ -34,7 +34,7 @@ public class IntroPanel extends JPanel {
 
   /** Constructor. */
   public IntroPanel(JFrame frame) {
-    JLabel creditLabel = new JLabel("A DMST student original game 2021  ", SwingConstants.RIGHT);
+    JLabel creditLabel = new JLabel("A DMST student original game 2022  ", SwingConstants.RIGHT);
     creditLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
     frame.add(creditLabel, BorderLayout.PAGE_END);
     JLabel logoLabel = new JLabel();
