@@ -53,11 +53,14 @@ public class CollisionChecker {
   /** checks if the boat collides with an obstacle. */
   public int checkObstacle(Boat boat) {
     for (int i = 0; i < gp.screenObs.length; i++) {
-      if (boat.solidArea.intersects(gp.screenObs[i].solidArea)) {
-        System.out.println("collides with object number: " + i);
-        boat.collisionOn = true;
-        return i;
+      if ((boat.solidArea != null) && (gp.screenObs[i].solidArea != null)) {
+        if (boat.solidArea.intersects(gp.screenObs[i].solidArea)) {
+          System.out.println("collides with object number: " + i);
+          boat.collisionOn = true;
+          return i;
+        }
       }
+      
     }
     // returns -1 if it doesn't collide
     return -1;

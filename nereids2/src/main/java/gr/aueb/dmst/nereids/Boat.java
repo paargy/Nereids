@@ -193,4 +193,5 @@ public class Boat {
     // g2.setColor(Color.red); //use to check for collision
     // g2.draw(solidArea); //use to check for collision
   }
+  
 }

@@ -59,6 +59,14 @@ public class GamePanel extends JPanel implements Runnable {
     this.setFocusable(true);
   }
   
+  /** sets screenObs table with the given Obstacle objects.
+   * Used for JUnit testing.  */
+  public void setScreenObs(Obstacle o1, Obstacle o2, Obstacle o3) {
+    this.screenObs[0] = o1;
+    this.screenObs[1] = o2;
+    this.screenObs[2] = o3;
+  }
+  
   /**plays music and creates map with obstacles.*/
   public void setupGame() {
     obsSetter.setObstacle();
