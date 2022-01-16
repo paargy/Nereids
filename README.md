@@ -5,7 +5,7 @@ Java App Nereids - 3rd Semester DMST 2021-2022
 promo video: https://youtu.be/oVRh6B_aBkM
 
 
-Compilation instructions: mvn install, mvn clean install
+Compilation instructions: mvn install or mvn clean install
 
 
 Instructions for running the programm: java -jar 
