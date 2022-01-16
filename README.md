@@ -51,4 +51,4 @@ Structure of the repository:
      
 -- Test classes: /src/test/java 
 
-  -- gr.aueb.dmst.nereids (12 classes)
+    -- gr.aueb.dmst.nereids (12 classes)
