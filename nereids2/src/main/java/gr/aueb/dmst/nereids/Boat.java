@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -26,11 +26,18 @@ public class Boat {
   GamePanel gp;
   KeyHandler keyH;
   BufferedImage up;
+  BufferedImage testImage1; // used for JUnit testing
   BufferedImage down;
+  BufferedImage testImage2; // used for JUnit testing
   String direction;
   Rectangle solidArea;
   
-  /**Constructor. */
+  /**Constructor used for Test Class.*/
+  public Boat(GamePanel gp) {
+    this.gp = gp;
+  }
+  
+  /**Constructor.*/
   public Boat(GamePanel gp, KeyHandler keyH, int[] totalChars) {
     this.gp = gp;
     this.keyH = keyH;
@@ -58,8 +65,10 @@ public class Boat {
     try {
       up = ImageIO.read(getClass().getResourceAsStream("/boat/boat1.png"));
       up = itool.scaleImage(up, size, size);
+      testImage1 = up; // use from BoatTest
       down = ImageIO.read(getClass().getResourceAsStream("/boat/boat2.png"));
       down = itool.scaleImage(down, size, size);
+      testImage2 = down; // use from BoatTest
     } catch (IOException e) {
       e.printStackTrace();
     }

@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -49,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
 
   /* score */
   int score = 5;
-  
+ 
   /**Constructor.*/
   public GamePanel(int[] totalChars) {
     boat = new Boat(this, keyH, totalChars);

@@ -45,7 +45,7 @@
 						<archive>
 							<manifest>
 								<addClasspath>true</addClasspath>
-								<mainClass>gr.aueb.dmst.nereids2.Main</mainClass>
+								<mainClass>gr.aueb.dmst.nereids.Main</mainClass>
 							</manifest>
 						</archive>
 					</configuration>

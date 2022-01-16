@@ -1,7 +1,6 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;

@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 /**
  * starts by showing the Intro logo screen and after 4 seconds change to the..
@@ -12,6 +12,10 @@ public class Gameplay implements Runnable {
   static Sound mainMusic = new Sound();
   Frame frame = new Frame();
   MenuBar menu = new MenuBar(this);
+  Thread intro;
+  
+  /**Constructor used for JUnit testing.*/
+  public Gameplay(boolean mock) {}
   
   /**Constructor.*/
   public Gameplay() {
@@ -24,7 +28,7 @@ public class Gameplay implements Runnable {
 
   /** shows game logo on the screen for 4 seconds. */
   public void createLogoScreen() {
-    Thread intro = new Thread(this);
+    intro = new Thread(this);
     intro.start();
     try {
       intro.join();

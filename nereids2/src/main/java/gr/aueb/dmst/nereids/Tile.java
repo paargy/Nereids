@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 import java.awt.image.BufferedImage;
 

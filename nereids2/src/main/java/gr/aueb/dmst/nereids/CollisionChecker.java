@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 /**
  * Contains 2 methods One to check for tile collision (the boat cannot move on.
@@ -11,7 +11,7 @@ public class CollisionChecker {
   public CollisionChecker(GamePanel gp) {
     this.gp = gp;
   }
-  
+
   /** checks if the boat collides with tiles that it shouldn't. */
   public void checkTile(Boat boat) {
     // boat checkbox

@@ -1,4 +1,4 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -17,13 +17,13 @@ import javax.imageio.ImageIO;
 public class TileManager {
   GamePanel gp;
   //contains all the tiles that will be used to create the map (as many times as needed)
-  int [][]mapTileNum;
+  int[][] mapTileNum;
   /** contains the different tile objects (one time each) that will be used. */
   Tile[] tile;
   ImageTool itool = new ImageTool();
   InputStream is;
   BufferedImage testTile;
-  
+
   /**Constructor.*/
   public TileManager(GamePanel gp) {
     this.gp = gp;
@@ -32,7 +32,7 @@ public class TileManager {
     getTileImage();
     loadMap("/maps/mediterraneanmap.txt");
   }
-  
+
   /**Constructor for JUnit testing.*/
   public TileManager() {
     String map = "/maps/mediterraneanmap.txt";
@@ -43,7 +43,7 @@ public class TileManager {
       e.printStackTrace();
     }
   }
-  
+
   /**sets tile image.*/
   public void getTileImage() {
     setup(0, "water1", false);
@@ -114,7 +114,6 @@ public class TileManager {
         screenX = x - gp.boat.mapX + gp.boat.screenX;
         screenY = y;
         //improves efficiency because it draws only the tiles that are/will soon be on the screen
-        
         if (x + gp.tileSize > gp.boat.mapX - gp.boat.screenX
             && x - gp.tileSize < gp.boat.mapX + gp.boat.screenX * 8) {
           g2.drawImage(tile[tileNum].image, screenX, screenY, null);

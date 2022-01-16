@@ -1,6 +1,5 @@
-package gr.aueb.dmst.nereids2;
+package gr.aueb.dmst.nereids;
 
-import gr.aueb.dmst.nereids2.PlayerChoice.ImagePanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -9,7 +8,6 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
