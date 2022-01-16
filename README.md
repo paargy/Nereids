@@ -8,7 +8,7 @@ promo video: https://youtu.be/oVRh6B_aBkM
 Compilation instructions: mvn install or mvn clean install
 
 
-Instructions for running the programm: java -jar 
+Instructions for running the programm: java -jar nereids-1.0.0-SNAPSHOT.jar
 
 
 Game Instructions: 
