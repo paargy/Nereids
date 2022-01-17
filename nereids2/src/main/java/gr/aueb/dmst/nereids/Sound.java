@@ -42,9 +42,8 @@ public class Sound {
       clip = AudioSystem.getClip();
       clipTest = clip; // in order to test it in SoundTest()
       clip.open(ais);
-      clips[i] = clip;
       // store Clip object in table clips[]
-      i++;
+      clips[i++] = clip;
       
     } catch (Exception e) {
       e.printStackTrace();

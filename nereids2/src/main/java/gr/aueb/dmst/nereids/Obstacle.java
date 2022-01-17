@@ -13,8 +13,8 @@ import javax.imageio.ImageIO;
 public class Obstacle {
   int mapX;
   int mapY;
-  int screenX;
-  int screenY;
+  int screenX = 0;
+  int screenY = 0;
   int[] traits;
   boolean collision;
   String name;

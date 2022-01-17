@@ -139,7 +139,7 @@ public class UserInterface {
   public void drawDefeatScreen() {
     g2.setColor(Color.white);
     g2.setFont(new Font("Tahoma", Font.BOLD, 60));
-    g2.drawString("OH NO DEFEAT :(", 160, 100);
+    g2.drawString("OH NO, DEFEAT :(", 155, 100);
   }
   
   /**draws win screen.*/
